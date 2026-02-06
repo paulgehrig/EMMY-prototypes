@@ -46,6 +46,16 @@
             margin-bottom: 0;
         }
 
+        .config-section-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #ffc107;
+            margin-right: 16px;
+            min-width: 80px;
+        }
+
         .config-label {
             font-size: 13px;
             color: #a0a0a0;
@@ -419,7 +429,7 @@
             gap: 0;
         }
 
-        /* Category sections */
+        /* Category sections - Separate Cards layout (B) */
         .category-section {
             margin-bottom: 32px;
         }
@@ -439,6 +449,76 @@
             font-size: 20px;
             font-weight: 700;
             color: #1b1b1b;
+        }
+
+        /* Category Cards layout (A) */
+        .category-card {
+            background: white;
+            border: 1px solid #dfe1e2;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .category-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .category-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+        }
+
+        .category-card-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #1b1b1b;
+        }
+
+        .category-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .category-card-body {
+            border-top: 1px solid #dfe1e2;
+        }
+
+        .activity-row {
+            padding: 16px 20px;
+            border-bottom: 1px solid #dfe1e2;
+        }
+
+        .activity-row:last-child {
+            border-bottom: none;
+        }
+
+        .activity-row-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .activity-row-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1b1b1b;
+        }
+
+        .activity-row-stats {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
         }
 
         .category-add-btn {
@@ -854,25 +934,12 @@
     <div class="config-header">
         <div class="config-header-inner">
             <div class="config-row">
+                <span class="config-section-title">Config</span>
+
                 <span class="config-label">Viewport:</span>
                 <div class="config-toggle" id="viewportToggle">
                     <button class="active" onclick="setViewport('mobile')">Mobile</button>
                     <button onclick="setViewport('desktop')">Desktop</button>
-                </div>
-
-                <span class="config-label" style="margin-left: 24px;">Submit CTA:</span>
-                <div class="config-toggle" id="ctaPositionToggle">
-                    <button class="active" onclick="setCtaPosition('below-progress')">A: Below Progress</button>
-                    <button onclick="setCtaPosition('bottom')">B: Bottom of Page</button>
-                </div>
-
-                <button class="reset-btn" onclick="resetActivities()">↺ Reset</button>
-            </div>
-            <div class="config-row">
-                <span class="config-label">Card Display:</span>
-                <div class="config-toggle" id="cardDisplayToggle">
-                    <button class="active" onclick="setCardDisplay('summary')">A: Summary</button>
-                    <button onclick="setCardDisplay('all-months')">B: All Months</button>
                 </div>
 
                 <span class="config-label" style="margin-left: 24px;">Flow:</span>
@@ -896,6 +963,29 @@
                     <button onclick="setRenewalRequired(4)">4</button>
                     <button onclick="setRenewalRequired(5)">5</button>
                     <button onclick="setRenewalRequired(6)">6</button>
+                </div>
+
+                <button class="reset-btn" onclick="resetActivities()">↺ Reset</button>
+            </div>
+            <div class="config-row">
+                <span class="config-section-title">Decisions</span>
+
+                <span class="config-label">Activity Layout:</span>
+                <div class="config-toggle" id="activityLayoutToggle">
+                    <button onclick="setActivityLayout('category-cards')">A: Category Cards</button>
+                    <button class="active" onclick="setActivityLayout('separate-cards')">B: Separate Cards</button>
+                </div>
+
+                <span class="config-label" style="margin-left: 24px;">Card Display:</span>
+                <div class="config-toggle" id="cardDisplayToggle">
+                    <button class="active" onclick="setCardDisplay('summary')">A: Summary</button>
+                    <button onclick="setCardDisplay('all-months')">B: All Months</button>
+                </div>
+
+                <span class="config-label" style="margin-left: 24px;">Submit CTA:</span>
+                <div class="config-toggle" id="ctaPositionToggle">
+                    <button class="active" onclick="setCtaPosition('below-progress')">A: Below Progress</button>
+                    <button onclick="setCtaPosition('bottom')">B: Bottom of Page</button>
                 </div>
             </div>
         </div>
@@ -961,6 +1051,7 @@
         let renewalRequired = 3;
         let cardDisplay = 'summary';
         let ctaPosition = 'below-progress';
+        let activityLayout = 'separate-cards';
 
         // Track added activities per category
         let addedActivities = {
@@ -1220,6 +1311,13 @@
             render();
         }
 
+        function setActivityLayout(layout) {
+            activityLayout = layout;
+            const idx = ['category-cards', 'separate-cards'].indexOf(layout);
+            updateToggle('activityLayoutToggle', idx);
+            render();
+        }
+
         function setCardDisplay(d) {
             cardDisplay = d;
             const idx = ['summary', 'all-months'].indexOf(d);
@@ -1442,35 +1540,74 @@
 
             let html = '';
 
+            const categoryIcons = {
+                'employment': '💼',
+                'education': '🎓',
+                'community-service': '👥',
+                'work-programs': '📋'
+            };
+
             CATEGORIES.forEach(category => {
                 const categoryActivities = getActivitiesForCategory(category.key);
                 const hasActivities = categoryActivities.length > 0;
                 const canAddMore = categoryActivities.length < MAX_ACTIVITIES_PER_CATEGORY;
 
-                html += `
-                    <div class="category-section">
-                        <div class="category-header">
-                            <h3 class="category-title">${category.label}</h3>
-                            <button class="category-add-btn${!canAddMore ? ' disabled' : ''}"
-                                    onclick="addActivity('${category.key}')"
-                                    ${!canAddMore ? 'disabled' : ''}>
-                                ⊕ Add
-                            </button>
-                        </div>
-                        <div class="category-cards">
-                `;
+                if (activityLayout === 'category-cards') {
+                    // Layout A: One card per category with activities as rows
+                    html += `
+                        <div class="category-card">
+                            <div class="category-card-header">
+                                <div class="category-card-title">
+                                    <span class="category-icon">${categoryIcons[category.key]}</span>
+                                    ${category.label}
+                                </div>
+                                <button class="category-add-btn${!canAddMore ? ' disabled' : ''}"
+                                        onclick="addActivity('${category.key}')"
+                                        ${!canAddMore ? 'disabled' : ''}>
+                                    + Add
+                                </button>
+                            </div>
+                            <div class="category-card-body">
+                    `;
 
-                if (hasActivities) {
-                    categoryActivities.forEach(activity => {
-                        html += renderActivityCard(activity, months, category);
-                    });
+                    if (hasActivities) {
+                        categoryActivities.forEach(activity => {
+                            html += renderActivityRow(activity, months, category);
+                        });
+                    } else {
+                        html += `<div class="activity-row" style="color: #71767a;">${category.emptyText}</div>`;
+                    }
+
+                    html += `
+                            </div>
+                        </div>`;
                 } else {
-                    html += `<div class="category-empty">${category.emptyText}</div>`;
-                }
+                    // Layout B: Separate cards per activity
+                    html += `
+                        <div class="category-section">
+                            <div class="category-header">
+                                <h3 class="category-title">${category.label}</h3>
+                                <button class="category-add-btn${!canAddMore ? ' disabled' : ''}"
+                                        onclick="addActivity('${category.key}')"
+                                        ${!canAddMore ? 'disabled' : ''}>
+                                    ⊕ Add
+                                </button>
+                            </div>
+                            <div class="category-cards">
+                    `;
 
-                html += `
-                        </div>
-                    </div>`;
+                    if (hasActivities) {
+                        categoryActivities.forEach(activity => {
+                            html += renderActivityCard(activity, months, category);
+                        });
+                    } else {
+                        html += `<div class="category-empty">${category.emptyText}</div>`;
+                    }
+
+                    html += `
+                            </div>
+                        </div>`;
+                }
             });
 
             // Add CTA at bottom if that position is selected and activities exist
@@ -1479,6 +1616,84 @@
             }
 
             container.innerHTML = html;
+        }
+
+        // Render activity as a row within a category card (Layout A)
+        function renderActivityRow(activity, months, category) {
+            const activeMonths = months.filter(m => {
+                const data = activity.months[m.key];
+                if (!data) return false;
+                if (data.hours !== undefined && data.hours > 0) return true;
+                if (data.enrollmentStatus && data.enrollmentStatus !== 'Not enrolled') return true;
+                return false;
+            });
+
+            const monthsReported = activeMonths.length;
+            let statsHtml = '';
+
+            if (category.key === 'employment') {
+                const totalIncome = months.reduce((sum, m) => sum + (activity.months[m.key]?.income || 0), 0);
+                const totalHours = months.reduce((sum, m) => sum + (activity.months[m.key]?.hours || 0), 0);
+                statsHtml = `
+                    <div class="activity-stat">
+                        <span class="activity-stat-label">Months reported</span>
+                        <span class="activity-stat-value">${monthsReported}</span>
+                    </div>
+                    <div class="activity-stat">
+                        <span class="activity-stat-label">Total gross income</span>
+                        <span class="activity-stat-value">$${totalIncome.toLocaleString()}</span>
+                    </div>
+                    <div class="activity-stat">
+                        <span class="activity-stat-label">Total hours</span>
+                        <span class="activity-stat-value">${totalHours}</span>
+                    </div>
+                `;
+            } else if (category.key === 'education') {
+                const enrolledMonths = months.filter(m =>
+                    activity.months[m.key]?.enrollmentStatus &&
+                    activity.months[m.key]?.enrollmentStatus !== 'Not enrolled'
+                ).length;
+                const latestEnrolled = activeMonths.length > 0 ?
+                    activity.months[activeMonths[activeMonths.length - 1].key]?.enrollmentStatus : 'N/A';
+                statsHtml = `
+                    <div class="activity-stat">
+                        <span class="activity-stat-label">Months reported</span>
+                        <span class="activity-stat-value">${enrolledMonths}</span>
+                    </div>
+                    <div class="activity-stat">
+                        <span class="activity-stat-label">Enrollment status</span>
+                        <span class="activity-stat-value">${latestEnrolled}</span>
+                    </div>
+                    <div class="activity-stat">
+                        <span class="activity-stat-label">Credit hours</span>
+                        <span class="activity-stat-value">N/A</span>
+                    </div>
+                `;
+            } else {
+                const totalHours = months.reduce((sum, m) => sum + (activity.months[m.key]?.hours || 0), 0);
+                statsHtml = `
+                    <div class="activity-stat">
+                        <span class="activity-stat-label">Months reported</span>
+                        <span class="activity-stat-value">${monthsReported}</span>
+                    </div>
+                    <div class="activity-stat">
+                        <span class="activity-stat-label">Total hours</span>
+                        <span class="activity-stat-value">${totalHours}</span>
+                    </div>
+                `;
+            }
+
+            return `
+                <div class="activity-row">
+                    <div class="activity-row-header">
+                        <div class="activity-row-name">${activity.name}</div>
+                        <button class="activity-card-link" onclick="openDetailsPanel('${activity.name}', '${category.key}')">View details</button>
+                    </div>
+                    <div class="activity-row-stats">
+                        ${statsHtml}
+                    </div>
+                </div>
+            `;
         }
 
         function renderActivityCard(activity, months, category) {
