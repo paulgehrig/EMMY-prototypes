@@ -1461,6 +1461,156 @@
             color: #565c65;
         }
 
+        /* Hub progress card (sidebar) */
+        .hub-progress-card {
+            border: 2px solid #dfe1e2;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+
+        .hub-progress-card h3 {
+            font-family: 'Public Sans', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 24px;
+        }
+
+        .hub-progress-month {
+            margin-bottom: 16px;
+        }
+
+        .hub-progress-bar-track {
+            height: 19px;
+            background: #d9e8f6;
+            border: 1px solid #0050d8;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        .hub-progress-bar-value {
+            height: 100%;
+            background: #0050d8;
+            border-radius: 3px 0 0 3px;
+            transition: width 0.8s ease;
+            width: 0%;
+        }
+
+        .hub-progress-bar-value.complete {
+            background: #2e6e2e;
+            border-radius: 3px;
+        }
+
+        .hub-progress-bar-track.complete {
+            border-color: #2e6e2e;
+            background: #d4e7d0;
+        }
+
+        .hub-progress-label-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hub-progress-label-row .month-name {
+            font-family: 'Public Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: #1b1b1b;
+        }
+
+        .hub-progress-label-row .month-hours {
+            font-size: 16px;
+            color: #1b1b1b;
+        }
+
+        .hub-progress-label-row .month-hours .current {
+            font-weight: 700;
+            color: #0050d8;
+        }
+
+        .hub-progress-label-row .month-hours .current.complete {
+            color: #2e6e2e;
+        }
+
+        /* Education filled card (hub) */
+        .hub-edu-filled-card {
+            background: white;
+            border: 2px solid #dfe1e2;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .hub-edu-filled-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            border-bottom: 2px solid #dfe1e2;
+        }
+
+        .hub-edu-filled-header h3 {
+            font-family: 'Public Sans', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #1b1b1b;
+        }
+
+        .hub-edu-filled-header a {
+            color: #005ea2;
+            text-decoration: underline;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .hub-edu-month-row {
+            display: flex;
+            align-items: flex-start;
+            padding: 12px 24px;
+            border-bottom: 1px solid #dfe1e2;
+        }
+
+        .hub-edu-month-row:last-child {
+            border-bottom: none;
+        }
+
+        .hub-edu-month-name {
+            width: 140px;
+            flex-shrink: 0;
+            font-family: 'Public Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #1b1b1b;
+            padding: 16px;
+        }
+
+        .hub-edu-month-details {
+            flex: 1;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 16px;
+            color: #1b1b1b;
+            line-height: 1.62;
+        }
+
+        .hub-edu-month-details span {
+            display: block;
+        }
+
+        .hub-edu-month-details .detail-label {
+            font-weight: 500;
+            display: inline;
+        }
+
+        .hub-edu-month-details .detail-value {
+            font-weight: 400;
+            display: inline;
+        }
+
         @media (max-width: 700px) {
             .hub-split {
                 flex-direction: column;
@@ -4132,17 +4282,6 @@
         <!-- Right: activity sections -->
         <div class="hub-split-main">
 
-            <!-- Employment (empty) -->
-            <div class="hub-activity-section">
-                <div class="hub-activity-header">
-                    <h2>Employment</h2>
-                    <button class="hub-add-btn">+ Add</button>
-                </div>
-                <div class="hub-empty-card">
-                    <p>No employment added</p>
-                </div>
-            </div>
-
             <!-- Education (pre-populated with validated info) -->
             <div class="hub-activity-section">
                 <div class="hub-activity-header">
@@ -4180,6 +4319,17 @@
                         </div>
                         <button class="usa-button" onclick="goTo('alex-edu-credits')">Add additional information</button>
                     </div>
+                </div>
+            </div>
+
+            <!-- Employment (empty) -->
+            <div class="hub-activity-section">
+                <div class="hub-activity-header">
+                    <h2>Employment</h2>
+                    <button class="hub-add-btn">+ Add</button>
+                </div>
+                <div class="hub-empty-card">
+                    <p>No employment added</p>
                 </div>
             </div>
 
@@ -4399,94 +4549,110 @@
 <div class="screen" id="alex-emmy-hub-partial">
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-text">A website in partnership with example state</span></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-state">State</span></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
-    <div class="container">
-        <div class="hub-content">
-            <h1 class="hub-title">Add more activities or continue to review and submit your report</h1>
-            <div class="hub-period">Reporting period: <strong>July &ndash; August 2026</strong></div>
 
-            <div class="progress-section">
-                <div class="months-completed-counter">0/2 months completed</div>
-                <div class="month-progress-list">
-                    <div class="month-progress-row">
-                        <div class="month-progress-header">
-                            <span class="month-progress-label">July</span>
-                            <span class="month-progress-hours">36/80 hours</span>
-                        </div>
-                        <div class="month-progress-bar">
-                            <div class="month-progress-bar-fill" data-target-width="45" style="width: 0%;"></div>
-                        </div>
+    <div class="hub-split">
+        <!-- Left sidebar -->
+        <div class="hub-split-sidebar">
+            <h1>Add more activities or continue to review and submit your report</h1>
+            <p style="font-size: 16px; color: #565c65; margin-bottom: 32px;">Your state will determine your eligibility based on the activities you add to your report.</p>
+
+            <div class="hub-progress-card">
+                <h3>0/2 months completed</h3>
+                <div class="hub-progress-month">
+                    <div class="hub-progress-bar-track">
+                        <div class="hub-progress-bar-value" data-target-width="45" style="width: 0%;"></div>
                     </div>
-                    <div class="month-progress-row">
-                        <div class="month-progress-header">
-                            <span class="month-progress-label">August</span>
-                            <span class="month-progress-hours">36/80 hours</span>
-                        </div>
-                        <div class="month-progress-bar">
-                            <div class="month-progress-bar-fill" data-target-width="45" style="width: 0%;"></div>
-                        </div>
+                    <div class="hub-progress-label-row">
+                        <span class="month-name">July</span>
+                        <span class="month-hours"><span class="current">36</span> / <strong>80 hours</strong></span>
                     </div>
                 </div>
-            </div>
-
-            <hr class="section-divider">
-
-            <!-- Education section (filled in) -->
-            <div class="category-section">
-                <div class="category-header">
-                    <h2 class="category-title">Education</h2>
-                </div>
-                <div class="activity-card">
-                    <div class="activity-card-header">
-                        <span class="activity-card-name">Example University</span>
-                        <button class="activity-card-link">Edit</button>
+                <div class="hub-progress-month">
+                    <div class="hub-progress-bar-track">
+                        <div class="hub-progress-bar-value" data-target-width="45" style="width: 0%;"></div>
                     </div>
-                    <div class="activity-card-body">
-                        <div class="activity-month-row">
-                            <span class="activity-month-label">July</span>
-                            <span class="activity-month-value">9 credit hrs &middot; 36 CE hrs</span>
-                        </div>
-                        <div class="activity-month-row">
-                            <span class="activity-month-label">August</span>
-                            <span class="activity-month-value">9 credit hrs &middot; 36 CE hrs</span>
-                        </div>
+                    <div class="hub-progress-label-row">
+                        <span class="month-name">August</span>
+                        <span class="month-hours"><span class="current">36</span> / <strong>80 hours</strong></span>
                     </div>
                 </div>
             </div>
 
-            <!-- Community service section (empty, add button) -->
-            <div class="category-section">
-                <div class="category-header">
-                    <h2 class="category-title">Community service</h2>
-                    <button class="category-add-btn" onclick="goTo('alex-cs-org')">+ Add</button>
+            <button class="usa-button" style="width: 100%; margin-bottom: 16px;" onclick="goTo('alex-emmy-submit')">Review and submit</button>
+            <a href="#" style="font-size: 16px; color: #005ea2; text-decoration: underline;">What if I can't meet the requirements?</a>
+        </div>
+
+        <div class="hub-split-divider"></div>
+
+        <!-- Right: activity sections -->
+        <div class="hub-split-main">
+
+            <!-- Education (filled) -->
+            <div class="hub-activity-section">
+                <div class="hub-activity-header">
+                    <h2>Education</h2>
+                    <button class="hub-add-btn">+ Add</button>
                 </div>
-                <div class="category-empty">No community service added</div>
-            </div>
-
-            <!-- Work programs section (empty) -->
-            <div class="category-section">
-                <div class="category-header">
-                    <h2 class="category-title">Work programs</h2>
-                    <button class="category-add-btn">+ Add</button>
+                <div class="hub-edu-filled-card">
+                    <div class="hub-edu-filled-header">
+                        <h3>Example University</h3>
+                        <a>Edit</a>
+                    </div>
+                    <div class="hub-edu-month-row">
+                        <div class="hub-edu-month-name">July</div>
+                        <div class="hub-edu-month-details">
+                            <span><span class="detail-label">Enrollment:</span> <span class="detail-value">Less than half-time</span></span>
+                            <span><span class="detail-label">Credit hours:</span> <span class="detail-value">9</span></span>
+                            <span><span class="detail-label">Community engagement hours:</span> <span class="detail-value">36</span></span>
+                        </div>
+                    </div>
+                    <div class="hub-edu-month-row">
+                        <div class="hub-edu-month-name">August</div>
+                        <div class="hub-edu-month-details">
+                            <span><span class="detail-label">Enrollment:</span> <span class="detail-value">Less than half-time</span></span>
+                            <span><span class="detail-label">Credit hours:</span> <span class="detail-value">9</span></span>
+                            <span><span class="detail-label">Community engagement hours:</span> <span class="detail-value">36</span></span>
+                        </div>
+                    </div>
                 </div>
-                <div class="category-empty">No work programs added</div>
             </div>
 
-            <!-- Employment section (empty) -->
-            <div class="category-section">
-                <div class="category-header">
-                    <h2 class="category-title">Employment</h2>
-                    <button class="category-add-btn">+ Add</button>
+            <!-- Employment (empty) -->
+            <div class="hub-activity-section">
+                <div class="hub-activity-header">
+                    <h2>Employment</h2>
+                    <button class="hub-add-btn">+ Add</button>
                 </div>
-                <div class="category-empty">No employment added</div>
+                <div class="hub-empty-card">
+                    <p>No employment added</p>
+                </div>
             </div>
 
-            <div style="margin-bottom: 16px;">
-                <a href="#" style="font-size: 14px; color: #005ea2;">What if I can't meet the requirements?</a>
+            <!-- Community service (empty) -->
+            <div class="hub-activity-section">
+                <div class="hub-activity-header">
+                    <h2>Community service</h2>
+                    <button class="hub-add-btn" onclick="goTo('alex-cs-org')">+ Add</button>
+                </div>
+                <div class="hub-empty-card">
+                    <p>No community service added</p>
+                </div>
             </div>
 
-            <button class="usa-button usa-button--outline emmy-action-btn" style="opacity: 0.5; pointer-events: none;">Review and submit</button>
+            <!-- Work programs (empty) -->
+            <div class="hub-activity-section">
+                <div class="hub-activity-header">
+                    <h2>Work programs</h2>
+                    <button class="hub-add-btn">+ Add</button>
+                </div>
+                <div class="hub-empty-card">
+                    <p>No work programs added</p>
+                </div>
+            </div>
+
         </div>
     </div>
+
     <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback">&#128172; Share feedback</button></div></div>
     <div class="flow-nav">
         <button class="flow-nav-btn" onclick="goTo('alex-edu-review')">&larr; Back</button>
@@ -4852,6 +5018,15 @@
                 </div>
             </div>
 
+            <!-- Employment section (empty) -->
+            <div class="category-section">
+                <div class="category-header">
+                    <h2 class="category-title">Employment</h2>
+                    <button class="category-add-btn">+ Add</button>
+                </div>
+                <div class="category-empty">No employment added</div>
+            </div>
+
             <!-- Community service section (complete) -->
             <div class="category-section">
                 <div class="category-header">
@@ -4882,15 +5057,6 @@
                     <button class="category-add-btn">+ Add</button>
                 </div>
                 <div class="category-empty">No work programs added</div>
-            </div>
-
-            <!-- Employment section (empty) -->
-            <div class="category-section">
-                <div class="category-header">
-                    <h2 class="category-title">Employment</h2>
-                    <button class="category-add-btn">+ Add</button>
-                </div>
-                <div class="category-empty">No employment added</div>
             </div>
 
             <button class="usa-button emmy-action-btn" onclick="goTo('alex-emmy-submit')">Review and submit</button>
@@ -5542,7 +5708,7 @@
         const screen = document.getElementById(screenId);
         if (!screen) return;
 
-        const bars = screen.querySelectorAll('.month-progress-bar-fill[data-target-width]');
+        const bars = screen.querySelectorAll('[data-target-width]');
         setTimeout(() => {
             bars.forEach(bar => {
                 bar.style.width = bar.dataset.targetWidth + '%';
