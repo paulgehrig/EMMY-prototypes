@@ -111,6 +111,9 @@
             background: #252525;
             transition: max-height 0.3s ease;
             border-top: 1px solid #3d4551;
+            position: sticky;
+            top: 41px;
+            z-index: 99;
         }
 
         .stepper-drawer.open {
@@ -743,14 +746,34 @@
         }
 
         .gov-banner-inner {
-            max-width: 640px;
+            max-width: 880px;
             margin: 0 auto;
-            padding: 8px 16px;
+            padding: 4px 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .gov-banner-flag {
+            font-size: 12px;
+            flex-shrink: 0;
         }
 
         .gov-banner-text {
             font-size: 12px;
             color: white;
+        }
+
+        .gov-banner-link {
+            font-size: 12px;
+            color: #73b3e7;
+            text-decoration: underline;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            padding: 0;
+            white-space: nowrap;
         }
 
         /* Emmy header */
@@ -763,9 +786,9 @@
             display: flex;
             align-items: flex-end;
             justify-content: space-between;
-            max-width: 640px;
+            max-width: 880px;
             margin: 0 auto;
-            padding: 16px 16px;
+            padding: 16px 24px;
         }
 
         .emmy-header-brand {
@@ -965,7 +988,7 @@
         .emmy-page-content {
             max-width: 880px;
             margin: 0 auto;
-            padding: 64px 24px;
+            padding: 48px 24px;
         }
 
         .emmy-page-content h1 {
@@ -990,7 +1013,7 @@
             font-size: 16px;
             color: #1b1b1b;
             line-height: 1.62;
-            margin-bottom: 16px;
+            margin-bottom: 32px;
         }
 
         .emmy-page-content h2 {
@@ -1254,9 +1277,9 @@
         .hub-split {
             display: flex;
             gap: 48px;
-            max-width: 960px;
+            max-width: 880px;
             margin: 0 auto;
-            padding: 32px 24px 40px;
+            padding: 48px 24px 40px;
         }
 
         .hub-split-sidebar {
@@ -1266,10 +1289,10 @@
 
         .hub-split-sidebar h1 {
             font-family: 'Public Sans', sans-serif;
-            font-size: 24px;
+            font-size: 32px;
             font-weight: 700;
             color: #1b1b1b;
-            line-height: 1.25;
+            line-height: 1.15;
             margin-bottom: 16px;
         }
 
@@ -1553,7 +1576,7 @@
 
         .hub-edu-filled-header h3 {
             font-family: 'Public Sans', sans-serif;
-            font-size: 22px;
+            font-size: 18px;
             font-weight: 700;
             color: #1b1b1b;
         }
@@ -1609,6 +1632,153 @@
         .hub-edu-month-details .detail-value {
             font-weight: 400;
             display: inline;
+        }
+
+        /* Completed progress banner */
+        .progress-complete-banner {
+            border: 2px solid #2e6e2e;
+            border-radius: 8px;
+            padding: 16px 24px;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .progress-complete-banner .check-icon {
+            color: #2e6e2e;
+            font-size: 20px;
+        }
+
+        .progress-complete-banner span {
+            font-family: 'Public Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: #1b1b1b;
+        }
+
+        /* Success page download section */
+        .success-download {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .success-download-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #162e51;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .success-download h3 {
+            font-family: 'Public Sans', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #000;
+            line-height: 1.15;
+        }
+
+        /* Feedback divider */
+        .feedback-divider {
+            width: 120px;
+            height: 8px;
+            background: #d9e8f6;
+            margin: 40px 0;
+        }
+
+        /* USWDS inline SVG icons */
+        .usa-icon {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.125em;
+            fill: currentColor;
+        }
+
+        .usa-icon--sm { width: 16px; height: 16px; }
+        .usa-icon--md { width: 20px; height: 20px; }
+        .usa-icon--lg { width: 24px; height: 24px; }
+
+        /* Modal overlay */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal-card {
+            background: white;
+            border-radius: 8px;
+            max-width: 560px;
+            width: 90%;
+            padding: 32px;
+        }
+
+        .modal-card h2 {
+            font-family: 'Public Sans', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #1b1b1b;
+            margin-bottom: 16px;
+        }
+
+        .modal-card p {
+            font-size: 16px;
+            color: #1b1b1b;
+            line-height: 1.62;
+            margin-bottom: 16px;
+        }
+
+        .modal-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .modal-actions a {
+            color: #005ea2;
+            text-decoration: underline;
+            font-size: 16px;
+            font-family: 'Public Sans', sans-serif;
+            cursor: pointer;
+        }
+
+        /* Needs Information tag */
+        .needs-info-tag {
+            display: inline;
+            background: #faf3d1;
+            padding: 1px 6px;
+            border-radius: 2px;
+            font-family: 'Public Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #000;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .needs-info-tag-lg {
+            font-size: 16px;
         }
 
         @media (max-width: 700px) {
@@ -2806,6 +2976,28 @@
         /* ============================================
            STATE APPLICATION WIREFRAME
            ============================================ */
+        #alex-app-info,
+        #alex-app-income,
+        #alex-app-activities,
+        #alex-app-review {
+            font-family: 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+        }
+
+        #alex-app-info input,
+        #alex-app-info select,
+        #alex-app-info label,
+        #alex-app-income input,
+        #alex-app-income select,
+        #alex-app-income label,
+        #alex-app-activities input,
+        #alex-app-activities select,
+        #alex-app-activities label,
+        #alex-app-review input,
+        #alex-app-review select,
+        #alex-app-review label {
+            font-family: 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+        }
+
         .state-app-header {
             background: #3d4551;
             padding: 16px 24px;
@@ -3347,11 +3539,11 @@
             <div class="phase-avatar">
                 <div class="phase-avatar-circle" style="background: #54278f;">A</div>
             </div>
-            <h1 class="phase-title">Phase 1: Alex Applies for Medicaid</h1>
-            <p class="phase-perspective">Applicant Perspective</p>
+            <h1 class="phase-title">Alex submits her Medicaid application</h1>
+            <p class="phase-perspective">State Medicaid Portal</p>
 
             <div class="phase-description">
-                <p>Alex submits a Medicaid application through her state's online portal, reporting her student enrollment and attesting to half-time status.</p>
+                <p>Alex reports her student enrollment and attests to half-time status, which the state will verify against external data to determine her eligibility.</p>
             </div>
 
             <div class="phase-cta-area">
@@ -3723,11 +3915,11 @@
             <div class="phase-avatar">
                 <div class="phase-avatar-circle" style="background: #71767a;">&#9881;</div>
             </div>
-            <h1 class="phase-title">Phase 2: The State Verifies Alex's Information</h1>
-            <p class="phase-perspective">State System</p>
+            <h1 class="phase-title">The state checks Alex's information</h1>
+            <p class="phase-perspective">Backend Eligibility System</p>
 
             <div class="phase-description">
-                <p>The state's eligibility system automatically checks Alex's information against external data sources and flags a discrepancy in her education enrollment.</p>
+                <p>Automated verification finds Alex is enrolled less than half-time, not half-time as she reported, so education alone won't satisfy the CE requirement.</p>
             </div>
 
             <div class="phase-cta-area">
@@ -3867,11 +4059,11 @@
             <div class="phase-avatar">
                 <div class="phase-avatar-circle" style="background: #71767a;">C</div>
             </div>
-            <h1 class="phase-title">Phase 3: A Caseworker Reviews the Results</h1>
-            <p class="phase-perspective">Caseworker Perspective</p>
+            <h1 class="phase-title">A caseworker requests documentation</h1>
+            <p class="phase-perspective">Caseworker Eligibility Portal</p>
 
             <div class="phase-description">
-                <p>A caseworker reviews Alex's flagged application, sees the enrollment discrepancy, and sends her a request for additional documentation through Emmy.</p>
+                <p>The enrollment discrepancy means Alex's eligibility can't be determined automatically, so a caseworker sends her a link to Emmy to provide documentation.</p>
             </div>
 
             <div class="phase-cta-area">
@@ -4041,11 +4233,11 @@
             <div class="phase-avatar">
                 <div class="phase-avatar-circle" style="background: #54278f;">A</div>
             </div>
-            <h1 class="phase-title">Phase 4: Alex Verifies with Emmy</h1>
-            <p class="phase-perspective">Applicant Perspective</p>
+            <h1 class="phase-title">Alex provides documentation through Emmy</h1>
+            <p class="phase-perspective">Emmy</p>
 
             <div class="phase-description">
-                <p>Alex receives an email with a link to Emmy, where she documents her credit hours, adds community service to cover the gap, and submits a complete CE report.</p>
+                <p>Alex uses Emmy to document her credit hours, add community service to cover the gap, and submit a complete report so the state can determine her eligibility.</p>
             </div>
 
             <div class="phase-cta-area">
@@ -4065,65 +4257,46 @@
      ============================================ -->
 <div class="screen" id="alex-email">
     <div class="wireframe-alert">Alex's email inbox</div>
-    <!-- Mock email client -->
-    <div style="background: #f5f5f5; min-height: 100%;">
-        <!-- Email client header -->
-        <div style="background: #3d4551; color: white; padding: 12px 24px; font-family: 'SF Mono', Consolas, monospace; font-size: 13px; display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-weight: 700;">alex.johnson@email.com</span>
-            <span style="color: #a9aeb1;">Inbox &middot; 1 new message</span>
-        </div>
+    <div style="background: #f0f0f0; min-height: 100%; padding: 24px;">
 
-        <!-- Email list / expanded email -->
-        <div style="max-width: 640px; margin: 20px auto; background: white; border: 1px solid #dfe1e2; border-radius: 8px; overflow: hidden;">
-            <!-- Email header -->
-            <div style="padding: 20px 24px; border-bottom: 1px solid #dfe1e2;">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-                    <div>
-                        <div style="font-size: 12px; color: #71767a; margin-bottom: 2px;">From</div>
-                        <div style="font-size: 14px; font-weight: 700; color: #1b1b1b;">State Department of Health and Human Services</div>
-                        <div style="font-size: 12px; color: #71767a;">&lt;noreply@medicaid.state.gov&gt;</div>
-                    </div>
-                    <div style="text-align: right;">
-                        <div style="font-size: 12px; color: #71767a;">December 15, 2026</div>
-                        <div style="font-size: 12px; color: #71767a;">3:42 PM</div>
-                    </div>
-                </div>
-                <div style="font-size: 12px; color: #71767a; margin-bottom: 4px;">To: alex.johnson@email.com</div>
-                <div style="font-size: 16px; font-weight: 700; color: #1b1b1b;">Action needed &mdash; verify your activities for your Medicaid application</div>
+        <!-- Email card -->
+        <div style="max-width: 600px; margin: 0 auto; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.1); font-family: 'Source Sans Pro', sans-serif;">
+
+            <!-- Email branded header -->
+            <div style="background: #162e51; padding: 24px 32px;">
+                <div style="font-family: 'Public Sans', sans-serif; font-size: 20px; font-weight: 700; color: white; margin-bottom: 4px;">State Department of Health and Human Services</div>
+                <div style="font-size: 14px; color: rgba(255,255,255,0.7);">in partnership with Emmy | Eligibility Made Easy</div>
             </div>
 
             <!-- Email body -->
-            <div style="padding: 24px; font-size: 15px; color: #3d4551; line-height: 1.6;">
-                <p style="margin-bottom: 16px;">Dear Alex,</p>
+            <div style="padding: 32px; font-size: 16px; color: #1b1b1b; line-height: 1.6;">
 
-                <p style="margin-bottom: 16px;">Thank you for submitting your Medicaid application. We have confirmed your education enrollment at State University. However, state records indicate your enrollment may be below half-time, which does not fully satisfy the community engagement (CE) requirement on its own.</p>
+                <p style="margin: 0 0 24px; font-size: 14px; color: #71767a;">December 15, 2026 &middot; Case reference: MC-2026-4872</p>
 
-                <p style="margin-bottom: 16px;">We also need documentation to verify your enrollment details and any other qualifying activities.</p>
+                <h1 style="font-family: 'Public Sans', sans-serif; font-size: 24px; font-weight: 700; color: #1b1b1b; margin: 0 0 16px;">Action needed: verify your activities for Medicaid</h1>
 
-                <!-- Caseworker note (amber callout) -->
-                <div style="background: #fef0c8; border-left: 4px solid #e5a000; padding: 14px 18px; border-radius: 0 4px 4px 0; margin-bottom: 20px;">
-                    <div style="font-weight: 700; font-size: 14px; color: #1b1b1b; margin-bottom: 4px;">From your caseworker:</div>
-                    <p style="margin: 0; font-size: 14px; color: #3d4551;">Our records show you may be enrolled less than half-time at State University. Please provide your credit hours and any documentation to verify enrollment. You may also add other qualifying activities.</p>
+                <p style="margin: 0 0 16px;">Hi Alex,</p>
+
+                <p style="margin: 0 0 24px;">We need additional information to complete your Medicaid application. Our records show your enrollment at State University may be below half-time, so we need you to verify your credit hours and provide documentation.</p>
+
+                <!-- CTA block -->
+                <div style="background: #f0f7ff; border: 2px solid #005ea2; border-radius: 8px; padding: 24px; margin: 0 0 24px; text-align: center;">
+                    <p style="font-family: 'Public Sans', sans-serif; font-size: 18px; font-weight: 700; color: #1b1b1b; margin: 0 0 8px;">Use Emmy to verify your activities</p>
+                    <p style="font-size: 14px; color: #3d4551; margin: 0 0 16px;">Emmy is a secure tool that makes it easy to submit your documentation online.</p>
+                    <button onclick="goTo('alex-emmy-welcome')" style="display: inline-block; padding: 14px 48px; background: #005ea2; color: white; border: none; border-radius: 4px; font-size: 16px; font-weight: 700; font-family: 'Public Sans', sans-serif; cursor: pointer;">Get started with Emmy</button>
                 </div>
 
-                <!-- Green callout -->
-                <div style="background: #ecf3ec; border-left: 4px solid #00a91c; padding: 14px 18px; border-radius: 0 4px 4px 0; margin-bottom: 24px;">
-                    <div style="font-weight: 700; font-size: 14px; color: #1b1b1b; margin-bottom: 4px;">How to verify</div>
-                    <p style="margin: 0; font-size: 14px; color: #3d4551;">Use Emmy, our secure verification tool, to submit your documentation and complete your CE verification.</p>
-                </div>
+                <p style="margin: 0 0 8px; font-size: 14px; color: #3d4551;">You can also add other qualifying activities like community service, employment, or work programs.</p>
 
-                <!-- CTA button -->
-                <div style="text-align: center; margin-bottom: 24px;">
-                    <button onclick="goTo('alex-emmy-welcome')" style="display: inline-block; padding: 14px 40px; background: #005ea2; color: white; border: none; border-radius: 4px; font-size: 16px; font-weight: 700; font-family: inherit; cursor: pointer;">Verify with Emmy &rarr;</button>
-                </div>
+                <hr style="border: none; border-top: 1px solid #dfe1e2; margin: 24px 0;">
 
-                <hr style="border: none; border-top: 1px solid #dfe1e2; margin: 20px 0;">
+                <p style="margin: 0 0 4px; font-size: 14px; color: #71767a;">Please respond within <strong style="color: #1b1b1b;">30 days</strong> of this notice.</p>
+                <p style="margin: 0; font-size: 14px; color: #71767a;">Questions? Call <strong style="color: #1b1b1b;">(800) 555-0199</strong></p>
+            </div>
 
-                <!-- Footer -->
-                <div style="font-size: 13px; color: #71767a;">
-                    <p style="margin-bottom: 8px;">Please complete your verification within <strong>30 days</strong> of this notice. If you have questions, call us at <strong>(800) 555-0199</strong>.</p>
-                    <p style="margin: 0;">Case reference: MC-2026-4872</p>
-                </div>
+            <!-- Email footer -->
+            <div style="background: #f0f0f0; padding: 16px 32px; font-size: 13px; color: #71767a; text-align: center;">
+                State Department of Health and Human Services &middot; Powered by Emmy
             </div>
         </div>
     </div>
@@ -4138,7 +4311,7 @@
      SCREEN: EMMY WELCOME (full USWDS)
      ============================================ -->
 <div class="screen" id="alex-emmy-welcome">
-    <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-text">A website in partnership with example state</span></div></div>
+    <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header">
         <div class="emmy-header-inner">
             <div class="emmy-header-brand">
@@ -4154,13 +4327,13 @@
     <div class="container">
         <div style="padding: 32px 0 40px;">
             <h1 style="font-family: 'Public Sans', sans-serif; font-size: 24px; font-weight: 700; margin-bottom: 16px;">Welcome, Alex!</h1>
-            <p style="font-size: 16px; color: #1b1b1b; margin-bottom: 24px;">Thank you for completing your Medicaid application. We're almost done!</p>
+            <p style="font-size: 16px; color: #1b1b1b; margin-bottom: 24px;">Your Medicaid application is almost complete.</p>
 
             <div class="emmy-info-box">
-                <div class="emmy-info-icon">i</div>
+                <div class="emmy-info-icon"><svg class="usa-icon--lg" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></div>
                 <div class="emmy-info-body">
                     <h3>What is Emmy?</h3>
-                    <p>Emmy (Eligibility Made Easy) is a secure online tool that helps you provide additional information to complete your Medicaid application. It's designed to make the verification process simple and convenient.</p>
+                    <p>Emmy (Eligibility Made Easy) is a secure online tool that helps you provide additional information to complete your Medicaid application.</p>
                 </div>
             </div>
 
@@ -4186,14 +4359,14 @@
                         <div class="emmy-step-number">3</div>
                         <div class="emmy-step-body">
                             <h3>Review and submit</h3>
-                            <p>Review your information, agree to the terms, and submit. Your eligibility worker will review your documents and make a determination.</p>
+                            <p>Review your information, agree to the terms, and submit. Your eligibility worker will review your documents and decide if you're eligible.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="emmy-time-bar">
-                <span class="emmy-time-icon">&#9201;</span>
+                <span class="emmy-time-icon"><svg class="usa-icon--md" viewBox="0 0 24 24" fill="#1b1b1b" style="vertical-align: -4px;"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg></span>
                 <div class="emmy-time-body">
                     <strong>Estimated time: 5 minutes</strong>
                     <span>Have your student enrollment documentation ready to upload.</span>
@@ -4213,7 +4386,7 @@
                 <div class="site-footer-title">Emmy</div>
                 <div class="site-footer-subtitle">Eligibility Made Easy</div>
             </div>
-            <button class="site-footer-feedback">&#128172; Share feedback</button>
+            <button class="site-footer-feedback"><svg class="usa-icon--sm" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px;"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg> Share feedback</button>
         </div>
     </div>
     <div class="flow-nav">
@@ -4227,58 +4400,40 @@
      SCREEN: EMMY HUB PRE-POPULATED
      ============================================ -->
 <div class="screen" id="alex-emmy-hub-prepop">
-    <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-text">A website in partnership with example state</span></div></div>
+    <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-state">State</span></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
 
-    <div class="hub-split">
+    <div class="hub-split" style="gap: 56px;">
         <!-- Left sidebar -->
         <div class="hub-split-sidebar">
-            <h1>Build your community engagement report</h1>
-            <div class="hub-period"><strong>Reporting period:</strong> March 2026</div>
-            <p>Add employment, education, community service, or work program activities you've done in March.</p>
+            <h1>We need more information to complete your Medicaid application</h1>
+            <div class="hub-period">Reporting period: <strong>March 2026</strong></div>
+            <p style="font-size: 16px; color: #1b1b1b; line-height: 1.62;">Your state needs more information to verify the activities you reported in your Medicaid application. Your state will use the activities in your report to decide if you're eligible.</p>
         </div>
 
-        <div class="hub-split-divider"></div>
-
-        <!-- Right: activity sections -->
+        <!-- Right: activity sections (no divider) -->
         <div class="hub-split-main">
 
-            <!-- Education (pre-populated with validated info) -->
+            <!-- Education (pre-populated, needs information) -->
             <div class="hub-activity-section">
                 <div class="hub-activity-header">
                     <h2>Education</h2>
-                    <button class="hub-add-btn">+ Add</button>
                 </div>
-                <div class="hub-edu-card">
-                    <div class="hub-edu-validated">
-                        <div class="hub-validated-badge">
-                            <span class="badge-check">&#10003;</span>
-                            <span>Validated information</span>
-                        </div>
-                        <div class="hub-edu-field">
-                            <div class="hub-edu-field-label">Institution</div>
-                            <div class="hub-edu-field-value">State University</div>
-                        </div>
-                        <div class="hub-edu-field">
-                            <div class="hub-edu-field-label">Enrollment Status</div>
-                            <div class="hub-edu-field-value">Less than half-time</div>
-                        </div>
-                        <div class="hub-edu-field">
-                            <div class="hub-edu-field-label">Term</div>
-                            <div class="hub-edu-field-value">Spring 2026</div>
+                <div class="hub-edu-filled-card">
+                    <div class="hub-edu-filled-header">
+                        <h3>State University</h3>
+                        <span class="needs-info-tag needs-info-tag-lg"><svg class="usa-icon--sm" viewBox="0 0 24 24" fill="#936218" style="vertical-align: -2px;"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg> Needs Information</span>
+                    </div>
+                    <div class="hub-edu-month-row">
+                        <div class="hub-edu-month-name">March</div>
+                        <div class="hub-edu-month-details">
+                            <span><span class="detail-label">Enrollment:</span> <span class="detail-value">Less than half-time</span></span>
+                            <span><span class="detail-label">Credit hours:</span> <span class="needs-info-tag"><svg class="usa-icon--sm" viewBox="0 0 24 24" fill="#936218" style="vertical-align: -2px;"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg> Needs Information</span></span>
+                            <span><span class="detail-label">Community engagement hours:</span> <span class="detail-value">Pending</span></span>
                         </div>
                     </div>
-                    <hr class="hub-edu-divider">
-                    <div class="hub-edu-action">
-                        <div class="hub-upload-alert">
-                            <div class="hub-upload-alert-icon">!</div>
-                            <div class="hub-upload-alert-body">
-                                <h3>Upload required</h3>
-                                <p>Your state needs documentation to confirm your enrollment status and credit hours.</p>
-                                <p class="upload-hint">Acceptable documents include your current class schedule, enrollment verification letter, official or unofficial transcript, registration confirmation, or a letter from your registrar or academic advisor.</p>
-                            </div>
-                        </div>
-                        <button class="usa-button" onclick="goTo('alex-edu-credits')">Add additional information</button>
+                    <div style="padding: 16px 24px;">
+                        <button class="usa-button" onclick="goTo('alex-edu-credits')">Complete activity</button>
                     </div>
                 </div>
             </div>
@@ -4319,7 +4474,7 @@
         </div>
     </div>
 
-    <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback">&#128172; Share feedback</button></div></div>
+    <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback"><svg class="usa-icon--sm" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px;"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg> Share feedback</button></div></div>
     <div class="flow-nav">
         <button class="flow-nav-btn" onclick="goTo('alex-emmy-welcome')">&larr; Back</button>
         <div class="flow-nav-center"></div>
@@ -4331,13 +4486,13 @@
      SCREEN: EDUCATION SPOKE — CREDIT HOURS
      ============================================ -->
 <div class="screen fillable-screen" id="alex-edu-credits">
-    <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-text">A website in partnership with example state</span></div></div>
+    <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-state">State</span></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
     <div class="emmy-page-content">
         <div class="emmy-term-label">Term: Spring 2026</div>
         <h1>Add your term credit hours for State University</h1>
         <p>Enter the number of credit hours you were taking during the Spring 2026 term (January to May).</p>
-        <p>We will convert these credit hours into your community engagement progress.</p>
+        <p>We'll use your credit hours to calculate how many community engagement hours you've completed.</p>
 
         <div class="emmy-tile-checkbox">
             <input type="checkbox" id="alex-no-classes-v2">
@@ -4351,7 +4506,7 @@
 
         <button class="usa-button" onclick="goTo('alex-edu-upload')">Save and continue</button>
     </div>
-    <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback">&#128172; Share feedback</button></div></div>
+    <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback"><svg class="usa-icon--sm" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px;"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg> Share feedback</button></div></div>
     <div class="fill-hint" id="fill-hint-alex-edu-credits">Click anywhere to fill in fields</div>
     <div class="flow-nav">
         <button class="flow-nav-btn" onclick="goTo('alex-emmy-hub-prepop')">&larr; Back</button>
@@ -4364,13 +4519,13 @@
      SCREEN: EDUCATION SPOKE — UPLOAD
      ============================================ -->
 <div class="screen" id="alex-edu-upload">
-    <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-text">A website in partnership with example state</span></div></div>
+    <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-state">State</span></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
     <div class="emmy-page-content">
         <h1>Upload supporting documents for State University</h1>
         <p>Upload documents that verify the information you entered for:</p>
         <ul style="margin: 0 0 32px; padding-left: 20px; list-style: disc;">
-            <li style="font-size: 16px; color: #1b1b1b; line-height: 1.62;"><strong>March (9 credit hours)</strong></li>
+            <li style="font-size: 16px; color: #1b1b1b; line-height: 1.62;"><strong>Spring 2026 (9 credit hours)</strong></li>
         </ul>
 
         <h2>Add documents</h2>
@@ -4385,15 +4540,15 @@
                 <a>Change files</a>
             </div>
             <div class="emmy-file-row">
-                <div class="emmy-file-thumb" style="background: #1b1b1b;">&#128196;</div>
+                <div class="emmy-file-thumb" style="background: #1b1b1b;"><svg class="usa-icon--lg" viewBox="0 0 24 24" fill="white"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM6 20V4h5v7h7v9H6z"/></svg></div>
                 <span>transcript.pdf</span>
             </div>
             <div class="emmy-file-row">
-                <div class="emmy-file-thumb" style="background: #c3512c;">&#128196;</div>
+                <div class="emmy-file-thumb" style="background: #c3512c;"><svg class="usa-icon--lg" viewBox="0 0 24 24" fill="white"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM6 20V4h5v7h7v9H6z"/></svg></div>
                 <span>enrollment-verification.pdf</span>
             </div>
             <div class="emmy-file-row">
-                <div class="emmy-file-thumb" style="background: #4a77b4;">&#128196;</div>
+                <div class="emmy-file-thumb" style="background: #4a77b4;"><svg class="usa-icon--lg" viewBox="0 0 24 24" fill="white"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM6 20V4h5v7h7v9H6z"/></svg></div>
                 <span>tuition-letter.pdf</span>
             </div>
         </div>
@@ -4414,7 +4569,7 @@
 
         <button class="usa-button" onclick="goTo('alex-edu-review')">Continue to review</button>
     </div>
-    <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback">&#128172; Share feedback</button></div></div>
+    <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback"><svg class="usa-icon--sm" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px;"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg> Share feedback</button></div></div>
     <div class="flow-nav">
         <button class="flow-nav-btn" onclick="goTo('alex-edu-credits')">&larr; Back</button>
         <div class="flow-nav-center"></div>
@@ -4426,27 +4581,11 @@
      SCREEN: EDUCATION SPOKE — REVIEW
      ============================================ -->
 <div class="screen" id="alex-edu-review">
-    <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-text">A website in partnership with example state</span></div></div>
+    <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-state">State</span></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
     <div class="emmy-page-content">
-        <h1>Review your student enrollment details</h1>
-        <p>We have gathered your student enrollment details for the Spring 2026 term (January to May).</p>
-
-        <h2>Education information</h2>
-        <table class="emmy-review-table">
-            <thead>
-                <tr>
-                    <th>Enrollment information</th>
-                    <th>Your details</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td class="cell-bold">Name on school record</td><td>Alex Johnson</td></tr>
-                <tr><td class="cell-bold">School or program</td><td>State University</td></tr>
-                <tr><td class="cell-bold">Enrollment term</td><td>Spring 2026 (January&ndash;May)</td></tr>
-                <tr><td class="cell-bold">Enrollment status</td><td>Less than half-time</td></tr>
-            </tbody>
-        </table>
+        <h1>Review your enrollment details at State University</h1>
+        <p>Here are your enrollment details for Spring 2026 (January&ndash;May).</p>
 
         <h2>Enrollment details</h2>
         <table class="emmy-review-table">
@@ -4476,15 +4615,15 @@
                 <button class="edit-link" style="color: #005ea2; text-decoration: underline; background: none; border: none; font-size: 16px; font-weight: 700; cursor: pointer; font-family: 'Public Sans', sans-serif;">Edit</button>
             </div>
             <div class="emmy-doc-file">
-                <div class="emmy-doc-file-icon">&#128196;</div>
+                <div class="emmy-doc-file-icon"><svg class="usa-icon--lg" viewBox="0 0 24 24" fill="#005ea2"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM6 20V4h5v7h7v9H6z"/></svg></div>
                 <span>transcript.pdf</span>
             </div>
             <div class="emmy-doc-file">
-                <div class="emmy-doc-file-icon">&#128196;</div>
+                <div class="emmy-doc-file-icon"><svg class="usa-icon--lg" viewBox="0 0 24 24" fill="#005ea2"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM6 20V4h5v7h7v9H6z"/></svg></div>
                 <span>enrollment-verification.pdf</span>
             </div>
             <div class="emmy-doc-file">
-                <div class="emmy-doc-file-icon">&#128196;</div>
+                <div class="emmy-doc-file-icon"><svg class="usa-icon--lg" viewBox="0 0 24 24" fill="#005ea2"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM6 20V4h5v7h7v9H6z"/></svg></div>
                 <span>tuition-letter.pdf</span>
             </div>
         </div>
@@ -4495,7 +4634,7 @@
 
         <button class="usa-button" onclick="goTo('alex-emmy-hub-partial')">Save and continue</button>
     </div>
-    <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback">&#128172; Share feedback</button></div></div>
+    <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback"><svg class="usa-icon--sm" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px;"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg> Share feedback</button></div></div>
     <div class="flow-nav">
         <button class="flow-nav-btn" onclick="goTo('alex-edu-upload')">&larr; Back</button>
         <div class="flow-nav-center"></div>
@@ -4507,14 +4646,14 @@
      SCREEN: EMMY HUB PARTIAL (36/80)
      ============================================ -->
 <div class="screen" id="alex-emmy-hub-partial">
-    <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-text">A website in partnership with example state</span></div></div>
+    <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-state">State</span></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
 
     <div class="hub-split">
         <!-- Left sidebar -->
         <div class="hub-split-sidebar">
             <h1>Add more activities or continue to review and submit your report</h1>
-            <p style="font-size: 16px; color: #565c65; margin-bottom: 32px;">Your state will determine your eligibility based on the activities you add to your report.</p>
+            <p style="font-size: 16px; color: #565c65; margin-bottom: 32px;">Your state will use the activities in your report to decide if you're eligible.</p>
 
             <div class="hub-progress-card">
                 <h3>0/1 months completed</h3>
@@ -4530,7 +4669,7 @@
             </div>
 
             <button class="usa-button" style="width: 100%; margin-bottom: 16px;" onclick="goTo('alex-emmy-submit')">Review and submit</button>
-            <a href="#" style="font-size: 16px; color: #005ea2; text-decoration: underline;">What if I can't meet the requirements?</a>
+            <a href="#" style="font-size: 16px; color: #005ea2; text-decoration: underline;" onclick="event.preventDefault(); openCantMeetModal();">What if I can't meet the requirements?</a>
         </div>
 
         <div class="hub-split-divider"></div>
@@ -4596,7 +4735,7 @@
         </div>
     </div>
 
-    <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback">&#128172; Share feedback</button></div></div>
+    <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback"><svg class="usa-icon--sm" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px;"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg> Share feedback</button></div></div>
     <div class="flow-nav">
         <button class="flow-nav-btn" onclick="goTo('alex-edu-review')">&larr; Back</button>
         <div class="flow-nav-center"></div>
@@ -4608,7 +4747,7 @@
      SCREEN: COMMUNITY SERVICE SPOKE — ORG
      ============================================ -->
 <div class="screen fillable-screen" id="alex-cs-org">
-    <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-text">A website in partnership with example state</span></div></div>
+    <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-state">State</span></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
     <div class="emmy-page-content">
         <h1>Tell us about your community service organization</h1>
@@ -4667,7 +4806,7 @@
 
         <button class="usa-button" onclick="goTo('alex-cs-july')">Continue</button>
     </div>
-    <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback">&#128172; Share feedback</button></div></div>
+    <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback"><svg class="usa-icon--sm" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px;"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg> Share feedback</button></div></div>
     <div class="fill-hint" id="fill-hint-alex-cs-org">Click anywhere to fill in fields</div>
     <div class="flow-nav">
         <button class="flow-nav-btn" onclick="goTo('alex-emmy-hub-partial')">&larr; Back</button>
@@ -4680,7 +4819,7 @@
      SCREEN: COMMUNITY SERVICE SPOKE — JULY
      ============================================ -->
 <div class="screen fillable-screen" id="alex-cs-july">
-    <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-text">A website in partnership with example state</span></div></div>
+    <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-state">State</span></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
     <div class="emmy-page-content">
         <h1>Add your March community service hours for Westbrook community garden</h1>
@@ -4697,7 +4836,7 @@
 
         <button class="usa-button" onclick="goTo('alex-cs-upload')">Save and continue</button>
     </div>
-    <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback">&#128172; Share feedback</button></div></div>
+    <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback"><svg class="usa-icon--sm" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px;"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg> Share feedback</button></div></div>
     <div class="fill-hint" id="fill-hint-alex-cs-july">Click anywhere to fill in fields</div>
     <div class="flow-nav">
         <button class="flow-nav-btn" onclick="goTo('alex-cs-org')">&larr; Back</button>
@@ -4710,7 +4849,7 @@
      SCREEN: COMMUNITY SERVICE SPOKE — UPLOAD
      ============================================ -->
 <div class="screen" id="alex-cs-upload">
-    <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-text">A website in partnership with example state</span></div></div>
+    <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-state">State</span></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
     <div class="emmy-page-content">
         <h1>Upload supporting documents for Westbrook community garden</h1>
@@ -4731,11 +4870,11 @@
                 <a>Change files</a>
             </div>
             <div class="emmy-file-row">
-                <div class="emmy-file-thumb" style="background: #1b1b1b;">&#128196;</div>
+                <div class="emmy-file-thumb" style="background: #1b1b1b;"><svg class="usa-icon--lg" viewBox="0 0 24 24" fill="white"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM6 20V4h5v7h7v9H6z"/></svg></div>
                 <span>volunteer-log-march.pdf</span>
             </div>
             <div class="emmy-file-row">
-                <div class="emmy-file-thumb" style="background: #c3512c;">&#128196;</div>
+                <div class="emmy-file-thumb" style="background: #c3512c;"><svg class="usa-icon--lg" viewBox="0 0 24 24" fill="white"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM6 20V4h5v7h7v9H6z"/></svg></div>
                 <span>coordinator-letter.pdf</span>
             </div>
         </div>
@@ -4755,7 +4894,7 @@
 
         <button class="usa-button" onclick="goTo('alex-cs-review')">Continue to review</button>
     </div>
-    <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback">&#128172; Share feedback</button></div></div>
+    <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback"><svg class="usa-icon--sm" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px;"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg> Share feedback</button></div></div>
     <div class="flow-nav">
         <button class="flow-nav-btn" onclick="goTo('alex-cs-july')">&larr; Back</button>
         <div class="flow-nav-center"></div>
@@ -4767,11 +4906,11 @@
      SCREEN: COMMUNITY SERVICE SPOKE — REVIEW
      ============================================ -->
 <div class="screen" id="alex-cs-review">
-    <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-text">A website in partnership with example state</span></div></div>
+    <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-state">State</span></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
     <div class="emmy-page-content">
         <h1>Review your community service information for Westbrook community garden</h1>
-        <p>Review all the information you've added for Westbrook community garden before adding it to your Community Engagement Report.</p>
+        <p>Review all the information you've added for Westbrook community garden before adding it to your community engagement report.</p>
 
         <h2>Community service information</h2>
         <table class="emmy-review-table">
@@ -4814,11 +4953,11 @@
                 <button class="edit-link" style="color: #005ea2; text-decoration: underline; background: none; border: none; font-size: 16px; font-weight: 700; cursor: pointer; font-family: 'Public Sans', sans-serif;">Edit</button>
             </div>
             <div class="emmy-doc-file">
-                <div class="emmy-doc-file-icon">&#128196;</div>
+                <div class="emmy-doc-file-icon"><svg class="usa-icon--lg" viewBox="0 0 24 24" fill="#005ea2"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM6 20V4h5v7h7v9H6z"/></svg></div>
                 <span>volunteer-log-march.pdf</span>
             </div>
             <div class="emmy-doc-file">
-                <div class="emmy-doc-file-icon">&#128196;</div>
+                <div class="emmy-doc-file-icon"><svg class="usa-icon--lg" viewBox="0 0 24 24" fill="#005ea2"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM6 20V4h5v7h7v9H6z"/></svg></div>
                 <span>coordinator-letter.pdf</span>
             </div>
         </div>
@@ -4829,7 +4968,7 @@
 
         <button class="usa-button" onclick="goTo('alex-emmy-hub-complete')">Save and continue</button>
     </div>
-    <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback">&#128172; Share feedback</button></div></div>
+    <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback"><svg class="usa-icon--sm" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px;"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg> Share feedback</button></div></div>
     <div class="flow-nav">
         <button class="flow-nav-btn" onclick="goTo('alex-cs-upload')">&larr; Back</button>
         <div class="flow-nav-center"></div>
@@ -4841,14 +4980,14 @@
      SCREEN: EMMY HUB COMPLETE (met)
      ============================================ -->
 <div class="screen" id="alex-emmy-hub-complete">
-    <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-text">A website in partnership with example state</span></div></div>
+    <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-state">State</span></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
 
     <div class="hub-split">
         <!-- Left sidebar -->
         <div class="hub-split-sidebar">
             <h1>You're ready to review and submit your report</h1>
-            <p style="font-size: 16px; color: #565c65; margin-bottom: 32px;">Your state will determine your eligibility based on the activities you've added to your report.</p>
+            <p style="font-size: 16px; color: #565c65; margin-bottom: 32px;">Your state will use the activities in your report to decide if you're eligible.</p>
 
             <div class="hub-progress-card">
                 <h3>1/1 months completed</h3>
@@ -4857,7 +4996,7 @@
                         <div class="hub-progress-bar-value complete" data-target-width="100" style="width: 0%;"></div>
                     </div>
                     <div class="hub-progress-label-row">
-                        <span class="month-name">&#10003; March</span>
+                        <span class="month-name"><svg class="usa-icon--sm" viewBox="0 0 24 24" fill="#2e6e2e" style="vertical-align: -2px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> March</span>
                         <span class="month-hours"><span class="current complete">83</span> / <strong>80 hours</strong></span>
                     </div>
                 </div>
@@ -4938,7 +5077,7 @@
         </div>
     </div>
 
-    <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback">&#128172; Share feedback</button></div></div>
+    <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback"><svg class="usa-icon--sm" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px;"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg> Share feedback</button></div></div>
     <div class="flow-nav">
         <button class="flow-nav-btn" onclick="goTo('alex-cs-review')">&larr; Back</button>
         <div class="flow-nav-center"></div>
@@ -4950,51 +5089,135 @@
      SCREEN: EMMY REVIEW AND SUBMIT
      ============================================ -->
 <div class="screen fillable-screen" id="alex-emmy-submit">
-    <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-text">A website in partnership with example state</span></div></div>
+    <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-state">State</span></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
-    <div class="container">
-        <div style="padding: 24px 0 40px;">
-            <h1 style="font-family: 'Public Sans', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 8px;">Review your report</h1>
-            <p style="color: #3d4551; margin-bottom: 24px;">Make sure everything looks correct before submitting to your state Medicaid agency.</p>
+    <div class="emmy-page-content">
+        <h1>Review and submit your community engagement report</h1>
+        <p>Make sure the information below is correct. You can edit the details of each activity you've added to your report.</p>
 
-            <h2 style="font-family: 'Public Sans', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px;">Education</h2>
-            <table class="review-table">
-                <tr><th>School</th><td>State University</td></tr>
-                <tr><th>Term</th><td>Spring 2026</td></tr>
-                <tr><th>Credit hours</th><td>9</td></tr>
-                <tr><th>CE hours</th><td>36/month</td></tr>
-                <tr><th>Documents</th><td>3 uploaded</td></tr>
-            </table>
-
-            <h2 style="font-family: 'Public Sans', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px;">Community service</h2>
-            <table class="review-table">
-                <tr><th>Organization</th><td>Westbrook community garden</td></tr>
-                <tr><th>March</th><td>47 hours</td></tr>
-                <tr><th>Documents</th><td>2 uploaded</td></tr>
-            </table>
-
-            <div class="summary-box-green">
-                <h3>CE Summary</h3>
-                <div class="summary-row">
-                    <span><strong>March:</strong> Education 36 hrs + Community Service 47 hrs</span>
-                    <span class="summary-checkmark">= 83 hrs &#10003;</span>
-                </div>
-                <div class="summary-row summary-row-total">
-                    <span>Meets the 80-hour requirement.</span>
-                </div>
-            </div>
-
-            <hr class="section-divider">
-
-            <div class="usa-checkbox">
-                <input class="usa-checkbox__input" type="checkbox" id="alex-submit-consent" data-fill-check>
-                <label class="usa-checkbox__label" for="alex-submit-consent">I confirm that the information above is accurate and I consent to sharing this report with my state Medicaid agency.</label>
-            </div>
-
-            <button class="usa-button emmy-action-btn" onclick="goTo('alex-emmy-success')">Submit report</button>
+        <div class="progress-complete-banner">
+            <svg class="usa-icon--md" viewBox="0 0 24 24" fill="#2e6e2e" style="vertical-align: -4px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            <span>1/1 months completed</span>
         </div>
+
+        <!-- Activity 1: Education -->
+        <h2>Activity 1: Education</h2>
+
+        <h3 style="margin-bottom: 16px;">Enrollment details</h3>
+        <table class="emmy-review-table">
+            <thead>
+                <tr>
+                    <th>Term</th>
+                    <th>Enrollment status</th>
+                    <th>Credit hours</th>
+                    <th>Community engagement hours</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="cell-bold">Spring 2026 (January&ndash;May)</td>
+                    <td>Less than half-time</td>
+                    <td>9</td>
+                    <td>36</td>
+                    <td><button class="edit-link">Edit</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="emmy-doc-list">
+            <div class="emmy-doc-list-header">
+                <h3>Documents uploaded (3)</h3>
+                <button class="edit-link" style="color: #005ea2; text-decoration: underline; background: none; border: none; font-size: 16px; font-weight: 700; cursor: pointer; font-family: 'Public Sans', sans-serif;">Edit</button>
+            </div>
+            <div class="emmy-doc-file">
+                <div class="emmy-doc-file-icon"><svg class="usa-icon--lg" viewBox="0 0 24 24" fill="#005ea2"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM6 20V4h5v7h7v9H6z"/></svg></div>
+                <span>transcript.pdf</span>
+            </div>
+            <div class="emmy-doc-file">
+                <div class="emmy-doc-file-icon"><svg class="usa-icon--lg" viewBox="0 0 24 24" fill="#005ea2"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM6 20V4h5v7h7v9H6z"/></svg></div>
+                <span>enrollment-verification.pdf</span>
+            </div>
+            <div class="emmy-doc-file">
+                <div class="emmy-doc-file-icon"><svg class="usa-icon--lg" viewBox="0 0 24 24" fill="#005ea2"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM6 20V4h5v7h7v9H6z"/></svg></div>
+                <span>tuition-letter.pdf</span>
+            </div>
+        </div>
+
+        <h3 style="margin-bottom: 8px;">Additional comments</h3>
+        <p style="color: #71767a; font-style: italic; margin-bottom: 32px;">No additional comments added.</p>
+
+        <hr style="border: none; border-top: 1px solid #dfe1e2; margin: 0 0 32px;">
+
+        <!-- Activity 2: Community Service -->
+        <h2>Activity 2: Community Service</h2>
+
+        <h3 style="margin-bottom: 16px;">Community service information</h3>
+        <table class="emmy-review-table">
+            <thead>
+                <tr>
+                    <th>Organization information</th>
+                    <th>Your details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td class="cell-bold">Name</td><td>Westbrook community garden</td></tr>
+                <tr><td class="cell-bold">Address</td><td>1033 Berkman St Tallahassee, FL</td></tr>
+                <tr><td class="cell-bold">Organization contact name</td><td>Aaron Keyes</td></tr>
+                <tr><td class="cell-bold">Organization contact email</td><td>aaron.keyes@westbrookgardens.org</td></tr>
+                <tr><td class="cell-bold">Organization contact phone number</td><td>(415) 344-8009</td></tr>
+            </tbody>
+        </table>
+
+        <h3 style="margin-bottom: 16px;">Monthly details</h3>
+        <table class="emmy-review-table">
+            <thead>
+                <tr>
+                    <th>Month</th>
+                    <th>Community engagement hours</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="cell-bold">March</td>
+                    <td>47</td>
+                    <td><button class="edit-link">Edit</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="emmy-doc-list">
+            <div class="emmy-doc-list-header">
+                <h3>Documents uploaded (2)</h3>
+                <button class="edit-link" style="color: #005ea2; text-decoration: underline; background: none; border: none; font-size: 16px; font-weight: 700; cursor: pointer; font-family: 'Public Sans', sans-serif;">Edit</button>
+            </div>
+            <div class="emmy-doc-file">
+                <div class="emmy-doc-file-icon"><svg class="usa-icon--lg" viewBox="0 0 24 24" fill="#005ea2"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM6 20V4h5v7h7v9H6z"/></svg></div>
+                <span>volunteer-log-march.pdf</span>
+            </div>
+            <div class="emmy-doc-file">
+                <div class="emmy-doc-file-icon"><svg class="usa-icon--lg" viewBox="0 0 24 24" fill="#005ea2"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM6 20V4h5v7h7v9H6z"/></svg></div>
+                <span>coordinator-letter.pdf</span>
+            </div>
+        </div>
+
+        <h3 style="margin-bottom: 8px;">Additional comments</h3>
+        <p style="color: #71767a; font-style: italic; margin-bottom: 32px;">No additional comments added.</p>
+
+        <hr style="border: none; border-top: 1px solid #dfe1e2; margin: 0 0 32px;">
+
+        <!-- Legal agreement -->
+        <h2>Legal agreement</h2>
+
+        <div class="emmy-tile-checkbox" style="margin-bottom: 32px;">
+            <input type="checkbox" id="alex-submit-consent" data-fill-check>
+            <label for="alex-submit-consent">I confirm that the information in this report is accurate to the best of my knowledge. I consent to sharing this report with my state Medicaid agency to decide if I'm eligible for Medicaid.</label>
+        </div>
+
+        <button class="usa-button" onclick="goTo('alex-emmy-success')">Submit my report</button>
     </div>
-    <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback">&#128172; Share feedback</button></div></div>
+    <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback"><svg class="usa-icon--sm" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px;"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg> Share feedback</button></div></div>
     <div class="fill-hint" id="fill-hint-alex-emmy-submit">Click anywhere to fill in fields</div>
     <div class="flow-nav">
         <button class="flow-nav-btn" onclick="goTo('alex-emmy-hub-complete')">&larr; Back</button>
@@ -5007,24 +5230,33 @@
      SCREEN: EMMY SUCCESS
      ============================================ -->
 <div class="screen" id="alex-emmy-success">
-    <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-text">A website in partnership with example state</span></div></div>
+    <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-state">State</span></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
-    <div class="container">
-        <div style="padding: 40px 0; text-align: center;">
-            <div class="success-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </div>
-            <h1 style="font-family: 'Public Sans', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 8px;">Report submitted</h1>
-            <p style="font-size: 16px; color: #3d4551; margin-bottom: 8px;">Your community engagement report has been submitted to your state Medicaid agency. A caseworker will review your report alongside your application.</p>
-            <p style="font-size: 14px; color: #71767a; margin-bottom: 32px;">Confirmation reference: <strong>MC-2026-4872</strong></p>
+    <div class="emmy-page-content">
+        <h1>Your community engagement report was sent to your state Medicaid agency</h1>
+        <p><strong>Your confirmation code:</strong> MC-2026-4872</p>
 
-            <div style="background: #f0f0f0; border-radius: 8px; padding: 20px; text-align: left; margin-bottom: 24px;">
-                <h2 style="font-family: 'Public Sans', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 8px;">What happens next?</h2>
-                <p style="font-size: 15px; color: #3d4551;">A caseworker will review your submitted documents and activity report alongside your Medicaid application. You'll receive a notice with the eligibility decision. If the caseworker has questions about your documentation, they may contact you or your community service organization directly.</p>
+        <h2>What's next?</h2>
+        <p>You're done for now. Your state Medicaid agency will review your information and contact you if needed.</p>
+
+        <div class="success-download">
+            <div class="success-download-icon"><svg class="usa-icon--lg" viewBox="0 0 24 24" fill="white"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg></div>
+            <div>
+                <h3>Download your report for your records.</h3>
             </div>
         </div>
+        <p style="margin-bottom: 16px; padding-left: 48px;">We recommend saving your report for your records.</p>
+        <div style="padding-left: 48px; margin-bottom: 32px;">
+            <button class="usa-button">Download my report</button>
+        </div>
+
+        <div class="feedback-divider"></div>
+
+        <h2>Help make this experience better.</h2>
+        <p>We'd like to hear more about your experience using this site.</p>
+        <button class="usa-button usa-button--outline">Take the 3 question survey</button>
     </div>
-    <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback">&#128172; Share feedback</button></div></div>
+    <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback"><svg class="usa-icon--sm" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px;"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg> Share feedback</button></div></div>
     <div class="flow-nav">
         <button class="flow-nav-btn" onclick="goTo('alex-emmy-submit')">&larr; Back</button>
         <div class="flow-nav-center"></div>
@@ -5041,11 +5273,11 @@
             <div class="phase-avatar">
                 <div class="phase-avatar-circle" style="background: #71767a;">C</div>
             </div>
-            <h1 class="phase-title">Phase 5: The Caseworker Makes a Decision</h1>
-            <p class="phase-perspective">Caseworker Perspective</p>
+            <h1 class="phase-title">The caseworker makes an eligibility decision</h1>
+            <p class="phase-perspective">Caseworker Eligibility Portal</p>
 
             <div class="phase-description">
-                <p>The caseworker reviews Alex's Emmy report and uploaded documents to make an eligibility determination.</p>
+                <p>With Alex's structured Emmy report and uploaded documents, the caseworker has what they need to approve her for Medicaid coverage.</p>
             </div>
 
             <div class="phase-cta-area">
@@ -5093,15 +5325,15 @@
             <div class="cw-section-title">Education Documents</div>
             <div class="cw-card">
                 <div style="display: flex; align-items: center; gap: 10px; padding: 6px 0; font-size: 13px; border-bottom: 1px solid #f0f0f0;">
-                    <span>&#128196;</span> <span style="font-weight: 700;">transcript.pdf</span>
+                    <svg class="usa-icon--sm" viewBox="0 0 24 24" fill="#005ea2" style="vertical-align: -3px;"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM6 20V4h5v7h7v9H6z"/></svg> <span style="font-weight: 700;">transcript.pdf</span>
                     <span class="emmy-badge" style="margin-left: auto;">Received via Emmy</span>
                 </div>
                 <div style="display: flex; align-items: center; gap: 10px; padding: 6px 0; font-size: 13px; border-bottom: 1px solid #f0f0f0;">
-                    <span>&#128196;</span> <span style="font-weight: 700;">enrollment-verification.pdf</span>
+                    <svg class="usa-icon--sm" viewBox="0 0 24 24" fill="#005ea2" style="vertical-align: -3px;"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM6 20V4h5v7h7v9H6z"/></svg> <span style="font-weight: 700;">enrollment-verification.pdf</span>
                     <span class="emmy-badge" style="margin-left: auto;">Received via Emmy</span>
                 </div>
                 <div style="display: flex; align-items: center; gap: 10px; padding: 6px 0; font-size: 13px;">
-                    <span>&#128196;</span> <span style="font-weight: 700;">tuition-letter.pdf</span>
+                    <svg class="usa-icon--sm" viewBox="0 0 24 24" fill="#005ea2" style="vertical-align: -3px;"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM6 20V4h5v7h7v9H6z"/></svg> <span style="font-weight: 700;">tuition-letter.pdf</span>
                     <span class="emmy-badge" style="margin-left: auto;">Received via Emmy</span>
                 </div>
                 <div style="background: #f0f0f0; padding: 10px 14px; margin-top: 12px; border-radius: 4px; font-size: 12px; color: #3d4551;">
@@ -5119,11 +5351,11 @@
             <div class="cw-section-title">Community Service Documents</div>
             <div class="cw-card">
                 <div style="display: flex; align-items: center; gap: 10px; padding: 6px 0; font-size: 13px; border-bottom: 1px solid #f0f0f0;">
-                    <span>&#128196;</span> <span style="font-weight: 700;">volunteer-log-march.pdf</span>
+                    <svg class="usa-icon--sm" viewBox="0 0 24 24" fill="#005ea2" style="vertical-align: -3px;"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM6 20V4h5v7h7v9H6z"/></svg> <span style="font-weight: 700;">volunteer-log-march.pdf</span>
                     <span class="emmy-badge" style="margin-left: auto;">Received via Emmy</span>
                 </div>
                 <div style="display: flex; align-items: center; gap: 10px; padding: 6px 0; font-size: 13px;">
-                    <span>&#128196;</span> <span style="font-weight: 700;">coordinator-letter.pdf</span>
+                    <svg class="usa-icon--sm" viewBox="0 0 24 24" fill="#005ea2" style="vertical-align: -3px;"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM6 20V4h5v7h7v9H6z"/></svg> <span style="font-weight: 700;">coordinator-letter.pdf</span>
                     <span class="emmy-badge" style="margin-left: auto;">Received via Emmy</span>
                 </div>
                 <table class="cw-table" style="margin-top: 12px; margin-bottom: 0;">
@@ -5237,6 +5469,19 @@
         <button class="flow-nav-btn" onclick="goTo('alex-cw-emmy-review')">&larr; Back</button>
         <div class="flow-nav-center">End of demo</div>
         <button class="flow-nav-btn" onclick="goTo('intro')">Restart &rarr;</button>
+    </div>
+</div>
+
+<!-- Modal: What if I can't meet the requirements? -->
+<div class="modal-overlay" id="cant-meet-modal" onclick="closeCantMeetModal(event)">
+    <div class="modal-card" onclick="event.stopPropagation()">
+        <h2>What if I can't meet the requirements?</h2>
+        <p>Submit your report with what you have. Your state Medicaid agency will review your activities and check if you qualify for an exemption.</p>
+        <p>If they need more information, they'll notify you and you'll have at least 30 days to respond. Your coverage continues during that time.</p>
+        <div class="modal-actions">
+            <button class="usa-button" onclick="closeCantMeetModal()">Okay</button>
+            <a>See if I'm exempt</a>
+        </div>
     </div>
 </div>
 
@@ -5359,6 +5604,17 @@
         drawer.classList.toggle('open');
         toggle.classList.toggle('open');
     }
+
+    // Close stepper when clicking outside
+    document.addEventListener('click', (e) => {
+        const drawer = document.getElementById('stepper-drawer');
+        const toggle = document.getElementById('stepper-toggle');
+        const header = document.querySelector('.config-header');
+        if (!drawer || !drawer.classList.contains('open')) return;
+        if (e.target.closest('.stepper-drawer') || e.target.closest('.config-header')) return;
+        drawer.classList.remove('open');
+        toggle.classList.remove('open');
+    });
 
     function buildStepper() {
         const container = document.getElementById('stepper-content');
@@ -5593,6 +5849,18 @@
     /* ============================================
        FILE UPLOAD CLICK INTERACTIONS
        ============================================ */
+    /* ============================================
+       MODAL: CAN'T MEET REQUIREMENTS
+       ============================================ */
+    function openCantMeetModal() {
+        document.getElementById('cant-meet-modal').classList.add('open');
+    }
+
+    function closeCantMeetModal(e) {
+        if (e && e.target !== e.currentTarget) return;
+        document.getElementById('cant-meet-modal').classList.remove('open');
+    }
+
     function showEduFiles() {
         const empty = document.getElementById('edu-file-empty');
         const filled = document.getElementById('edu-file-filled');
