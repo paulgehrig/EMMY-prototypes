@@ -4610,55 +4610,62 @@
 <div class="screen fillable-screen" id="alex-cs-org">
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-text">A website in partnership with example state</span></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-state">State</span></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
-    <div class="spoke-chrome">
-        <div class="spoke-chrome-row1">
-            <span class="spoke-flow-label">Community service</span>
-            <button class="spoke-exit-link" onclick="goTo('alex-emmy-hub-partial')">Exit</button>
-        </div>
-    </div>
-    <div class="container">
-        <div class="spoke-content">
-            <button class="spoke-back-link" onclick="goTo('alex-emmy-hub-partial')">&larr; Back</button>
-            <h1 style="font-family: 'Public Sans', sans-serif; font-size: 24px; font-weight: 700; margin-bottom: 8px;">Tell us about your community service organization</h1>
-            <p style="font-size: 15px; color: #3d4551; margin-bottom: 24px;">Enter as much information as you can. This will help your state agency get in touch with your community service organization, if needed.</p>
+    <div class="emmy-page-content">
+        <h1>Tell us about your community service organization</h1>
+        <p>Enter as much information as you can. This will help your state agency get in touch with your community service organization, if needed.</p>
 
-            <div class="usa-form-group">
-                <label class="usa-label">Organization name</label>
-                <input class="usa-input" type="text" value="" data-fill="Westbrook community garden">
+        <h2 style="margin-top: 32px;">Organization information</h2>
+        <div style="max-width: 370px;">
+            <div style="margin-bottom: 24px;">
+                <label style="font-family: 'Public Sans', sans-serif; font-size: 16px; font-weight: 700; color: #1b1b1b; display: block; margin-bottom: 4px;">Organization name</label>
+                <span style="font-size: 16px; color: #71767a; display: block; margin-bottom: 8px;">Enter the full and official name</span>
+                <input type="text" value="" data-fill="Westbrook community garden" style="width: 100%; padding: 8px; border: 1px solid #1b1b1b; font-size: 16px; font-family: inherit; height: 40px;">
             </div>
-            <div class="usa-form-group">
-                <label class="usa-label">Street address</label>
-                <input class="usa-input" type="text" value="" data-fill="1033 Berkman St">
+            <div style="margin-bottom: 24px;">
+                <label style="font-family: 'Public Sans', sans-serif; font-size: 16px; font-weight: 700; color: #1b1b1b; display: block; margin-bottom: 8px;">Street address</label>
+                <input type="text" value="" data-fill="1033 Berkman St" style="width: 100%; padding: 8px; border: 1px solid #1b1b1b; font-size: 16px; font-family: inherit; height: 40px;">
             </div>
-            <div style="display: flex; gap: 16px; margin-bottom: 20px;">
-                <div class="usa-form-group" style="flex: 2; margin-bottom: 0;">
-                    <label class="usa-label">City</label>
-                    <input class="usa-input" type="text" value="" data-fill="Tallahassee">
-                </div>
-                <div class="usa-form-group" style="flex: 1; margin-bottom: 0;">
-                    <label class="usa-label">State</label>
-                    <input class="usa-input" type="text" value="" data-fill="FL">
-                </div>
-                <div class="usa-form-group" style="flex: 1; margin-bottom: 0;">
-                    <label class="usa-label">Zip code</label>
-                    <input class="usa-input" type="text" value="" data-fill="32301">
-                </div>
+            <div style="margin-bottom: 24px;">
+                <label style="font-family: 'Public Sans', sans-serif; font-size: 16px; font-weight: 700; color: #1b1b1b; display: block; margin-bottom: 8px;">Street address line 2 (optional)</label>
+                <input type="text" value="" style="width: 100%; padding: 8px; border: 1px solid #1b1b1b; font-size: 16px; font-family: inherit; height: 40px;">
             </div>
-            <div class="usa-form-group">
-                <label class="usa-label">Coordinator's name</label>
-                <input class="usa-input" type="text" value="" data-fill="Aaron Keyes">
+            <div style="margin-bottom: 24px;">
+                <label style="font-family: 'Public Sans', sans-serif; font-size: 16px; font-weight: 700; color: #1b1b1b; display: block; margin-bottom: 8px;">City</label>
+                <input type="text" value="" data-fill="Tallahassee" style="width: 100%; padding: 8px; border: 1px solid #1b1b1b; font-size: 16px; font-family: inherit; height: 40px;">
             </div>
-            <div class="usa-form-group">
-                <label class="usa-label">Coordinator's email</label>
-                <input class="usa-input" type="text" value="" data-fill="aaron.keyes@westbrookgardens.org">
+            <div style="margin-bottom: 24px;">
+                <label style="font-family: 'Public Sans', sans-serif; font-size: 16px; font-weight: 700; color: #1b1b1b; display: block; margin-bottom: 8px;">State</label>
+                <select data-fill="FL" style="width: 100%; padding: 8px; border: 1px solid #1b1b1b; font-size: 16px; font-family: inherit; height: 40px; background: white;">
+                    <option value=""></option>
+                    <option value="FL">Florida</option>
+                </select>
             </div>
-            <div class="usa-form-group">
-                <label class="usa-label">Contact phone number</label>
-                <input class="usa-input" type="text" value="" data-fill="(415) 344-8009">
+            <div style="margin-bottom: 32px;">
+                <label style="font-family: 'Public Sans', sans-serif; font-size: 16px; font-weight: 700; color: #1b1b1b; display: block; margin-bottom: 8px;">Zip code</label>
+                <input type="text" value="" data-fill="32301" style="max-width: 183px; padding: 8px; border: 1px solid #1b1b1b; font-size: 16px; font-family: inherit; height: 40px;">
             </div>
-
-            <button class="usa-button emmy-action-btn" onclick="goTo('alex-cs-july')">Continue</button>
         </div>
+
+        <hr style="border: none; border-top: 1px solid #dfe1e2; margin: 0 0 32px;">
+
+        <h2>Coordinator information</h2>
+        <div style="max-width: 370px;">
+            <div style="margin-bottom: 24px;">
+                <label style="font-family: 'Public Sans', sans-serif; font-size: 16px; font-weight: 700; color: #1b1b1b; display: block; margin-bottom: 4px;">Coordinator's name</label>
+                <span style="font-size: 16px; color: #71767a; display: block; margin-bottom: 8px;">The person you worked most closely with or reported to</span>
+                <input type="text" value="" data-fill="Aaron Keyes" style="width: 100%; padding: 8px; border: 1px solid #1b1b1b; font-size: 16px; font-family: inherit; height: 40px;">
+            </div>
+            <div style="margin-bottom: 24px;">
+                <label style="font-family: 'Public Sans', sans-serif; font-size: 16px; font-weight: 700; color: #1b1b1b; display: block; margin-bottom: 8px;">Coordinator's email</label>
+                <input type="text" value="" data-fill="aaron.keyes@westbrookgardens.org" style="width: 100%; padding: 8px; border: 1px solid #1b1b1b; font-size: 16px; font-family: inherit; height: 40px;">
+            </div>
+            <div style="margin-bottom: 32px;">
+                <label style="font-family: 'Public Sans', sans-serif; font-size: 16px; font-weight: 700; color: #1b1b1b; display: block; margin-bottom: 8px;">Contact phone number (optional)</label>
+                <input type="text" value="" data-fill="(415) 344-8009" style="width: 100%; padding: 8px; border: 1px solid #1b1b1b; font-size: 16px; font-family: inherit; height: 40px;">
+            </div>
+        </div>
+
+        <button class="usa-button" onclick="goTo('alex-cs-july')">Continue</button>
     </div>
     <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback">&#128172; Share feedback</button></div></div>
     <div class="fill-hint" id="fill-hint-alex-cs-org">Click anywhere to fill in fields</div>
@@ -4675,29 +4682,20 @@
 <div class="screen fillable-screen" id="alex-cs-july">
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-text">A website in partnership with example state</span></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-state">State</span></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
-    <div class="spoke-chrome">
-        <div class="spoke-chrome-row1">
-            <span class="spoke-flow-label">Community service</span>
-            <button class="spoke-exit-link" onclick="goTo('alex-emmy-hub-partial')">Exit</button>
+    <div class="emmy-page-content">
+        <h1>Add your March community service hours for Westbrook community garden</h1>
+
+        <div class="emmy-tile-checkbox">
+            <input type="checkbox" id="alex-no-march-cs">
+            <label for="alex-no-march-cs">No community service hours with Westbrook community garden in March</label>
         </div>
-    </div>
-    <div class="container">
-        <div class="spoke-content">
-            <button class="spoke-back-link" onclick="goTo('alex-cs-org')">&larr; Back</button>
-            <h1 style="font-family: 'Public Sans', sans-serif; font-size: 24px; font-weight: 700; margin-bottom: 8px;">Add your March community service hours for Westbrook community garden</h1>
 
-            <div class="usa-checkbox" style="background: #f0f0f0; padding: 12px 16px; border-radius: 4px;">
-                <input class="usa-checkbox__input" type="checkbox" id="alex-no-july">
-                <label class="usa-checkbox__label" for="alex-no-july">No community service hours with Westbrook community garden in March</label>
-            </div>
-
-            <div class="usa-form-group">
-                <label class="usa-label" for="alex-july-hours">March community service hours</label>
-                <input class="usa-input" type="text" id="alex-july-hours" value="" data-fill="47" style="max-width: 120px;">
-            </div>
-
-            <button class="usa-button emmy-action-btn" onclick="goTo('alex-cs-upload')">Save and continue</button>
+        <div style="max-width: 488px; margin-bottom: 32px;">
+            <label style="font-family: 'Public Sans', sans-serif; font-size: 16px; font-weight: 700; color: #1b1b1b; display: block; margin-bottom: 8px;">March community service hours</label>
+            <input type="text" value="" data-fill="47" style="width: 100%; padding: 8px; border: 1px solid #1b1b1b; font-size: 16px; font-family: inherit; height: 40px;">
         </div>
+
+        <button class="usa-button" onclick="goTo('alex-cs-upload')">Save and continue</button>
     </div>
     <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback">&#128172; Share feedback</button></div></div>
     <div class="fill-hint" id="fill-hint-alex-cs-july">Click anywhere to fill in fields</div>
@@ -4711,64 +4709,53 @@
 <!-- ============================================
      SCREEN: COMMUNITY SERVICE SPOKE — UPLOAD
      ============================================ -->
-<div class="screen fillable-screen" id="alex-cs-upload">
+<div class="screen" id="alex-cs-upload">
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-text">A website in partnership with example state</span></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-state">State</span></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
-    <div class="spoke-chrome">
-        <div class="spoke-chrome-row1">
-            <span class="spoke-flow-label">Community service</span>
-            <button class="spoke-exit-link" onclick="goTo('alex-emmy-hub-partial')">Exit</button>
+    <div class="emmy-page-content">
+        <h1>Upload supporting documents for Westbrook community garden</h1>
+        <p>Upload documents that verify the information you entered for:</p>
+        <ul style="margin: 0 0 32px; padding-left: 20px; list-style: disc;">
+            <li style="font-size: 16px; color: #1b1b1b; line-height: 1.62;"><strong>March (47 hours)</strong></li>
+        </ul>
+
+        <h2>Add documents</h2>
+
+        <div class="emmy-file-input-empty" id="cs-file-empty" onclick="showCsFiles()">
+            <span>Drag files here or <a>choose from folder</a></span>
         </div>
-    </div>
-    <div class="container">
-        <div class="spoke-content">
-            <button class="spoke-back-link" onclick="goTo('alex-cs-july')">&larr; Back</button>
-            <h1 style="font-family: 'Public Sans', sans-serif; font-size: 24px; font-weight: 700; margin-bottom: 8px;">Upload supporting documents for Westbrook community garden</h1>
-            <p style="font-size: 15px; color: #3d4551; margin-bottom: 8px;">Upload documents that verify the information you entered for:</p>
-            <p style="font-size: 15px; font-weight: 700; color: #1b1b1b; margin-bottom: 20px;">March (47 hours)</p>
 
-            <div class="fill-files-empty">
-                <div class="usa-file-input">
-                    <div class="usa-file-input__target">
-                        <div class="usa-file-input__instructions">
-                            <span class="usa-file-input__drag-text">Drag files here or </span>
-                            <span class="usa-file-input__choose">choose from folder</span>
-                        </div>
-                    </div>
-                </div>
+        <div class="emmy-file-input-filled" id="cs-file-filled">
+            <div class="emmy-file-input-header">
+                <div><strong>2</strong> <strong>files selected</strong></div>
+                <a>Change files</a>
             </div>
-            <div class="fill-files-filled" style="display: none;">
-                <div class="doc-upload-area">
-                    <div class="doc-upload-header">
-                        <span>2 files selected</span>
-                        <span>&#10003;</span>
-                    </div>
-                    <div class="doc-file-row">
-                        <div class="doc-file-icon">&#128196;</div>
-                        <span class="doc-file-name">volunteer-log-march.pdf</span>
-                        <span class="doc-file-status">&#10003; Ready</span>
-                    </div>
-                    <div class="doc-file-row">
-                        <div class="doc-file-icon">&#128196;</div>
-                        <span class="doc-file-name">coordinator-letter.pdf</span>
-                        <span class="doc-file-status">&#10003; Ready</span>
-                    </div>
-                </div>
+            <div class="emmy-file-row">
+                <div class="emmy-file-thumb" style="background: #1b1b1b;">&#128196;</div>
+                <span>volunteer-log-march.pdf</span>
             </div>
+            <div class="emmy-file-row">
+                <div class="emmy-file-thumb" style="background: #c3512c;">&#128196;</div>
+                <span>coordinator-letter.pdf</span>
+            </div>
+        </div>
 
-            <div class="suggested-docs">
-                <div class="suggested-docs-title">Suggested documents</div>
+        <div class="emmy-accordion">
+            <div class="emmy-accordion-header">
+                <span>Suggested documents</span>
+                <span class="accordion-icon">&mdash;</span>
+            </div>
+            <div class="emmy-accordion-body">
                 <ul>
                     <li>Signed statement on organization letterhead from coordinator verifying hours</li>
                     <li>Signed monthly log of hours</li>
                 </ul>
             </div>
-
-            <button class="usa-button emmy-action-btn" onclick="goTo('alex-cs-review')">Continue to review</button>
         </div>
+
+        <button class="usa-button" onclick="goTo('alex-cs-review')">Continue to review</button>
     </div>
     <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback">&#128172; Share feedback</button></div></div>
-    <div class="fill-hint" id="fill-hint-alex-cs-upload">Click anywhere to fill in fields</div>
     <div class="flow-nav">
         <button class="flow-nav-btn" onclick="goTo('alex-cs-july')">&larr; Back</button>
         <div class="flow-nav-center"></div>
@@ -4782,61 +4769,65 @@
 <div class="screen" id="alex-cs-review">
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-text">A website in partnership with example state</span></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-state">State</span></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
-    <div class="spoke-chrome">
-        <div class="spoke-chrome-row1">
-            <span class="spoke-flow-label">Community service</span>
-            <button class="spoke-exit-link" onclick="goTo('alex-emmy-hub-partial')">Exit</button>
-        </div>
-    </div>
-    <div class="container">
-        <div class="spoke-content">
-            <h1 style="font-family: 'Public Sans', sans-serif; font-size: 24px; font-weight: 700; margin-bottom: 8px;">Review your community service information for Westbrook community garden</h1>
+    <div class="emmy-page-content">
+        <h1>Review your community service information for Westbrook community garden</h1>
+        <p>Review all the information you've added for Westbrook community garden before adding it to your Community Engagement Report.</p>
 
-            <h2 style="font-family: 'Public Sans', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 12px; margin-top: 24px;">Community service information</h2>
-            <table class="review-table">
-                <tr><th>Name</th><td>Westbrook community garden</td></tr>
-                <tr><th>Address</th><td>1033 Berkman St, Tallahassee, FL</td></tr>
-                <tr><th>Organization contact name</th><td>Aaron Keyes</td></tr>
-                <tr><th>Organization contact email</th><td>aaron.keyes@westbrookgardens.org</td></tr>
-                <tr><th>Organization contact phone</th><td>(415) 344-8009</td></tr>
-            </table>
+        <h2>Community service information</h2>
+        <table class="emmy-review-table">
+            <thead>
+                <tr>
+                    <th>Organization information</th>
+                    <th>Your details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td class="cell-bold">Name</td><td>Westbrook community garden</td></tr>
+                <tr><td class="cell-bold">Address</td><td>1033 Berkman St Tallahassee, FL</td></tr>
+                <tr><td class="cell-bold">Organization contact name</td><td>Aaron Keyes</td></tr>
+                <tr><td class="cell-bold">Organization contact email</td><td>aaron.keyes@westbrookgardens.org</td></tr>
+                <tr><td class="cell-bold">Organization contact phone number</td><td>(415) 344-8009</td></tr>
+            </tbody>
+        </table>
 
-            <h2 style="font-family: 'Public Sans', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 12px;">Monthly details</h2>
-            <table class="review-table">
-                <thead>
-                    <tr>
-                        <th>Month</th>
-                        <th>Community engagement hours</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>March</td>
-                        <td>47</td>
-                        <td><button class="activity-card-link">Edit</button></td>
-                    </tr>
-                </tbody>
-            </table>
+        <h2>Monthly details</h2>
+        <table class="emmy-review-table">
+            <thead>
+                <tr>
+                    <th>Month</th>
+                    <th>Community engagement hours</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="cell-bold">March</td>
+                    <td>47</td>
+                    <td><button class="edit-link">Edit</button></td>
+                </tr>
+            </tbody>
+        </table>
 
-            <h2 style="font-family: 'Public Sans', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 12px;">Documents uploaded (2)</h2>
-            <div style="margin-bottom: 16px;">
-                <div style="display: flex; align-items: center; gap: 8px; padding: 6px 0; font-size: 14px; border-bottom: 1px solid #f0f0f0;">
-                    <span>&#128196;</span> <span>volunteer-log-march.pdf</span>
-                </div>
-                <div style="display: flex; align-items: center; gap: 8px; padding: 6px 0; font-size: 14px;">
-                    <span>&#128196;</span> <span>coordinator-letter.pdf</span>
-                </div>
-                <button class="activity-card-link" style="margin-top: 4px;">Edit</button>
+        <div class="emmy-doc-list">
+            <div class="emmy-doc-list-header">
+                <h3>Documents uploaded (2)</h3>
+                <button class="edit-link" style="color: #005ea2; text-decoration: underline; background: none; border: none; font-size: 16px; font-weight: 700; cursor: pointer; font-family: 'Public Sans', sans-serif;">Edit</button>
             </div>
-
-            <div class="usa-form-group">
-                <label class="usa-label" for="alex-cs-comments">Additional comments (optional)</label>
-                <textarea class="usa-textarea" id="alex-cs-comments" placeholder="Add any additional context about your community service..."></textarea>
+            <div class="emmy-doc-file">
+                <div class="emmy-doc-file-icon">&#128196;</div>
+                <span>volunteer-log-march.pdf</span>
             </div>
-
-            <button class="usa-button emmy-action-btn" onclick="goTo('alex-emmy-hub-complete')">Save and continue</button>
+            <div class="emmy-doc-file">
+                <div class="emmy-doc-file-icon">&#128196;</div>
+                <span>coordinator-letter.pdf</span>
+            </div>
         </div>
+
+        <h2>Additional comments (optional)</h2>
+        <p style="margin-bottom: 8px;">Share any additional information that you'd like your state agency to know. This will be included in your community engagement report.</p>
+        <textarea style="width: 100%; max-width: 704px; min-height: 120px; padding: 8px; border: 1px solid #1b1b1b; font-size: 16px; font-family: inherit; resize: vertical; margin-bottom: 32px;"></textarea>
+
+        <button class="usa-button" onclick="goTo('alex-emmy-hub-complete')">Save and continue</button>
     </div>
     <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback">&#128172; Share feedback</button></div></div>
     <div class="flow-nav">
@@ -4852,88 +4843,101 @@
 <div class="screen" id="alex-emmy-hub-complete">
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-text">A website in partnership with example state</span></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-state">State</span></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
-    <div class="container">
-        <div class="hub-content">
-            <h1 class="hub-title">You're ready to review and submit your report</h1>
-            <p style="font-size: 15px; color: #3d4551; margin-bottom: 16px;">Your state will determine your eligibility based on the activities you've added to your report.</p>
-            <div class="hub-period">Reporting period: <strong>March 2026</strong></div>
 
-            <div class="progress-section">
-                <div class="months-completed-counter">1/1 months completed</div>
-                <div class="month-progress-list">
-                    <div class="month-progress-row">
-                        <div class="month-progress-header">
-                            <span class="month-progress-label">&#10003; March</span>
-                            <span class="month-progress-hours complete">83/80 hours &#10003;</span>
-                        </div>
-                        <div class="month-progress-bar complete">
-                            <div class="month-progress-bar-fill" data-target-width="100" style="width: 0%;"></div>
-                        </div>
+    <div class="hub-split">
+        <!-- Left sidebar -->
+        <div class="hub-split-sidebar">
+            <h1>You're ready to review and submit your report</h1>
+            <p style="font-size: 16px; color: #565c65; margin-bottom: 32px;">Your state will determine your eligibility based on the activities you've added to your report.</p>
+
+            <div class="hub-progress-card">
+                <h3>1/1 months completed</h3>
+                <div class="hub-progress-month">
+                    <div class="hub-progress-bar-track complete">
+                        <div class="hub-progress-bar-value complete" data-target-width="100" style="width: 0%;"></div>
+                    </div>
+                    <div class="hub-progress-label-row">
+                        <span class="month-name">&#10003; March</span>
+                        <span class="month-hours"><span class="current complete">83</span> / <strong>80 hours</strong></span>
                     </div>
                 </div>
             </div>
 
-            <hr class="section-divider">
+            <button class="usa-button" style="width: 100%;" onclick="goTo('alex-emmy-submit')">Review and submit</button>
+        </div>
 
-            <!-- Education section (complete) -->
-            <div class="category-section">
-                <div class="category-header">
-                    <h2 class="category-title">Education</h2>
-                </div>
-                <div class="activity-card">
-                    <div class="activity-card-header">
-                        <span class="activity-card-name">State University</span>
-                        <button class="activity-card-link">Edit</button>
-                    </div>
-                    <div class="activity-card-body">
-                        <div class="activity-month-row">
-                            <span class="activity-month-label">March</span>
-                            <span class="activity-month-value">9 credit hrs &middot; 36 CE hrs</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="hub-split-divider"></div>
 
-            <!-- Employment section (empty) -->
-            <div class="category-section">
-                <div class="category-header">
-                    <h2 class="category-title">Employment</h2>
-                    <button class="category-add-btn">+ Add</button>
-                </div>
-                <div class="category-empty">No employment added</div>
-            </div>
+        <!-- Right: activity sections -->
+        <div class="hub-split-main">
 
-            <!-- Community service section (complete) -->
-            <div class="category-section">
-                <div class="category-header">
-                    <h2 class="category-title">Community service</h2>
+            <!-- Education (filled) -->
+            <div class="hub-activity-section">
+                <div class="hub-activity-header">
+                    <h2>Education</h2>
+                    <button class="hub-add-btn">+ Add</button>
                 </div>
-                <div class="activity-card">
-                    <div class="activity-card-header">
-                        <span class="activity-card-name">Westbrook community garden</span>
-                        <button class="activity-card-link">Edit</button>
+                <div class="hub-edu-filled-card">
+                    <div class="hub-edu-filled-header">
+                        <h3>State University</h3>
+                        <a>Edit</a>
                     </div>
-                    <div class="activity-card-body">
-                        <div class="activity-month-row">
-                            <span class="activity-month-label">March</span>
-                            <span class="activity-month-value">47 CE hrs</span>
+                    <div class="hub-edu-month-row">
+                        <div class="hub-edu-month-name">March</div>
+                        <div class="hub-edu-month-details">
+                            <span><span class="detail-label">Enrollment:</span> <span class="detail-value">Less than half-time</span></span>
+                            <span><span class="detail-label">Credit hours:</span> <span class="detail-value">9</span></span>
+                            <span><span class="detail-label">Community engagement hours:</span> <span class="detail-value">36</span></span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Work programs section (empty) -->
-            <div class="category-section">
-                <div class="category-header">
-                    <h2 class="category-title">Work programs</h2>
-                    <button class="category-add-btn">+ Add</button>
+            <!-- Employment (empty) -->
+            <div class="hub-activity-section">
+                <div class="hub-activity-header">
+                    <h2>Employment</h2>
+                    <button class="hub-add-btn">+ Add</button>
                 </div>
-                <div class="category-empty">No work programs added</div>
+                <div class="hub-empty-card">
+                    <p>No employment added</p>
+                </div>
             </div>
 
-            <button class="usa-button emmy-action-btn" onclick="goTo('alex-emmy-submit')">Review and submit</button>
+            <!-- Community service (filled) -->
+            <div class="hub-activity-section">
+                <div class="hub-activity-header">
+                    <h2>Community service</h2>
+                    <button class="hub-add-btn">+ Add</button>
+                </div>
+                <div class="hub-edu-filled-card">
+                    <div class="hub-edu-filled-header">
+                        <h3>Westbrook community garden</h3>
+                        <a>Edit</a>
+                    </div>
+                    <div class="hub-edu-month-row">
+                        <div class="hub-edu-month-name">March</div>
+                        <div class="hub-edu-month-details">
+                            <span><span class="detail-label">Community engagement hours:</span> <span class="detail-value">47</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Work programs (empty) -->
+            <div class="hub-activity-section">
+                <div class="hub-activity-header">
+                    <h2>Work programs</h2>
+                    <button class="hub-add-btn">+ Add</button>
+                </div>
+                <div class="hub-empty-card">
+                    <p>No work programs added</p>
+                </div>
+            </div>
+
         </div>
     </div>
+
     <div class="site-footer"><div class="site-footer-inner"><div><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div><button class="site-footer-feedback">&#128172; Share feedback</button></div></div>
     <div class="flow-nav">
         <button class="flow-nav-btn" onclick="goTo('alex-cs-review')">&larr; Back</button>
@@ -5616,6 +5620,12 @@
         screen.querySelectorAll('input[data-fill]').forEach(input => {
             input.value = input.dataset.fill;
             input.setAttribute('readonly', '');
+        });
+
+        // Fill selects
+        screen.querySelectorAll('select[data-fill]').forEach(sel => {
+            sel.value = sel.dataset.fill;
+            sel.setAttribute('disabled', '');
         });
 
         // Fill textareas
