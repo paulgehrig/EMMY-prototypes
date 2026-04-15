@@ -1,6 +1,42 @@
 # Emmy Demo Scenarios
 
-**Last updated:** April 14, 2026
+**Last updated:** April 14, 2026 (all 10 design system audit items complete; December date bug resolved)
+
+---
+
+## Pick-up notes (for resuming work)
+
+**Active file:** `/Users/paul/Documents/HR1 CE Reqs/Emmy-demo/demo-TEST.html` — single self-contained HTML file containing both scenarios + home page. All assets (Alex + Cara profile portraits) are embedded as base64.
+
+**Published demo:** https://paulgehrig.github.io/PG-prototypes/prototypes/demo/demo-TEST.html (via `paulgehrig/PG-prototypes` repo at `/tmp/PG-prototypes/prototypes/demo/demo-TEST.html`)
+
+**This outline:** `/Users/paul/Documents/HR1 CE Reqs/Emmy-demo/demo-outline.md` — authoritative spec. Also mirrored in the PG-prototypes repo.
+
+**Production reference:** https://github.com/DSACMS/iv-cbv-payroll (the CBV Rails app). Emmy screens should mirror this repo's styling, components, colors, and spacing as closely as possible.
+
+**Demo scenarios in the file:**
+1. **Scenario 1 — Alex Smith** — self-employment verification (can't be auto-verified, uploads docs through Emmy)
+2. **Scenario 2 — Avery Johnson** — education + community service (enrolled less than half-time, adds community service to meet threshold)
+
+**Design system audit work-in-progress (10 items):**
+1. ✅ Header restructure (preheader removed, 880px, logo removed)
+2. Skipped — Activity flow header on spoke screens
+3. ✅ Footer — 880px dark navy, two-line branding, no feedback button
+4. ✅ Activity Hub card treatment (partial + complete hubs use USWDS `usa-card`; prepop/Alex keep special-state cards)
+5. ✅ Progress indicator colors aligned (success-dark `#00a91c`, success-lighter `#ecf3ec`)
+6. ✅ Review tables aligned (`#e1f3f8` headers, auto-bold first column)
+7. ✅ Success screen uses `.usa-icon-list` pattern
+8. ✅ Typography scale (h1 36px → 28px mobile, h2 28px, h3 22px, h4 19px)
+9. ✅ USWDS form classes on Emmy spokes (`avery-edu-credits`, `avery-cs-org`, `avery-cs-july`)
+10. ✅ "Additional comments" textareas on review screens — USWDS form classes applied (`usa-form-group`, `usa-label`, `usa-hint`, `usa-textarea`) on `avery-edu-review` and `avery-cs-review`
+
+**Other recent work (all landed):**
+- Interstitial pages have peach gradient background + white card + profile portraits (Alex, Cara) + blue CTA button
+- Wireframe alert banners use monospace font with warning icons and consistent "Example ..." / "Simulated ..." labels
+- Gmail wrapper around the email notification screens with a co-branded email card (state + Emmy); body copy comes from the caseworker's typed message
+- Backend data checks restructured to 4 sections: Identity, Exemptions, Household Income, Education (SWICA renamed "State quarterly wage data", The Work Number removed, FAFSA removed, education treated as independent section)
+- Caseworker case review standardized: checkbox list ("Education enrollment details", "Proof of income", "Additional community engagement hours"), typing animation on the message textarea, interactive "Send Emmy Link" button
+- Email signature uses "Thank you, State Medicaid Agency" — no individual caseworker name (central inbox pattern)
 
 ---
 
@@ -21,13 +57,16 @@ The contrast should be immediately obvious. When a viewer sees color and USWDS c
 
 At every transition between actors or systems, a full-page interstitial introduces the next phase. Format:
 
-- **Actor avatar** (centered, top) -- colored circle with initial for people, gear emoji for systems
-- **Phase title** -- large heading, e.g., "Avery submits her Medicaid application"
-- **Perspective label** -- who is acting, e.g., "State Medicaid Portal"
-- **Description** -- grey left-bordered card on grey background, 1-2 neutral sentences describing what happens next without revealing outcomes or prescribing what the state does with the information
+**Visual treatment:**
+- **Background:** Warm peach gradient (linear-gradient from #fef3e8 to #fde7c9)
+- **White card:** Centered, rounded corners (12px), shadow, max-width 700px -- contains all content below
+- **Actor avatar** (centered, top) -- illustrated profile portrait with blue ring border (#005ea2, 4px) for people; grey circle with gear emoji for system/backend screens. Profile images for Alex Smith and Cara Martinez are embedded as base64 PNGs.
+- **Phase title** -- large heading (32px, bold), e.g., "Avery submits her Medicaid application"
+- **Perspective label** -- smaller text (16px, #565c65), e.g., "State Medicaid Portal"
+- **Description** -- light blue-grey card (#f0f4f8) with blue left border (#005ea2), centered text, 1-2 neutral sentences describing what happens next without revealing outcomes
 - **"In this phase, you'll see:"** -- 2-3 bullet list of what the next screens show
-- **Visual treatment note** (yellow callout) -- when the visual mode changes, explain why (e.g., "These screens use wireframe styling to indicate they are part of the state's Medicaid portal, not Emmy.")
-- **Action button** (grey, not blue) to proceed (e.g., "Begin Application >", "Continue >")
+- **Visual treatment note** (yellow callout) -- when the visual mode changes, explain why
+- **Action button** -- blue (#005ea2), rounded (6px), centered, with arrow chevron
 
 Interstitials are how the demo self-narrates. The viewer should never be confused about who changed, what system they're in, or why.
 
@@ -53,21 +92,40 @@ Interstitials are how the demo self-narrates. The viewer should never be confuse
 - Phase 4 (Emmy) title in blue; all others in gray
 
 **Emmy header** (Emmy screens only):
-- Gov banner: "An official website of the United States government"
-- Brand: "Emmy | Eligibility Made Easy" + "State" label
-- Links: "Help", "Espanol"
+Two stacked bands, constrained to the same 880px content width as the page body:
+1. **Gov banner** (federal): "An official website of the United States government" with US flag emoji
+2. **Main header** (white, 1px bottom border):
+   - Left: two-line title
+     - Primary title (22px, bold): "Emmy | Eligibility Made Easy"
+     - Subtitle (14px, regular): "State Medicaid Agency"
+   - Right: "Help", "Español" links (blue underlined)
 
 **Site footer** (Emmy screens only):
-- Emmy branding + "Share feedback" button with chat icon
+- Dark navy (#162e51) band, constrained to same 880px content width as the header
+- Two-line branding (left-aligned):
+  - Line 1 (22px, bold): "Emmy"
+  - Line 2 (14px, regular): "Eligibility Made Easy"
 
 **Wireframe alert banner** (non-Emmy screens only):
-- Light orange/tan bar at top of content area
-- Labels the context (e.g., "Example online Medicaid application", "Caseworker eligibility portal")
+- Yellow bar (#faf3d1) with warning icon (&#9888;), sticky below config header
+- Monospace font, 15px, semibold, centered text
+- Labels each screen's context to make clear it is not part of Emmy:
+  - State application screens: "Example State Medicaid Application"
+  - Backend verification screens: "Simulated State Backend Eligibility Checks"
+  - Caseworker screens: "Example Caseworker Eligibility Portal"
+  - Email screens: "Example Email Notification"
+  - Determination screens: "Example Eligibility Determination"
 
 **Flow navigation** (all screens):
 - Bottom bar with Back / Next buttons
 - Center label (optional)
+- Fixed to the bottom of the viewport (sticky bottom with margin-top: auto)
 - Independent of stepper -- allows sequential screen-by-screen navigation
+
+**Screen layout:**
+- Every screen fills the full viewport height (min-height: 100vh, flexbox column)
+- Main content area grows to fill available space between header elements and the flow nav
+- Flow nav is always pinned to the bottom, even when content is short
 
 ### Shared narrative structure
 
@@ -125,6 +183,157 @@ The state Medicaid application uses the same 5-step sequence across all scenario
 | 5 | Review & Submit | Summary of all sections, certification checkbox, submit button |
 
 Click-to-fill behavior: clicking anywhere on the screen fills all fields with scenario-appropriate values. Each scenario defines which radio buttons auto-select to Yes vs No based on its narrative.
+
+Yes/No radio options are always ordered **Yes first, No second** for consistency across all screens.
+
+### Emmy product UI design system
+
+Emmy screens aim to look as close as possible to the production product at **https://github.com/DSACMS/iv-cbv-payroll** (the consent-based verification Rails app). When in doubt, mirror what that repo does.
+
+**Reference files in the production repo:**
+- `app/app/assets/stylesheets/uswds-settings.scss` — USWDS theme tokens
+- `app/app/assets/stylesheets/uswds-overrides.scss` — global overrides
+- `app/app/assets/stylesheets/activity_hub.scss` — activity hub layout
+- `app/app/assets/stylesheets/cbv.scss` — header, footer, tables, success page
+- `app/app/components/activity_flow_progress_indicator/` — progress indicator component
+- `app/app/views/activities/activities/index.html.erb` — hub markup
+
+**Color tokens** (use these hex values, not arbitrary colors):
+
+| Token | Hex | Usage |
+|-------|-----|-------|
+| primary | #005ea2 | Primary buttons, links, header title, gov banner |
+| primary-vivid | #0050d8 | Progress bar fill + border, progress number in progress |
+| primary-lighter | #d9e8f6 | Progress bar track, success icon circle background |
+| primary-darker | #162e51 | Gov banner background, footer background |
+| success-dark | #00a91c | Complete progress state (bar, border, number, checkmark) |
+| success-lighter | #ecf3ec | Complete progress bar track background, success icon backgrounds |
+| blue-cool-5 | #e1f3f8 | Table header row backgrounds, subheader rows |
+| ink | #1b1b1b | Body text, table borders |
+| base (gray) | #565c65 | Subtitles, hints, secondary text |
+| base-lighter | #dfe1e2 | Card borders, subtle dividers |
+| faf3d1 | #faf3d1 | Wireframe alert banner, inline card alerts |
+
+**Typography scale** (Emmy screens — `.emmy-page-content`):
+
+| Level | Desktop | Mobile (<640px) | USWDS token (reference) |
+|-------|---------|-----------------|-------------------------|
+| h1 | 36px | 28px | "xl" |
+| h2 | 28px | 24px | size 10 |
+| h3 | 22px | 19px | size 8 |
+| h4 | 19px | 19px | size 7 |
+
+Line height 1.2 for headings. Body paragraphs use 16px, line height 1.62.
+
+**Progress indicator** (activity hub sidebar + review screen banner):
+- Track: `#d9e8f6` background with `#0050d8` 1px border, 4px radius, 19px tall
+- Fill (in progress): `#0050d8` solid
+- Fill (complete): `#00a91c`
+- Complete track: `#ecf3ec` background with `#00a91c` border
+- Current-hours number: `#0050d8` in progress, `#00a91c` complete
+- Complete checkmark icons (next to "March" on complete hub, in complete banner on review): `#00a91c`
+
+**Review tables** (`.emmy-review-table` — based on production `.cbv-table`):
+- max-width: 44rem (704px)
+- 1px ink border
+- `<thead th>` background: `#e1f3f8` (blue-cool-5), 10px vertical padding
+- tbody tr td:first-child is auto-bold (`font-weight: 700`)
+- `<tr.subheader-row>` variant with blue-cool-5 background + bold text
+- Edit link button: `.edit-link` — `#005ea2` underlined, bold
+
+**USWDS forms** (Emmy spoke inputs):
+- `.usa-form` wrapper (optional `--large` for 640px max-width)
+- `.usa-form-group` per field (24px bottom margin)
+- `.usa-label` — bold 16px Public Sans, block, 8px margin below
+- `.usa-hint` — 16px gray `#71767a`, sits between label and input
+- `.usa-input` / `.usa-select` / `.usa-textarea` — 40px height, 1px `#565c65` border, 16px font, focus outline `#2491ff`
+- `.usa-input--small` (7rem max) for credit hours / hours
+- `.usa-input--medium` (15rem max) for zip codes
+- Every input has matching `id` ↔ `for` label association
+
+**Success screen** (`.usa-icon-list` pattern):
+- `<ul class="usa-icon-list">` with `<li class="usa-icon-list__item">` items
+- Icon: 48px pill (`#d9e8f6` primary-lighter bg, `#005ea2` primary-vivid SVG fill)
+- Content: h3 (20px bold) + paragraph + button, stacked with proper spacing
+
+### Activity Hub card treatment (Emmy screens)
+
+The Activity Hub uses two distinct card treatments, and the choice depends on the state of the activity. **Do not conflate them.**
+
+**Pattern A — Standard USWDS card (production default).** Use this for filled activities that are ready as-reported and do not require applicant attention. This is the pattern used in production's iv-cbv-payroll and is the default for any activity a user has already supplied data for.
+
+Structure:
+- `<section class="activity-hub-section">` wrapper
+- Section header: activity title (h2) + outline "+ Add" button (`.activity-hub-add-btn`)
+- `<div class="usa-card activity-hub-card">` with `.usa-card__container`
+  - `.usa-card__header` — flex row with `h3.usa-card__heading` + `a.usa-link` ("Edit")
+  - 2px base-lighter bottom border on the header
+  - `.usa-card__body` — no horizontal padding on the container; body has `padding: 0 20px`
+- `.activity-month-details` inside the body — 172px fixed "Month" label (bold) on the left, flex data column on the right with stacked `<p class="margin-y-0">` lines
+
+Applied to:
+- `avery-emmy-hub-partial` (Education card)
+- `avery-emmy-hub-complete` (Education + Community service cards)
+
+**Pattern B — Special-state card.** Use this when an activity is pre-populated from the application and requires applicant attention (upload required, credit hours needed, discrepancy). The card visually carries an inline alert or badge that draws the eye.
+
+Examples:
+- `alex-emmy-hub` — pre-populated employment with an inline "Upload required" yellow alert inside the card, describing the documentation needed
+- `avery-emmy-hub-prepop` — pre-populated education with a "Needs Information" warning tag and a "Credit hours: Needs Information" row inside the card
+
+Pattern B uses the legacy `.hub-edu-filled-card` / `.hub-edu-month-row` markup with scenario-specific inline alert/badge styling. It is intentionally visually distinct from Pattern A so applicants immediately recognize "this one needs me to do something" vs "this one is already accepted."
+
+**Empty-state card** (both patterns): a light grey card (`.activity-hub-empty-state` or `.hub-empty-card`) with a single line like "No employment added." Used in any section where no data has been provided.
+
+### Caseworker request pattern (all scenarios)
+
+Every scenario's "Case review and request" screen (`{prefix}-cw-case`) uses the same "Request additional documentation" form:
+
+**Standardized checkbox list** (same options across scenarios):
+- Education enrollment details
+- Proof of income
+- Additional community engagement hours
+
+Each scenario pre-checks only the options relevant to its narrative:
+- Scenario 1 (Alex): Proof of income
+- Scenario 2 (Avery): Education enrollment details + Additional community engagement hours
+
+**Message to applicant textarea:**
+- Populated via **typing animation** (character-by-character) when the screen is filled, as if the caseworker is composing the message in real time.
+- Typing speed: ~18ms/character, with a small pause on line breaks.
+- Message content is scenario-specific and matches exactly what appears in the email the applicant receives next.
+
+**Send button interaction:**
+- The "Send Emmy Link to {Name}" button is **interactive**, not pre-sent. The caseworker must click it to send.
+- On click: button text changes to "Request Sent", button is disabled, and a confirmation note appears below ("A link to Emmy has been sent to the applicant at {email}.").
+- Returning to the screen resets the button state and clears the textarea.
+
+### Email notification pattern (all scenarios)
+
+Every scenario includes an email notification screen at the start of Phase 4 (Emmy). The screen shows the applicant viewing the email in their inbox:
+
+- **Gmail wrapper:** Top bar with Gmail logo and search, left sidebar with Inbox/Starred/Sent/Drafts, toolbar above the message. Strictly visual -- not interactive.
+- **Co-branded email card:** Header gradient from navy (#162e51) to state blue (#005ea2), with "State Medicaid Agency" on the left and "Emmy | Eligibility Made Easy" on the right, separated by a thin vertical divider.
+- **Subject line:** Appears in the Gmail subject area with an "Inbox" label.
+- **Email body copy:** Comes directly from the caseworker's message on the case review screen. This keeps the two screens consistent and shows the applicant is reading exactly what the caseworker wrote.
+- **CTA card:** Light blue (#f0f7ff) bordered card with a "Verify with Emmy" button that leads to the Emmy welcome screen.
+- **Signature:** Simply "Thank you, State Medicaid Agency." No caseworker name -- notices are sent from a central inbox, not individually by each caseworker.
+- **Meta footer:** Case reference number, 30-day deadline, phone number for questions.
+
+### Backend data checks structure (all scenarios)
+
+The automated verification screen uses the same 4-section structure across all scenarios:
+
+| Section | Content | Data sources |
+|---------|---------|-------------|
+| 1. Identity | DMV Records, Address Verification | Always verified |
+| 2. Exemptions | VA/Disability, Pregnancy/Caregiving, Medical Frailty/SUD, Age | Scenario-appropriate age; other exemption records usually "No record" |
+| 3. Household Income | State quarterly wage data | Single check; result varies by scenario |
+| 4. Education | National Student Clearinghouse | Single check; result varies by scenario |
+
+Each section reveals with a staggered animation (spinner → checks load one by one → status badge appears). The final alert card describes what needs follow-up.
+
+**Tone for alerts:** Describe what the state can't confirm, not a "discrepancy" between what the applicant said and what the data shows. The applicant is not attesting to a specific enrollment level or hours — they're attesting to whether they're a student, working, etc.
 
 ### CE hours calculation
 
@@ -334,15 +543,24 @@ Success confirmation:
 
 #### Screen 4: Automated verification (`alex-data-checks`)
 
-**Visual mode:** Wireframe
+**Visual mode:** Wireframe (narrator treatment)
 
-Animated verification checks (staggered reveal):
+Animated verification checks (staggered reveal), grouped into 4 sections:
 
-1. **Identity verification** -- Verified via DMV records (checkmark)
-2. **Residence verification** -- State residency confirmed (checkmark)
-3. **Employment/income verification** -- Unable to verify. Self-employment hours can't be confirmed through Quarterly Wage Data. Requires manual documentation. (X)
+1. **Identity** -- Verified
+   - DMV Records: Identity confirmed (checkmark)
+   - Address Verification: State residency confirmed (checkmark)
+2. **Exemptions** -- None Apply
+   - VA / Disability: No record
+   - Pregnancy / Caregiving: No record
+   - Medical Frailty / SUD: No record
+   - Age: Age 33 (N/A)
+3. **Household Income** -- Action Needed
+   - State quarterly wage data: No records found -- self-employment not captured (X)
+4. **Education** -- Not a Student
+   - National Student Clearinghouse: No enrollment records (N/A)
 
-Summary: 2 of 3 checks passed. Application routed to caseworker queue.
+Alert: "Self-employment cannot be confirmed automatically. More information is required to determine Medicaid eligibility."
 
 ---
 
@@ -378,18 +596,17 @@ Alert: "Application MC-2026-04-0002 requires follow-up. Self-employment verifica
 
 ---
 
-#### Screen 6: Caseworker request for information (`alex-cw-case`)
+#### Screen 6: Caseworker case review and request (`alex-cw-case`)
 
 **Visual mode:** Wireframe
 
-Two-column layout:
-- **Left:** Applicant info (Alex Smith, DOB March 22, 1995, email, phone)
-- **Right:** Application status -- self-employment verification failed, CE requirement attested (80 hrs/month, meets if verified)
+Case detail view for MC-2026-04-0002. Case Details table showing all four application sections (Your Information, Income, Education, Community Engagement) with their verification statuses.
 
-**Request via Emmy** section:
-- Pre-composed message asking Alex for self-employment documentation (invoices, contracts, work logs)
-- "Send Emmy Link to Alex" button
-- Success confirmation: "Emmy link sent successfully!"
+**Request additional documentation** section:
+- Standardized checkbox list -- "Education enrollment details", "Proof of income", "Additional community engagement hours"
+- Pre-checked for Alex: **Proof of income** only
+- Message to applicant textarea, populated via typing animation when the caseworker "composes" the message
+- "Send Emmy Link to Alex" button -- interactive. Click to send. After sending, button shows "Request Sent" and a note appears: "A link to Emmy has been sent to the applicant at alex.smith@example.com."
 
 ---
 
@@ -411,13 +628,17 @@ Two-column layout:
 
 #### Screen 7: Email -- Documentation request (`alex-email`)
 
-**Visual mode:** Wireframe (email chrome)
+**Visual mode:** Wireframe (shown inside a Gmail inbox UI)
 
-From: State Department of Health and Human Services
-Subject: Action needed -- verify your self-employment for Medicaid
-Body: We need documentation to confirm your self-employment hours. Prominent "Verify with Emmy" button. 30-day deadline. Phone number for questions.
+Shown as a viewed message in a mock Gmail interface (top bar with Gmail logo + search, left sidebar with Inbox/Starred/Sent, toolbar above the email).
 
-> **Callout:** The email bridges state systems and Emmy. Same pattern as scenario 2.
+The email itself is a co-branded card:
+- **Header:** Gradient from navy to state blue, showing "State Medicaid Agency / Department of Health and Human Services" on the left and "Emmy / Eligibility Made Easy" on the right
+- **Subject:** "Action needed: verify your self-employment for Medicaid"
+- **Body:** The caseworker's message from the case review screen -- "Hello Alex, We received your Medicaid application. To make a decision, we need documentation about your self-employment. Please use the secure link below to provide documents that show your self-employment hours (such as invoices, contracts, or work logs)."
+- **CTA card:** Light blue background with "Verify with Emmy" button
+- **Signature:** "Thank you, State Medicaid Agency" (no individual caseworker name — sent from central inbox)
+- **Meta:** Case reference, 30-day deadline, phone number
 
 ---
 
@@ -714,14 +935,22 @@ Step 5 of 5 -- "Review and submit." Summary: personal info, income (no income re
 
 **Visual mode:** Wireframe (narrator treatment)
 
-Vertical checklist with status indicators:
+Animated verification checks (staggered reveal), grouped into 4 sections:
 
-1. **Income eligibility** -- Confirmed below threshold (checkmark)
-2. **CE exemption screening** -- No exemptions apply (dash)
-3. **Education enrollment** -- State University, less than half-time. Does not satisfy education path. (warning)
-4. **CE hours/income** -- Cannot auto-confirm community service hours. No income data for $580/month path. (X)
+1. **Identity** -- Verified
+   - DMV Records: Identity confirmed (checkmark)
+   - Address Verification: State residency confirmed (checkmark)
+2. **Exemptions** -- None Apply
+   - VA / Disability: No record
+   - Pregnancy / Caregiving: No record
+   - Medical Frailty / SUD: No record
+   - Age: Age 22 (N/A)
+3. **Household Income** -- Eligible
+   - State quarterly wage data: No wage records (matches attestation) (checkmark)
+4. **Education** -- More Info Needed
+   - National Student Clearinghouse: State University -- less than half-time (warning)
 
-Result: "CE cannot be confirmed automatically. Caseworker review needed."
+Alert: "Enrollment is less than half-time. More information is required to determine Medicaid eligibility."
 
 > **Callout:** This establishes why Emmy activates: education was found but isn't sufficient on its own, and volunteering has no electronic data source.
 
@@ -754,14 +983,13 @@ Caseworker portal header: "Caseworker: Cara Martinez". Table of pending cases sh
 
 **Visual mode:** Wireframe
 
-Case detail view. Summary:
-- Application ID: MC-2026-4872
-- Applicant: Avery Johnson
-- Income: $0/month (verified)
-- CE status: Education enrolled -- half-time attested, NSC shows below half-time. Community service unverified.
-- Action: Documentation request with pre-filled message explaining the enrollment discrepancy
+Case detail view for MC-2026-4872. Case Details table showing all four application sections (Your Information, Income, Education, Community Engagement) with their verification statuses.
 
-"Send request via Emmy" button (shown as completed).
+**Request additional documentation** section:
+- Same standardized checkbox list -- "Education enrollment details", "Proof of income", "Additional community engagement hours"
+- Pre-checked for Avery: **Education enrollment details** and **Additional community engagement hours**
+- Message to applicant textarea, populated via typing animation
+- "Send Emmy Link to Avery" button -- interactive. Click to send. After sending, button shows "Request Sent" and a note appears: "A link to Emmy has been sent to the applicant at avery.johnson@example.com."
 
 ---
 
@@ -785,13 +1013,14 @@ Case detail view. Summary:
 
 #### Screen 9: Email -- Documentation request (`avery-email`)
 
-**Visual mode:** Wireframe (email chrome)
+**Visual mode:** Wireframe (shown inside a Gmail inbox UI)
 
-From: State Department of Health and Human Services
-Subject: Action needed on your Medicaid application
-Body: Enrollment at State University may be below half-time. Need to verify credit hours and provide documentation. May also add other qualifying activities. Prominent "Verify with Emmy" button. 30-day deadline. Phone number for questions.
+Same Gmail wrapper and co-branded email card as scenario 1. The email body uses the exact caseworker message from the case review screen:
 
-> **Callout:** The email bridges state systems and Emmy. The Emmy link is the key element.
+- **Subject:** "Action needed: verify your enrollment for Medicaid"
+- **Body:** "Hello Avery, Our records show you may be enrolled less than half-time at State University. Please provide your credit hours and any documentation to verify enrollment. You may also add other qualifying activities."
+- **CTA card:** "Verify with Emmy" button
+- **Signature:** "Thank you, State Medicaid Agency" (no individual caseworker name — sent from central inbox)
 
 ---
 
@@ -1082,4 +1311,4 @@ Avery's mobile view: Determination notice -- "Your Medicaid application has been
 | Income | $0/month | Screen 2 |
 | Application/submission date | April 1, 2026 | Screen 4 |
 
-> **Needs fix in prototype:** The current HTML prototype uses "December 15, 2026" as the submission/email date across 5 locations. This must be updated to early April 2026 to align with the March 2026 reporting period per the timeline rules above.
+> **Fixed:** All caseworker dashboard dates updated to April 2026 — Avery Johnson → April 1, Jordan Davis → March 31, Michael Chen → March 29. Submitted date in `avery-cw-emmy-review` → April 1, 2026.
