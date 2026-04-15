@@ -1003,7 +1003,7 @@ Case detail view for MC-2026-4872. Case Details table showing all four applicati
   - Avery's attestation data carried over from the application
   - Progress tracking showing the gap between reported hours and the 80-hour threshold
   - Avery enters education credit hours and uploads documentation
-  - Avery adds volunteering hours and uploads documentation
+  - Avery adds volunteering hours
   - The progress bar reaches 80 hours
   - Avery reviews and submits the report to the state
 - **Note (yellow):** These screens show Emmy at full fidelity -- this is the product experience.
@@ -1148,19 +1148,7 @@ Monthly hour entry for March 2026:
 
 ---
 
-#### Screen 18: Emmy -- Community service spoke: upload documents (`avery-cs-upload`)
-
-**Visual mode:** Full USWDS
-
-Documents uploaded (completed state):
-- volunteer-log-march.pdf
-- coordinator-letter.pdf
-
-"Save and continue" button.
-
----
-
-#### Screen 19: Emmy -- Community service spoke: review (`avery-cs-review`)
+#### Screen 18: Emmy -- Community service spoke: review (`avery-cs-review`)
 
 **Visual mode:** Full USWDS
 
@@ -1169,11 +1157,11 @@ Review of community service entry:
 - Coordinator: Aaron Keyes
 - March hours: 47
 
-Documents uploaded (2 files listed). "Save and return to Activity Hub" button.
+"Save and return to Activity Hub" button.
 
 ---
 
-#### Screen 20: Emmy -- Activity Hub, requirement met (`avery-emmy-hub-complete`)
+#### Screen 19: Emmy -- Activity Hub, requirement met (`avery-emmy-hub-complete`)
 
 **Visual mode:** Full USWDS
 
@@ -1183,7 +1171,7 @@ Documents uploaded (2 files listed). "Save and return to Activity Hub" button.
 
 **Activities (updated):**
 - **Education** -- 48 hours (4 credits x 12 hrs/credit, State University)
-- **Community service** -- 47 hours (Westbrook community garden, documents uploaded)
+- **Community service** -- 47 hours (Westbrook community garden)
 
 "Review and submit" button (prominent).
 
@@ -1191,7 +1179,7 @@ Documents uploaded (2 files listed). "Save and return to Activity Hub" button.
 
 ---
 
-#### Screen 21: Emmy -- Review and submit (`avery-emmy-submit`)
+#### Screen 20: Emmy -- Review and submit (`avery-emmy-submit`)
 
 **Visual mode:** Full USWDS
 
@@ -1206,13 +1194,12 @@ Page title: "Review and submit your community engagement report."
 **Activity 2: Community service**
 - Organization: Westbrook community garden
 - March: 47 hours
-- 2 documents uploaded
 
 Certification checkbox. "Submit report" button.
 
 ---
 
-#### Screen 22: Emmy -- Submitted (`avery-emmy-success`)
+#### Screen 21: Emmy -- Submitted (`avery-emmy-success`)
 
 **Visual mode:** Full USWDS
 
@@ -1237,7 +1224,7 @@ Confirmation code: MC-2026-4872. "A caseworker will review your report alongside
 
 ---
 
-#### Screen 23: Caseworker receives Emmy report (`avery-cw-emmy-review`)
+#### Screen 22: Caseworker receives Emmy report (`avery-cw-emmy-review`)
 
 **Visual mode:** Wireframe
 
@@ -1248,8 +1235,7 @@ Caseworker portal with case detail. Emmy report card showing:
 - Verification note: Documentation confirms 4 credit hours in Spring 2026, equating to 48 hours of community engagement per month.
 - Institution: State University, Term: Spring 2026, Credit Hours: 4, CE Hours: 48 (4 credits x 12 hours/credit)
 
-**Community service documents** (2 files, received via Emmy):
-- volunteer-log-march.pdf, coordinator-letter.pdf
+**Community service details** (self-attested, no documents):
 - Organization: Westbrook community garden, Supervisor: Aaron Keyes, March: 47 hours
 
 **CE Summary:**
@@ -1262,7 +1248,7 @@ Caseworker portal with case detail. Emmy report card showing:
 
 ---
 
-#### Screen 24: Avery receives determination (`avery-determination`)
+#### Screen 23: Avery receives determination (`avery-determination`)
 
 **Visual mode:** Wireframe (side-by-side caseworker portal + Avery's mobile view)
 
@@ -1279,11 +1265,11 @@ Avery's mobile view: Determination notice -- "Your Medicaid application has been
 | 1. State application | A | 5 | Wireframe |
 | 2. Backend verification | B | 1 | Wireframe |
 | 3. Caseworker + notification | C | 2 | Wireframe |
-| 4. Emmy | D | 13 (email + 12 Emmy) | Email: wireframe; Emmy: full USWDS |
+| 4. Emmy | D | 12 (email + 11 Emmy) | Email: wireframe; Emmy: full USWDS |
 | 5. Determination | E | 2 | Wireframe |
-| **Total** | **5** | **24** | |
+| **Total** | **5** | **23** | |
 
-**29 screens total** (24 content + 5 interstitials). Emmy screens are the majority (13 of 24 content screens).
+**28 screens total** (23 content + 5 interstitials). Emmy screens are the majority (12 of 23 content screens).
 
 ---
 
