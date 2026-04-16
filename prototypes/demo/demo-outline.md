@@ -1,16 +1,16 @@
 # Emmy Demo Scenarios
 
-**Last updated:** April 14, 2026 (all 10 design system audit items complete; December date bug resolved)
+**Last updated:** April 15, 2026 (nav redesign, sentence case pass, email fidelity reduction, auto-advance, accessibility text size audit)
 
 ---
 
 ## Pick-up notes (for resuming work)
 
-**Active file:** `/Users/paul/Documents/HR1 CE Reqs/Emmy-demo/demo-TEST.html` — single self-contained HTML file containing both scenarios + home page. All assets (Alex + Cara profile portraits) are embedded as base64.
+**Active file:** `/Users/paul/Documents/HR1 CE Reqs/Merged demo folder/emmy-e2e-demo.html` — single self-contained HTML file containing both scenarios + home page. All assets (Alex + Cara profile portraits) are embedded as base64.
 
-**Published demo:** https://paulgehrig.github.io/PG-prototypes/prototypes/demo/demo-TEST.html (via `paulgehrig/PG-prototypes` repo at `/tmp/PG-prototypes/prototypes/demo/demo-TEST.html`)
+**Published demo:** https://paulgehrig.github.io/PG-prototypes/prototypes/demo/emmy-e2e-demo.html (via `paulgehrig/PG-prototypes` repo at `/tmp/PG-prototypes/prototypes/demo/emmy-e2e-demo.html`)
 
-**This outline:** `/Users/paul/Documents/HR1 CE Reqs/Emmy-demo/demo-outline.md` — authoritative spec. Also mirrored in the PG-prototypes repo.
+**This outline:** `/Users/paul/Documents/HR1 CE Reqs/Merged demo folder/demo-outline.md` — authoritative spec. Also mirrored in the PG-prototypes repo.
 
 **Production reference:** https://github.com/DSACMS/iv-cbv-payroll (the CBV Rails app). Emmy screens should mirror this repo's styling, components, colors, and spacing as closely as possible.
 
@@ -32,11 +32,21 @@
 
 **Other recent work (all landed):**
 - Interstitial pages have peach gradient background + white card + profile portraits (Alex, Cara) + blue CTA button
-- Wireframe alert banners use monospace font with warning icons and consistent "Example ..." / "Simulated ..." labels
-- Gmail wrapper around the email notification screens with a co-branded email card (state + Emmy); body copy comes from the caseworker's typed message
-- Backend data checks restructured to 4 sections: Identity, Exemptions, Household Income, Education (SWICA renamed "State quarterly wage data", The Work Number removed, FAFSA removed, education treated as independent section)
-- Caseworker case review standardized: checkbox list ("Education enrollment details", "Proof of income", "Additional community engagement hours"), typing animation on the message textarea, interactive "Send Emmy Link" button
+- Wireframe alert banners use monospace font with warning icons and consistent sentence-case labels
+- Gmail wrapper around the email notification screens; email body uses greyscale monospace (matching state wireframe treatment) except the blue CTA card ("Submit your documentation with Emmy" + button) which stays full fidelity
+- Backend data checks restructured to 4 sections: Identity, Exemptions, Household income, Education (SWICA renamed "State quarterly wage data", The Work Number removed, FAFSA removed, education treated as independent section)
+- Caseworker case review standardized: 5-item checkbox list, typing animation on the message textarea, interactive "Send Emmy link" button with 5-second auto-advance after sending
 - Email signature uses "Thank you, State Medicaid Agency" — no individual caseworker name (central inbox pattern)
+- Navigation redesigned: collapsible left sidebar + fixed bottom bar replaces old config header, stepper drawer, and per-screen flow-nav buttons
+- Sentence case applied to all titles, headers, labels, badges, alerts, and navigation elements (proper nouns excepted)
+- Gender-neutral pronouns (they/their) used for all applicants
+- Minimum 14px font size for all content-facing text (uppercase labels and navigation chrome excepted)
+- Submission confirmed screens auto-advance after 5 seconds
+- "Emmy's value" callout on final determination pages — prominent blue-bordered card with 18px body text
+- Home page scenario buttons moved above the service blueprint; blueprint widened to 1400px max-width
+- Scenario 1: "Hours per week" changed to "Hours per month" (80) on application and all downstream references
+- Caseworker dashboard alerts neutralized ("Review needed" instead of "Action required")
+- File renamed from `demo-TEST.html` to `emmy-e2e-demo.html`
 
 ---
 
@@ -78,18 +88,22 @@ Interstitials are how the demo self-narrates. The viewer should never be confuse
 
 ### Shared UI elements
 
-**Config header** (all screens):
-- Sticky dark bar at top (z-index 100, #1b1b1b background)
-- "Back to Home" button -- returns to the service blueprint landing page
-- Scenario label (e.g., "Scenario 1 -- Self-Employment Verification") -- updates when switching scenarios; hidden on the home page
-- Collapsible process stepper toggle -- hidden on the home page
-- "Reset demo" button -- resets to Interstitial A of the current scenario
+**Bottom bar** (all screens):
+- Fixed to the bottom of the viewport (z-index 100, white #f9f9f9 background, 1px top border)
+- Left: filled blue (#005ea2) toggle button with hamburger icon + "Scenario X: Name" + step count (e.g., "3 / 22") -- opens the sidebar
+- Right: outlined blue Back / Next buttons matching USWDS button style
+- On the home page, toggle shows "Emmy Demo" and Back/Next are disabled
+- Arrow keys (left/right) also navigate between screens; Escape closes sidebar
 
-**Process stepper drawer** (all screens):
-- Collapsible panel below config header
-- Phases listed with step-by-step breakdown
-- Current step highlighted blue; visited steps get green dot; unvisited steps gray
-- Phase 4 (Emmy) title in blue; all others in gray
+**Sidebar** (slides from left):
+- White background, 320px wide, overlays content with dark scrim
+- Header with scenario name + close button
+- Scenario 1 / Scenario 2 tab switcher
+- Scenario summary card (blue border, light blue background) with name and description
+- "Journey map" home link at top
+- Phase-grouped screen list with active highlighting (blue background + left border) and click-to-navigate
+- Phases color-coded: grey for state phases, blue for Emmy, green for determination
+- Home and Reset accessible via sidebar
 
 **Emmy header** (Emmy screens only):
 Two stacked bands, constrained to the same 880px content width as the page body:
@@ -107,25 +121,27 @@ Two stacked bands, constrained to the same 880px content width as the page body:
   - Line 2 (14px, regular): "Eligibility Made Easy"
 
 **Wireframe alert banner** (non-Emmy screens only):
-- Yellow bar (#faf3d1) with warning icon (&#9888;), sticky below config header
+- Yellow bar (#faf3d1) with warning icon (&#9888;), sticky at top
 - Monospace font, 15px, semibold, centered text
-- Labels each screen's context to make clear it is not part of Emmy:
+- Labels each screen's context to make clear it is not part of Emmy (sentence case):
   - State application screens: "Example State Medicaid Application"
-  - Backend verification screens: "Simulated State Backend Eligibility Checks"
-  - Caseworker screens: "Example Caseworker Eligibility Portal"
-  - Email screens: "Example Email Notification"
-  - Determination screens: "Example Eligibility Determination"
-
-**Flow navigation** (all screens):
-- Bottom bar with Back / Next buttons
-- Center label (optional)
-- Fixed to the bottom of the viewport (sticky bottom with margin-top: auto)
-- Independent of stepper -- allows sequential screen-by-screen navigation
+  - Backend verification screens: "Simulated state backend eligibility checks"
+  - Caseworker screens: "Example caseworker eligibility portal"
+  - Email screens: "Example email notification"
+  - Determination screens: "Example eligibility determination"
 
 **Screen layout:**
 - Every screen fills the full viewport height (min-height: 100vh, flexbox column)
-- Main content area grows to fill available space between header elements and the flow nav
-- Flow nav is always pinned to the bottom, even when content is short
+- Main content area grows to fill available space between header elements and the bottom bar
+- 60px bottom padding on every screen to prevent the fixed bottom bar from overlapping content
+
+### Text conventions
+
+**Sentence case:** All titles, headings, labels, badges, alerts, button text, and navigation elements use sentence case (only first word capitalized). Exceptions: proper nouns (Emmy, Medicaid, State University, person names), abbreviations (CE, SUD, DMV, NSC), and product branding ("Eligibility Made Easy").
+
+**Gender-neutral pronouns:** All applicants (Alex, Avery) are referred to with they/their/them. No gendered pronouns in any screen content or interstitial text.
+
+**Minimum text size:** 14px for all content-facing text that users read (body text, labels, descriptions, table cells, badges in cards, form labels, alert text, signature text). Exceptions: uppercase UI labels with `text-transform: uppercase`, navigation chrome (sidebar, bottom bar), Gmail wrapper chrome, icon badges, and data check source labels.
 
 ### Shared narrative structure
 
@@ -289,10 +305,12 @@ Pattern B uses the legacy `.hub-edu-filled-card` / `.hub-edu-month-row` markup w
 
 Every scenario's "Case review and request" screen (`{prefix}-cw-case`) uses the same "Request additional documentation" form:
 
-**Standardized checkbox list** (same options across scenarios):
+**Standardized checkbox list** (same 5 options across scenarios):
 - Education enrollment details
 - Proof of income
 - Additional community engagement hours
+- Proof of community service
+- Proof of work program participation
 
 Each scenario pre-checks only the options relevant to its narrative:
 - Scenario 1 (Alex): Proof of income
@@ -304,21 +322,22 @@ Each scenario pre-checks only the options relevant to its narrative:
 - Message content is scenario-specific and matches exactly what appears in the email the applicant receives next.
 
 **Send button interaction:**
-- The "Send Emmy Link to {Name}" button is **interactive**, not pre-sent. The caseworker must click it to send.
-- On click: button text changes to "Request Sent", button is disabled, and a confirmation note appears below ("A link to Emmy has been sent to the applicant at {email}.").
+- The "Send Emmy link to {Name}" button is **interactive**, not pre-sent. The caseworker must click it to send.
+- On click: button text changes to "Request sent", button is disabled, and a confirmation note appears below ("A link to Emmy has been sent to the applicant at {email}.").
+- **Auto-advance:** 5 seconds after sending, the screen automatically advances to the next screen.
 - Returning to the screen resets the button state and clears the textarea.
 
 ### Email notification pattern (all scenarios)
 
 Every scenario includes an email notification screen at the start of Phase 4 (Emmy). The screen shows the applicant viewing the email in their inbox:
 
-- **Gmail wrapper:** Top bar with Gmail logo and search, left sidebar with Inbox/Starred/Sent/Drafts, toolbar above the message. Strictly visual -- not interactive.
-- **Co-branded email card:** Header gradient from navy (#162e51) to state blue (#005ea2), with "State Medicaid Agency" on the left and "Emmy | Eligibility Made Easy" on the right, separated by a thin vertical divider.
+- **Gmail wrapper:** Top bar with Gmail logo and search, left sidebar with Inbox/Starred/Sent/Drafts, toolbar above the message. Strictly visual -- not interactive. Full fidelity (this is the applicant's real inbox).
+- **Co-branded email card:** Grey header (#3d4551) with monospace font, "State Medicaid Agency" on the left and "Emmy / Eligibility Made Easy" on the right. Uses the same greyscale wireframe treatment as other state system screens to signal this is not Emmy.
 - **Subject line:** Appears in the Gmail subject area with an "Inbox" label.
-- **Email body copy:** Comes directly from the caseworker's message on the case review screen. This keeps the two screens consistent and shows the applicant is reading exactly what the caseworker wrote.
-- **CTA card:** Light blue (#f0f7ff) bordered card with a "Verify with Emmy" button that leads to the Emmy welcome screen.
-- **Signature:** Simply "Thank you, State Medicaid Agency." No caseworker name -- notices are sent from a central inbox, not individually by each caseworker.
-- **Meta footer:** Case reference number, 30-day deadline, phone number for questions.
+- **Email body copy:** Monospace font, greyscale. Comes directly from the caseworker's message on the case review screen. This keeps the two screens consistent and shows the applicant is reading exactly what the caseworker wrote.
+- **CTA card:** Light blue (#f0f7ff) bordered card with a "Verify with Emmy" button -- this is the only full-fidelity element in the email body, signaling the transition to Emmy.
+- **Signature:** Monospace, greyscale. "Thank you, State Medicaid Agency." No caseworker name -- notices are sent from a central inbox.
+- **Meta footer:** Monospace, greyscale. Case reference number, 30-day deadline, phone number for questions.
 
 ### Backend data checks structure (all scenarios)
 
@@ -401,9 +420,18 @@ The landing page for the entire demo. Not part of any scenario -- it sits above 
 
 **Layout:**
 
-Header bar with "Emmy Demo" branding (same config header used throughout, but with no scenario label or stepper toggle shown on this page).
+Blue gradient header with "Emmy Demo" badge, "Medicaid eligibility process" title, and subtitle.
 
-**Service blueprint diagram** showing the overall Medicaid eligibility process as a horizontal swimlane chart with three rows:
+**Scenario launch buttons** (between header and blueprint):
+
+Two prominent blue buttons positioned above the blueprint diagram:
+
+- **Scenario 1: Doc upload**
+- **Scenario 2: CE flow**
+
+Each button navigates to that scenario's details page.
+
+**Service blueprint diagram** (max-width 1400px) showing the overall Medicaid eligibility process as a horizontal swimlane chart with three rows:
 
 | Row | Label | Color |
 |-----|-------|-------|
@@ -411,23 +439,11 @@ Header bar with "Emmy Demo" branding (same config header used throughout, but wi
 | Caseworker / State | What the state system and caseworker do | Gray |
 | Emmy | Where Emmy fits in the process | Blue |
 
-Columns represent the 5 process steps: Application, Data checks, Request info (if not auto-verified), Review (if not auto-verified), Decision.
+Columns represent the 5 process steps: Application, Data checks, Request info (if not auto-verified), Review (if not auto-verified), Decision. Each card has an inline icon + title on one line with a description below.
 
 The diagram communicates that Emmy only activates when the state can't auto-verify -- it fills the gap between automated systems and manual documentation.
 
-**Scenario launch buttons** (below the blueprint):
-
-Two prominent buttons, each with a short description:
-
-- **Scenario 1: Self-Employment Verification**
-  "Alex attests to 80 hours/month of self-employment. The state can't auto-verify, so Alex uploads documentation through Emmy."
-
-- **Scenario 2: Education + Community Service**
-  "Avery is enrolled below half-time. Emmy helps Avery document credit hours, add community service, and submit a complete report."
-
-Each button navigates to that scenario's Interstitial A.
-
-**Footer note:** "This is a demonstration prototype. Wireframe screens represent state systems that vary by implementation. Emmy screens show the product at full fidelity."
+**Footer note:** "This demo focuses on how the Emmy App fits within the broader Medicaid eligibility process."
 
 **Reuse styling and components across scenarios.** Scenario 1 is simpler than scenario 2 (fewer Emmy screens, no progress tracking, no spoke pattern). When building scenario 1 in the consolidated HTML, reuse scenario 2's shared components (Emmy header/footer, wireframe templates, interstitial layout, config header, stepper, flow nav, document upload cards) rather than building parallel versions. Only the content and screen sequence differ.
 
@@ -503,7 +519,7 @@ Alex applies for Medicaid and attests to 80 hours/month of self-employment (free
 **Step 2 -- Income:**
 - Self-employment: Yes
 - Type: Freelance graphic design
-- Hours per week: 20
+- Hours per month: 80
 - Income per month: $600
 
 **Step 3 -- Education:**
@@ -799,15 +815,12 @@ Tabbed interface:
 | Confirmation code | MC-2026-04-0002-V | Screen 11 |
 | Caseworker name | Cara Martinez | Screen 5 |
 | Self-employment type | Freelance graphic design | Screen 2 |
-| Hours per week | 20 | Screen 2 |
 | Hours per month | 80 | Screen 2 |
 | Monthly income | $600 | Screen 2 |
 | Reporting period | March 2026 | Screen 9 |
 | Application date | April 1, 2026 | Screen 3 |
 | Coverage effective date | April 1, 2026 | Screen 13 |
 | CE path | 80 hours/month via self-employment | Screen 4 |
-
-> **Implementation note:** The React source has DOB and reporting period inconsistencies that need to be fixed when building the consolidated HTML prototype. DOB should be 06/15/1992 throughout. Reporting period should be March 2026 throughout.
 
 ---
 
