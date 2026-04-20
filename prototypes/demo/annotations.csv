@@ -1,0 +1,28 @@
+scenario,screen_id,anchor,badge,title,body
+Alex,alex-data-checks,#alex-anchor-income,🔗 Emmy API,Emmy API augments state data,"These checks combine the state's existing data sources with additional lookups via the Emmy API. State wage records run first — can't confirm self-employment. Emmy API bridges the gap automated checks can't cross. Flags the case and activates the Emmy documentation flow."
+Alex,alex-cw-case,.cw-section-title,⚡ Emmy Integration,First Emmy touchpoint,"This entire request flow is built on the Emmy integration — it's where Emmy first enters the experience. Application data flows from the eligibility system directly into Emmy. State controls all messaging & branding. The link sent to the applicant is tokenized & secure. Caseworker's checkbox selections customize what Emmy shows the applicant."
+Alex,alex-emmy-welcome,h1,⚡ Emmy Value,Application data pre-loaded,Alex's self-employment details flow in from the state application — no re-entry required.
+Alex,alex-emmy-hub,h1,⚡ Emmy Value,Pre-populated from state application,Alex's reported work activity flows directly from the Medicaid application into Emmy's activity hub.
+Alex,alex-emmy-upload,h1,⚡ Emmy Value,Guided document upload,Emmy prompts for the right document types and organizes them by activity — ready for caseworker review.
+Alex,alex-emmy-submit,h1,⚡ Emmy Value,Structured review before submission,All data is presented for applicant review — reducing errors and building confidence before signing.
+Alex,alex-emmy-success,h1,⚡ Emmy Value,Caseworker-ready report delivered,Emmy sends the state a structured, organized report — not a pile of loose PDFs.
+Alex,alex-cw-emmy-review,.cw-body h2,📋 Emmy Output,Emmy report in the portal,Documents and structured data from Emmy arrive directly in the caseworker portal — no manual sorting needed.
+Avery,avery-data-checks,#avery-anchor-education,🔗 Emmy API,NSC call via Emmy API,"The National Student Clearinghouse query is an Emmy API call — not a native state system check. It augments what the state already has. NSC returns below-half-time status → triggers CE flag. Without Emmy API, this check doesn't exist in the state's system. Emmy then activates to collect supplemental documentation."
+Avery,avery-cw-case,.cw-section-title,⚡ Emmy Integration,First Emmy touchpoint,"This entire request flow is built on the Emmy integration — it's where Emmy first enters the experience. Application data flows from the eligibility system directly into Emmy. State controls all messaging & branding. The link sent to the applicant is tokenized & secure. Caseworker's checkbox selections customize what Emmy shows the applicant."
+Avery,avery-emmy-welcome,h1,⚡ Emmy Value,State data pre-loaded,Avery's enrollment info flows in from the state application — she starts informed, not from scratch.
+Avery,avery-emmy-hub-prepop,h1,⚡ Emmy Value,Activity hub overview,All CE activity types in one place. Education is pre-populated from the state app and flagged for action.
+Avery,avery-edu-credits,h1,⚡ Emmy Value,Automatic CE calculation,Emmy converts credit hours to CE hours (4 credits × 12 = 48 hrs) — Avery just enters her credits.
+Avery,avery-edu-upload,h1,⚡ Emmy Value,Per-activity document collection,Emmy organizes documents by activity type, making the caseworker's review fast and clear.
+Avery,avery-edu-review,h1,⚡ Emmy Value,Activity-level review,A structured data table before saving — applicants confirm accuracy before the hub is updated.
+Avery,avery-emmy-hub-partial,h1,⚡ Emmy Value,Real-time progress tracking,The bar shows exactly how many hours remain. Emmy guides Avery toward what to add next — no manual math.
+Avery,avery-emmy-employment,h1,⚡ Emmy Value,Payroll connection via Emmy,Emmy connects to payroll providers and gig apps to pull verified income and hours automatically — no pay stubs to hunt down.
+Avery,avery-payroll-sync,h1,⚡ Emmy Value,Real-time payroll sync,Argyle (via Emmy) fetches verified income, employment, paystubs, and identity data directly from Uber — no manual uploads, no guesswork.
+Avery,avery-payment-details,h1,⚡ Emmy Value,Verified payroll data via Argyle,Emmy surfaces structured, verified income and hours directly from Uber — no pay stubs, no manual entry.
+Avery,avery-emmy-hub-with-employment,h1,⚡ Emmy Value,Employment added via Emmy,Uber Driver hours and income are now in the report — pulled automatically. Avery just needs to add community service to hit 80 hours.
+Avery,avery-cs-org,h1,⚡ Emmy Value,Multi-activity support,Avery layers community service on top of education — Emmy handles both CE paths in one submission.
+Avery,avery-cs-july,h1,⚡ Emmy Value,Monthly hour tracking,Emmy captures hours by reporting month, matching the state's monthly 80-hour CE threshold.
+Avery,avery-cs-review,h1,⚡ Emmy Value,Confirm before continuing,Each activity is reviewed separately before returning to the hub — one source of truth per activity.
+Avery,avery-emmy-hub-complete,h1,⚡ Emmy Value,Requirement met — 83 of 80 hrs,Progress bar turns green and Emmy confirms the threshold is crossed before Avery submits.
+Avery,avery-emmy-submit,h1,⚡ Emmy Value,Unified submission,Education + employment + community service combined into one complete CE report — one submission to the state.
+Avery,avery-emmy-success,h1,⚡ Emmy Value,Structured report delivered,Emmy sends the caseworker a clean, review-ready package — hours, documents, and calculated CE totals.
+Avery,avery-cw-emmy-review,.cw-body h2,📋 Emmy Output,Emmy report in the portal,"Structured data from Emmy gives the caseworker hours, documents, and CE totals — all in one place."
