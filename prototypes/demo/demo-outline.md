@@ -16,35 +16,8 @@
 1. **Scenario 1 — Alex Smith** — self-employment verification (can't be auto-verified, uploads docs through Emmy)
 2. **Scenario 2 — Avery Johnson** — education + community service (enrolled less than half-time, adds community service to meet threshold)
 
-**Design system audit work-in-progress (10 items):**
-1. ✅ Header restructure (preheader removed, 880px, logo removed)
-2. Skipped — Activity flow header on spoke screens
-3. ✅ Footer — 880px dark navy, two-line branding, no feedback button
-4. ✅ Activity Hub card treatment (partial + complete hubs use USWDS `usa-card`; prepop/Alex keep special-state cards)
-5. ✅ Progress indicator colors aligned (success-dark `#00a91c`, success-lighter `#ecf3ec`)
-6. ✅ Review tables aligned (`#e1f3f8` headers, auto-bold first column)
-7. ✅ Success screen uses `.usa-icon-list` pattern
-8. ✅ Typography scale (h1 36px → 28px mobile, h2 28px, h3 22px, h4 19px)
-9. ✅ USWDS form classes on Emmy spokes (`avery-edu-credits`, `avery-cs-org`, `avery-cs-july`)
-10. ✅ "Additional comments" textareas on review screens — USWDS form classes applied (`usa-form-group`, `usa-label`, `usa-hint`, `usa-textarea`) on `avery-edu-review` and `avery-cs-review`
-
-**Other recent work (all landed):**
-- Interstitial pages have peach gradient background + white card + profile portraits (Alex, Cara) + blue CTA button
-- Wireframe alert banners use monospace font with warning icons and consistent sentence-case labels
-- Gmail wrapper around the email notification screens; email body uses greyscale monospace (matching state wireframe treatment) except the blue CTA card ("Submit your documentation with Emmy" + button) which stays full fidelity
-- Backend data checks restructured to 4 sections: Identity, Exemptions, Household income, Education (SWICA renamed "State quarterly wage data", The Work Number removed, FAFSA removed, education treated as independent section)
-- Caseworker case review standardized: 5-item checkbox list, typing animation on the message textarea, interactive "Send Emmy link" button with 5-second auto-advance after sending
-- Email signature uses "Thank you, State Medicaid Agency" — no individual caseworker name (central inbox pattern)
-- Navigation redesigned: collapsible left sidebar + fixed bottom bar replaces old config header, stepper drawer, and per-screen flow-nav buttons
-- Sentence case applied to all titles, headers, labels, badges, alerts, and navigation elements (proper nouns excepted)
-- Gender-neutral pronouns (they/their) used for all applicants
-- Minimum 14px font size for all content-facing text (uppercase labels and navigation chrome excepted)
-- Submission confirmed screens auto-advance after 5 seconds
-- "Emmy's value" callout on final determination pages — prominent blue-bordered card with 18px body text
-- Home page scenario buttons moved above the service blueprint; blueprint widened to 1400px max-width
-- Scenario 1: "Hours per week" changed to "Hours per month" (80) on application and all downstream references
-- Caseworker dashboard alerts neutralized ("Review needed" instead of "Action required")
-- File renamed from `demo-TEST.html` to `emmy-e2e-demo.html`
+**To do list**
+- 
 
 ---
 
