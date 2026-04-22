@@ -143,6 +143,7 @@
             flex-direction: column;
             min-height: 100vh;
             padding-bottom: 60px;
+            background: white;
             animation: screenFadeIn 0.35s ease;
         }
 
@@ -2966,6 +2967,8 @@
         .cw-textarea {
             width: 100%;
             min-height: 80px;
+            overflow: hidden;
+            resize: none;
             padding: 8px 12px;
             border: 1px solid #a9aeb1;
             font-size: 14px;
@@ -3091,6 +3094,96 @@
             .dc-status-hidden { opacity: 1; transition: none; }
             .dc-check.dc-loading .dc-check-source::after { animation: none; }
             .dc-header-spinner { animation: none; }
+        }
+
+        /* ============================================
+           DETERMINATION PHONE MOCKUP
+           ============================================ */
+        .det-phone-frame {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 36px;
+            padding: 48px 24px 24px;
+            flex-wrap: wrap;
+        }
+        .det-applicant-panel {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            max-width: 360px;
+        }
+        .det-applicant-panel .det-bubble {
+            flex: 0 1 auto;
+            max-width: 260px;
+        }
+        .det-phone-device {
+            width: 340px;
+            background: #ffffff;
+            border: 10px solid #1b1b1b;
+            border-radius: 40px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .det-phone-statusbar {
+            height: 32px;
+            background: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 22px;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1b1b1b;
+        }
+        .det-phone-statusbar-icons {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+        .det-phone-screen {
+            min-height: 560px;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .det-phone-success-card {
+            background: #ecf3ec;
+            border: 1px solid #2e6e2e;
+            border-radius: 12px;
+            padding: 36px 20px;
+            text-align: center;
+            width: 100%;
+        }
+        .det-phone-success-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #2e6e2e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        .det-phone-success-title {
+            font-family: 'Public Sans', 'Source Sans Pro', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #2e6e2e;
+            margin: 0 0 8px;
+            line-height: 1.2;
+        }
+        .det-phone-success-msg {
+            font-family: 'Source Sans Pro', 'Public Sans', sans-serif;
+            font-size: 17px;
+            color: #1b1b1b;
+            margin: 0;
+            line-height: 1.4;
         }
 
         /* ============================================
@@ -3962,7 +4055,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 48px 24px;
+            padding: 48px 24px 108px; /* 108px = 48px + 60px nav-bar clearance */
+        }
+
+        /* Prevent the parent padding-bottom from creating a gap below phase-screen */
+        .screen.active:has(> .phase-screen) {
+            padding-bottom: 0;
         }
 
         /* State + caseworker (Cara) interstitials */
@@ -6192,20 +6290,13 @@
     <div class="demo-annotation" data-anchor="#alex-anchor-income">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">🔗</div><span>Emmy API</span></div>
         <h4>Emmy API augments state data</h4>
-        <p>These checks combine the state's existing data sources with additional lookups via the Emmy API.</p>
-        <hr>
-        <ul>
-            <li>State wage records run first — can't confirm self-employment</li>
-            <li>Emmy API bridges the gap automated checks can't cross</li>
-            <li>Flags the case and activates the Emmy documentation flow</li>
-        </ul>
     </div>
     <div class="wireframe-alert">&#9888; Simulated state backend eligibility checks</div>
     <div class="cw-screen">
         <div class="cw-header" style="display: flex; justify-content: space-between; align-items: center;">
             <div>
                 <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #a9aeb1;">Medicaid eligibility system</div>
-                <div style="font-size: 16px; font-weight: 700;">Verification &mdash; Alex Smith (MC-2026-04-0002)</div>
+                <div style="font-size: 16px; font-weight: 700;">Verification &mdash; Alex Smith (MC-2026-4870)</div>
             </div>
         </div>
 
@@ -6342,7 +6433,7 @@
         <div class="cw-body">
             <div class="cw-alert">
                 <div class="cw-alert-title">Review needed</div>
-                Application MC-2026-04-0002 has items that could not be verified automatically and may need additional documentation.
+                Application MC-2026-4870 has items that could not be verified automatically and may need additional documentation.
             </div>
 
             <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.3px; color: #3d4551;">Recent applications</h3>
@@ -6359,7 +6450,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td style="font-weight: 700;">MC-2026-04-0002</td>
+                        <td style="font-weight: 700;">MC-2026-4870</td>
                         <td>Alex Smith</td>
                         <td>Apr 1, 2026</td>
                         <td><span class="cw-badge cw-badge-yellow">Unable to verify</span></td>
@@ -6393,14 +6484,6 @@
     <div class="demo-annotation" data-anchor=".cw-section-title">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Integration</span></div>
         <h4>First Emmy touchpoint</h4>
-        <p>This entire request flow is built on the Emmy integration — it's where Emmy first enters the experience.</p>
-        <hr>
-        <ul>
-            <li>Application data flows from the eligibility system directly into Emmy</li>
-            <li>State controls all messaging &amp; branding</li>
-            <li>The link sent to the applicant is tokenized &amp; secure</li>
-            <li>Caseworker's checkbox selections customize what Emmy shows the applicant</li>
-        </ul>
     </div>
     <div class="wireframe-alert">&#9888; Example caseworker eligibility portal</div>
     <div class="cw-screen">
@@ -6409,11 +6492,11 @@
             <span class="cw-header-user">Caseworker: Cara Martinez</span>
         </div>
         <div class="cw-body">
-            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                <h2 style="font-size: 17px; font-weight: 700; margin: 0;">APPLICATION #MC-2026-04-0002</h2>
-                <span class="cw-badge cw-badge-amber">Pending &mdash; Documentation needed</span>
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+                <h2 style="font-size: 17px; font-weight: 700; margin: 0;">APPLICATION #MC-2026-4870</h2>
+                <span class="cw-badge cw-badge-amber" style="font-size: 13px; padding: 5px 12px;">Pending &mdash; Documentation needed</span>
             </div>
-            <p style="font-size: 14px; color: #3d4551; margin-bottom: 20px;">Alex Smith</p>
+            <p style="font-size: 14px; color: #3d4551; margin-bottom: 20px;">Alex Smith &middot; Submitted Apr 1, 2026</p>
 
             <h3 style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; color: #3d4551; margin-bottom: 8px;">Case details</h3>
             <table class="cw-table">
@@ -6469,11 +6552,7 @@
 
 We received your Medicaid application. To make a decision, we need documentation about your self-employment.
 
-Please use the secure link below to provide documents that show your self-employment hours (such as invoices, contracts, or work logs).
-
-Thank you,
-Cara Martinez
-Eligibility Caseworker"></textarea>
+Please use the secure link below to provide documents that show your self-employment hours (such as invoices, contracts, or work logs)."></textarea>
                 </div>
 
                 <div style="display: flex; gap: 12px; align-items: center; margin-top: 12px;">
@@ -6648,7 +6727,7 @@ Eligibility Caseworker"></textarea>
                             </div>
 
                             <div class="gmail-email-meta">
-                                <div>Case reference: <strong style="color:#1b1b1b;">MC-2026-04-0002</strong></div>
+                                <div>Case reference: <strong style="color:#1b1b1b;">MC-2026-4870</strong></div>
                                 <div>Please respond within <strong style="color:#1b1b1b;">30 days</strong> of April 3, 2026.</div>
                                 <div>Questions? Call <strong style="color:#1b1b1b;">(800) 555-0199</strong></div>
                             </div>
@@ -6672,7 +6751,6 @@ Eligibility Caseworker"></textarea>
     <div class="demo-annotation" data-anchor="h1">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
         <h4>Application data pre-loaded</h4>
-        <p>Alex's self-employment details flow in from the state application — no re-entry required.</p>
     </div>
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header">
@@ -6754,7 +6832,6 @@ Eligibility Caseworker"></textarea>
     <div class="demo-annotation" data-anchor="h1">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
         <h4>Pre-populated from state application</h4>
-        <p>Alex's reported work activity flows directly from the Medicaid application into Emmy's activity hub.</p>
     </div>
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
@@ -6815,7 +6892,6 @@ Eligibility Caseworker"></textarea>
     <div class="demo-annotation" data-anchor="h1">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
         <h4>Guided document upload</h4>
-        <p>Emmy prompts for the right document types and organizes them by activity — ready for caseworker review.</p>
     </div>
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
@@ -6884,7 +6960,6 @@ Eligibility Caseworker"></textarea>
     <div class="demo-annotation" data-anchor="h1">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
         <h4>Structured review before submission</h4>
-        <p>All data is presented for applicant review — reducing errors and building confidence before signing.</p>
     </div>
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
@@ -6945,7 +7020,6 @@ Eligibility Caseworker"></textarea>
     <div class="demo-annotation" data-anchor="h1">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
         <h4>Caseworker-ready report delivered</h4>
-        <p>Emmy sends the state a structured, organized report — not a pile of loose PDFs.</p>
     </div>
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
@@ -6956,7 +7030,7 @@ Eligibility Caseworker"></textarea>
             </div>
         </div>
         <h1>You successfully submitted your self-employment verification</h1>
-        <p><strong>Confirmation code:</strong> MC-2026-04-0002-V</p>
+        <p><strong>Confirmation code:</strong> MC-2026-4870-V</p>
         <p>Your eligibility worker will review your information and contact you if needed.</p>
 
         <ul class="usa-icon-list">
@@ -7009,7 +7083,6 @@ Eligibility Caseworker"></textarea>
     <div class="demo-annotation" data-anchor=".cw-body h2">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">📋</div><span>Emmy Output</span></div>
         <h4>Emmy report in the portal</h4>
-        <p>Documents and structured data from Emmy arrive directly in the caseworker portal — no manual sorting needed.</p>
     </div>
     <div class="wireframe-alert">&#9888; Example caseworker eligibility portal</div>
     <div class="cw-screen">
@@ -7018,23 +7091,31 @@ Eligibility Caseworker"></textarea>
             <span class="cw-header-user">Caseworker: Cara Martinez</span>
         </div>
         <div class="cw-body">
-            <h2 style="font-size: 17px; font-weight: 700; margin-bottom: 16px;">Review submitted information</h2>
-
-            <!-- Header cards -->
-            <div style="display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap;">
-                <div style="background: white; border: 1px solid #dfe1e2; border-radius: 4px; padding: 10px 16px; flex: 1; min-width: 140px;">
-                    <div style="font-size: 11px; text-transform: uppercase; color: #71767a; letter-spacing: 0.3px;">Applicant</div>
-                    <div style="font-size: 14px; font-weight: 700;">Alex Smith</div>
-                </div>
-                <div style="background: white; border: 1px solid #dfe1e2; border-radius: 4px; padding: 10px 16px; flex: 1; min-width: 140px;">
-                    <div style="font-size: 11px; text-transform: uppercase; color: #71767a; letter-spacing: 0.3px;">Application ID</div>
-                    <div style="font-size: 14px; font-weight: 700;">MC-2026-04-0002</div>
-                </div>
-                <div style="background: white; border: 1px solid #dfe1e2; border-radius: 4px; padding: 10px 16px; flex: 1; min-width: 140px;">
-                    <div style="font-size: 11px; text-transform: uppercase; color: #71767a; letter-spacing: 0.3px;">Submitted</div>
-                    <div style="font-size: 14px; font-weight: 700;">Apr 1, 2026</div>
-                </div>
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+                <h2 style="font-size: 17px; font-weight: 700; margin: 0;">APPLICATION #MC-2026-4870</h2>
+                <span class="cw-badge cw-badge-blue" style="font-size: 13px; padding: 5px 12px;">Ready for decision</span>
             </div>
+            <p style="font-size: 14px; color: #3d4551; margin-bottom: 20px;">Alex Smith &middot; Submitted Apr 1, 2026</p>
+
+            <h3 style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; color: #3d4551; margin-bottom: 8px;">Case details</h3>
+            <table class="cw-table">
+                <tr>
+                    <td style="font-weight: 700; width: 180px;">Your information</td>
+                    <td>Alex Smith, DOB 06/15/1992, (555) 234-5678, alex.smith@example.com</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: 700;">Income</td>
+                    <td>Self-employed &mdash; Freelance graphic design, 80 hrs/month, $600/month</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: 700;">Education</td>
+                    <td>Not a student</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: 700;">Community engagement</td>
+                    <td>No community service or work programs reported</td>
+                </tr>
+            </table>
 
             <!-- Employment -->
             <div class="cw-section-title">Employment</div>
@@ -7055,12 +7136,6 @@ Eligibility Caseworker"></textarea>
                 <div class="cw-data-row">
                     <span class="cw-data-label">Hours</span>
                     <span class="cw-data-value">80 hrs</span>
-                    <span class="cw-source-badge">via Emmy</span>
-                </div>
-                <div class="cw-data-row">
-                    <span class="cw-data-label">CE hours</span>
-                    <span class="cw-data-value">80</span>
-                    <span class="cw-source-badge">via Emmy</span>
                 </div>
                 <div class="cw-card-docs">
                     <div class="cw-card-docs-label">Documents</div>
@@ -7073,15 +7148,11 @@ Eligibility Caseworker"></textarea>
                             Download
                         </button>
                     </div>
-                    <div class="cw-emmy-verified">
-                        <svg viewBox="0 0 24 24" fill="#2e6e2e" style="width: 15px; height: 15px; flex-shrink: 0;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
-                        Information verified via Emmy API intelligent document processing
-                    </div>
                 </div>
             </div>
 
-            <!-- Community engagement summary -->
-            <div class="cw-section-title">Community engagement summary</div>
+            <!-- Emmy App summary -->
+            <div class="cw-section-title">Emmy App summary</div>
             <div style="background: white; border: 2px solid #2e6e2e; border-radius: 4px; padding: 16px 20px; margin-bottom: 20px;">
                 <table class="cw-table" style="margin-bottom: 8px;">
                     <tr><td style="font-weight: 700; width: 160px;">Employment</td><td>80 hours/month</td></tr>
@@ -7093,9 +7164,107 @@ Eligibility Caseworker"></textarea>
             </div>
 
             <div style="display: flex; gap: 12px;">
-                <button class="cw-btn cw-btn-primary" onclick="goTo('alex-determination')">Approve &amp; enroll in Medicaid</button>
+                <button class="cw-btn cw-btn-primary" onclick="goTo('alex-cw-approved')">Approve &amp; enroll in Medicaid</button>
                 <button class="cw-btn cw-btn-outline">Request additional information</button>
                 <button class="cw-btn cw-btn-outline" style="border-color: #d83933; color: #d83933;">Deny</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================
+     SCENARIO 1 — SCREEN: APPROVED (caseworker confirmation after approval)
+     ============================================ -->
+<!-- SCREEN: alex-cw-approved -->
+<div class="screen" id="alex-cw-approved">
+    <div class="wireframe-alert">&#9888; Example caseworker eligibility portal</div>
+    <div class="cw-screen">
+        <div class="cw-header">
+            <span class="cw-header-title">Medicaid eligibility portal</span>
+            <span class="cw-header-user">Caseworker: Cara Martinez</span>
+        </div>
+        <div class="cw-body">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+                <h2 style="font-size: 17px; font-weight: 700; margin: 0;">APPLICATION #MC-2026-4870</h2>
+                <span class="cw-badge cw-badge-green" style="font-size: 13px; padding: 5px 12px;">Completed</span>
+            </div>
+            <p style="font-size: 14px; color: #3d4551; margin-bottom: 20px;">Alex Smith &middot; Submitted Apr 1, 2026</p>
+
+            <div style="background: #ecf3ec; border-left: 4px solid #2e6e2e; border-radius: 4px; padding: 16px 20px; display: flex; gap: 12px; align-items: center; margin-bottom: 24px;">
+                <svg viewBox="0 0 24 24" fill="#2e6e2e" style="width: 28px; height: 28px; flex-shrink: 0;" aria-hidden="true">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+                <div style="font-size: 15px; font-weight: 700; color: #2e6e2e;">Case closed. Eligibility decision notice sent to the applicant.</div>
+            </div>
+
+            <h3 style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; color: #3d4551; margin-bottom: 8px;">Case details</h3>
+            <table class="cw-table">
+                <tr>
+                    <td style="font-weight: 700; width: 180px;">Your information</td>
+                    <td>Alex Smith, DOB 06/15/1992, (555) 234-5678, alex.smith@example.com</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: 700;">Income</td>
+                    <td>Self-employed &mdash; Freelance graphic design, 80 hrs/month, $600/month</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: 700;">Education</td>
+                    <td>Not a student</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: 700;">Community engagement</td>
+                    <td>No community service or work programs reported</td>
+                </tr>
+            </table>
+
+            <!-- Employment -->
+            <div class="cw-section-title">Employment</div>
+            <div class="cw-card">
+                <div class="cw-activity-title">Freelance graphic design</div>
+                <div class="cw-data-row">
+                    <span class="cw-data-label">Self-employed</span>
+                    <span class="cw-data-value">Yes</span>
+                </div>
+                <div class="cw-data-row">
+                    <span class="cw-data-label">Reporting month</span>
+                    <span class="cw-data-value">March 2026</span>
+                </div>
+                <div class="cw-data-row">
+                    <span class="cw-data-label">Gross income</span>
+                    <span class="cw-data-value">$600/month</span>
+                </div>
+                <div class="cw-data-row">
+                    <span class="cw-data-label">Hours</span>
+                    <span class="cw-data-value">80 hrs</span>
+                </div>
+                <div class="cw-card-docs">
+                    <div class="cw-card-docs-label">Documents</div>
+                    <div class="cw-doc-row">
+                        <svg viewBox="0 0 24 24" fill="#005ea2" style="width: 18px; height: 18px; flex-shrink: 0;"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM6 20V4h5v7h7v9H6z"/></svg>
+                        <a href="#" onclick="return false;">Invoice-March-2026.pdf</a>
+                        <span class="cw-source-badge">via Emmy</span>
+                        <button class="cw-doc-download" onclick="return false;">
+                            <svg viewBox="0 0 24 24" fill="white" style="width: 13px; height: 13px;"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                            Download
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Emmy App summary -->
+            <div class="cw-section-title">Emmy App summary</div>
+            <div style="background: white; border: 2px solid #2e6e2e; border-radius: 4px; padding: 16px 20px; margin-bottom: 20px;">
+                <table class="cw-table" style="margin-bottom: 8px;">
+                    <tr><td style="font-weight: 700; width: 160px;">Employment</td><td>80 hours/month</td></tr>
+                    <tr><td style="font-weight: 700;">Total</td><td>80 hrs (March)</td></tr>
+                </table>
+                <div style="background: #ecf3ec; padding: 8px 12px; border-radius: 4px; font-size: 14px; color: #2e6e2e; font-weight: 700;">
+                    Meets 80-hour requirement &#10003;
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 12px;">
+                <button class="cw-btn cw-btn-primary" onclick="goTo('alex-determination')">Continue &rarr;</button>
             </div>
         </div>
     </div>
@@ -7108,78 +7277,56 @@ Eligibility Caseworker"></textarea>
 <div class="screen" id="alex-determination">
     <div class="wireframe-alert">&#9888; Example determination notice</div>
 
-    <div class="determination-split">
-        <!-- Cara: message 1 — quote -->
-        <div class="determination-panel">
-            <div class="det-character-panel">
-                <div class="det-avatar-wrap">
-                    <img class="det-avatar-img det-cara-img" src="" alt="Cara Martinez">
-                    <div class="det-avatar-name">Cara Martinez</div>
-                    <div class="det-avatar-role">Caseworker</div>
+    <div class="det-phone-frame">
+        <div class="det-phone-device">
+            <div class="det-phone-statusbar">
+                <span>9:41</span>
+                <div class="det-phone-statusbar-icons">
+                    <svg width="17" height="11" viewBox="0 0 17 11" fill="#1b1b1b" aria-hidden="true">
+                        <rect x="0" y="8" width="3" height="3" rx="0.5"/>
+                        <rect x="4.5" y="5.5" width="3" height="5.5" rx="0.5"/>
+                        <rect x="9" y="3" width="3" height="8" rx="0.5"/>
+                        <rect x="13.5" y="0" width="3" height="11" rx="0.5"/>
+                    </svg>
+                    <svg width="15" height="11" viewBox="0 0 15 11" fill="none" stroke="#1b1b1b" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+                        <path d="M1.5 4 Q7.5 -1 13.5 4"/>
+                        <path d="M3.5 6 Q7.5 2.5 11.5 6"/>
+                        <path d="M5.5 8 Q7.5 6 9.5 8"/>
+                        <circle cx="7.5" cy="9.5" r="0.9" fill="#1b1b1b" stroke="none"/>
+                    </svg>
+                    <svg width="25" height="11" viewBox="0 0 25 11" aria-hidden="true">
+                        <rect x="0.5" y="0.5" width="21" height="10" rx="2" fill="none" stroke="#1b1b1b" stroke-width="1"/>
+                        <rect x="22.5" y="3.5" width="2" height="4" rx="0.5" fill="#1b1b1b"/>
+                        <rect x="2" y="2" width="18" height="7" rx="1" fill="#1b1b1b"/>
+                    </svg>
                 </div>
-                <div class="det-bubble det-bubble--left">
-                    <p class="det-quote" style="margin-bottom: 0;">"I've reviewed Alex's self-employment documentation through Emmy and confirmed all CE requirements are met. Approving Medicaid coverage."</p>
+            </div>
+            <div class="det-phone-screen">
+                <div class="det-phone-success-card">
+                    <div class="det-phone-success-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                        </svg>
+                    </div>
+                    <h3 class="det-phone-success-title">Eligible</h3>
+                    <p class="det-phone-success-msg">You are enrolled in Medicaid</p>
                 </div>
             </div>
         </div>
 
-        <!-- Cara: message 2 — determination details -->
-        <div class="determination-panel det-panel--continuation">
-            <div class="det-character-panel">
-                <div class="det-avatar-spacer"></div>
-                <div class="det-bubble det-bubble--left det-bubble--continuation">
-                    <div class="det-approved-pill">
-                        <svg viewBox="0 0 24 24" fill="#2e6e2e" style="width:13px;height:13px;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
-                        Approved
-                    </div>
-                    <div>
-                        <div class="det-check-row">
-                            <svg viewBox="0 0 24 24" fill="#2e6e2e" width="14" height="14"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
-                            <span><strong>Income eligibility</strong> &mdash; Confirmed</span>
-                        </div>
-                        <div class="det-check-row">
-                            <svg viewBox="0 0 24 24" fill="#2e6e2e" width="14" height="14"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
-                            <span><strong>CE requirement</strong> &mdash; 80 hrs via self-employment</span>
-                        </div>
-                        <div class="det-check-row">
-                            <svg viewBox="0 0 24 24" fill="#2e6e2e" width="14" height="14"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
-                            <span><strong>Documentation</strong> &mdash; Reviewed via Emmy</span>
-                        </div>
-                    </div>
-                </div>
+        <div class="det-applicant-panel">
+            <div class="det-bubble det-bubble--right">
+                <p class="det-quote" style="margin-bottom: 0;">"Finally! This is such a relief &mdash; I can't believe how straightforward Emmy made the whole process."</p>
             </div>
-        </div>
-
-        <!-- Alex: message 1 — eligibility confirmation -->
-        <div class="determination-panel">
-            <div class="det-character-panel det-character-panel--right">
-                <div class="det-bubble det-bubble--right">
-                    <div class="det-success-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00a91c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    </div>
-                    <h3 class="det-enrolled-title">Eligible</h3>
-                    <p class="det-enrolled-status" style="margin-bottom: 0;">You are enrolled in Medicaid</p>
-                </div>
-                <div class="det-avatar-wrap">
-                    <img class="det-avatar-img det-alex-img" src="" alt="Alex Smith">
-                    <div class="det-avatar-name">Alex Smith</div>
-                    <div class="det-avatar-role">Applicant</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Alex: message 2 — quote -->
-        <div class="determination-panel det-panel--continuation">
-            <div class="det-character-panel det-character-panel--right">
-                <div class="det-bubble det-bubble--right det-bubble--continuation">
-                    <p class="det-quote" style="margin-bottom: 0;">"Finally! This is such a relief — I can't believe how straightforward Emmy made the whole process."</p>
-                </div>
-                <div class="det-avatar-spacer"></div>
+            <div class="det-avatar-wrap">
+                <img class="det-avatar-img det-alex-img" src="" alt="Alex Smith">
+                <div class="det-avatar-name">Alex Smith</div>
+                <div class="det-avatar-role">Applicant</div>
             </div>
         </div>
     </div>
 
-    <!-- Callout box below both -->
+    <!-- Callout box below phone -->
     <div class="callout-box">
         <div class="callout-heading">Emmy's value</div>
         <p>Emmy gave Alex a structured way to provide proof of self-employment that the state's automated systems couldn't verify. Without Emmy, Alex would need to figure out what documents to gather and how to submit them &mdash; a process that often leads to delays and coverage gaps.</p>
@@ -7636,14 +7783,6 @@ Eligibility Caseworker"></textarea>
     <div class="demo-annotation" data-anchor="#avery-anchor-education">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">🔗</div><span>Emmy API</span></div>
         <h4>NSC call via Emmy API</h4>
-        <p>The National Student Clearinghouse query is an <strong style="color:#fff;">Emmy API call</strong> — not a native state system check. It augments what the state already has.</p>
-        <hr>
-        <ul>
-            <li>State has basic enrollment data; Emmy API calls NSC for live credit hours &amp; enrollment intensity</li>
-            <li>NSC returns below-half-time status → triggers CE flag</li>
-            <li>Without Emmy API, this check doesn't exist in the state's system</li>
-            <li>Emmy then activates to collect supplemental documentation</li>
-        </ul>
     </div>
     <div class="wireframe-alert">&#9888; Simulated state backend eligibility checks</div>
     <div class="cw-screen">
@@ -7811,6 +7950,13 @@ Eligibility Caseworker"></textarea>
                         <td><span class="cw-link" onclick="goTo('avery-cw-case')">View case &rarr;</span></td>
                     </tr>
                     <tr>
+                        <td>MC-2026-4870</td>
+                        <td>Alex Smith</td>
+                        <td>March 31, 2026</td>
+                        <td><span class="cw-badge cw-badge-green">Complete</span></td>
+                        <td><span class="cw-link">View details</span></td>
+                    </tr>
+                    <tr>
                         <td>MC-2026-4871</td>
                         <td>Jordan Davis</td>
                         <td>March 31, 2026</td>
@@ -7838,14 +7984,6 @@ Eligibility Caseworker"></textarea>
     <div class="demo-annotation" data-anchor=".cw-section-title">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Integration</span></div>
         <h4>First Emmy touchpoint</h4>
-        <p>This entire request flow is built on the Emmy integration — it's where Emmy first enters the experience.</p>
-        <hr>
-        <ul>
-            <li>Application data flows from the eligibility system directly into Emmy</li>
-            <li>State controls all messaging &amp; branding</li>
-            <li>The link sent to the applicant is tokenized &amp; secure</li>
-            <li>Caseworker's checkbox selections customize what Emmy shows the applicant</li>
-        </ul>
     </div>
     <div class="wireframe-alert">&#9888; Example caseworker eligibility portal</div>
     <div class="cw-screen">
@@ -7854,11 +7992,11 @@ Eligibility Caseworker"></textarea>
             <span class="cw-header-user">Caseworker: Cara Martinez</span>
         </div>
         <div class="cw-body">
-            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
                 <h2 style="font-size: 17px; font-weight: 700; margin: 0;">APPLICATION #MC-2026-4872</h2>
-                <span class="cw-badge cw-badge-amber">Pending &mdash; Documentation needed</span>
+                <span class="cw-badge cw-badge-amber" style="font-size: 13px; padding: 5px 12px;">Pending &mdash; Documentation needed</span>
             </div>
-            <p style="font-size: 14px; color: #3d4551; margin-bottom: 20px;">Avery Johnson</p>
+            <p style="font-size: 14px; color: #3d4551; margin-bottom: 20px;">Avery Johnson &middot; Submitted Apr 1, 2026</p>
 
             <h3 style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; color: #3d4551; margin-bottom: 8px;">Case details</h3>
             <table class="cw-table">
@@ -7910,7 +8048,11 @@ Eligibility Caseworker"></textarea>
 
                 <div style="margin-top: 16px;">
                     <label style="font-size: 14px; font-weight: 700; color: #3d4551; display: block; margin-bottom: 4px;">Message to applicant:</label>
-                    <textarea class="cw-textarea typed-textarea" data-fill-typed="Our records show you may be enrolled less than half-time at State University. Please provide your credit hours and any documentation to verify enrollment. You may also add other qualifying activities."></textarea>
+                    <textarea class="cw-textarea typed-textarea" data-fill-typed="Hello Avery,
+
+Our records show you may be enrolled less than half-time at State University. To make a decision, we need documentation to verify enrollment, including your credit hours. You may also add other qualifying activities.
+
+Please use the secure link below to submit your information."></textarea>
                 </div>
 
                 <div style="display: flex; gap: 12px; align-items: center; margin-top: 12px;">
@@ -8069,7 +8211,7 @@ Eligibility Caseworker"></textarea>
 
                             <p>Hello Avery,</p>
 
-                            <p>Our records show you may be enrolled less than half-time at State University. Please provide your credit hours and any documentation to verify enrollment. You may also add other qualifying activities.</p>
+                            <p>Our records show you may be enrolled less than half-time at State University. To make a decision, we need documentation to verify enrollment, including your credit hours. You may also add other qualifying activities.</p>
 
                             <p>Please use the secure link below to submit your information.</p>
 
@@ -8109,7 +8251,6 @@ Eligibility Caseworker"></textarea>
     <div class="demo-annotation" data-anchor="h1">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
         <h4>State data pre-loaded</h4>
-        <p>Avery's enrollment info flows in from the state application — she starts informed, not from scratch.</p>
     </div>
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header">
@@ -8199,7 +8340,6 @@ Eligibility Caseworker"></textarea>
     <div class="demo-annotation" data-anchor="h1">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
         <h4>Activity hub overview</h4>
-        <p>All CE activity types in one place. Education is pre-populated from the state app and flagged for action.</p>
     </div>
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
@@ -8283,11 +8423,6 @@ Eligibility Caseworker"></textarea>
      ============================================ -->
 <!-- SCREEN: avery-edu-credits -->
 <div class="screen fillable-screen" id="avery-edu-credits">
-    <div class="demo-annotation" data-anchor="h1">
-        <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
-        <h4>Automatic CE calculation</h4>
-        <p>Emmy converts credit hours to CE hours (4 credits × 12 = 48 hrs) — Avery just enters her credits.</p>
-    </div>
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
     <div class="emmy-page-content">
@@ -8321,7 +8456,6 @@ Eligibility Caseworker"></textarea>
     <div class="demo-annotation" data-anchor="h1">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
         <h4>Per-activity document collection</h4>
-        <p>Emmy organizes documents by activity type, making the caseworker's review fast and clear.</p>
     </div>
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
@@ -8384,7 +8518,6 @@ Eligibility Caseworker"></textarea>
     <div class="demo-annotation" data-anchor="h1">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
         <h4>Activity-level review</h4>
-        <p>A structured data table before saving — applicants confirm accuracy before the hub is updated.</p>
     </div>
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
@@ -8452,7 +8585,6 @@ Eligibility Caseworker"></textarea>
     <div class="demo-annotation" data-anchor="h1">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
         <h4>Real-time progress tracking</h4>
-        <p>The bar shows exactly how many hours remain. Emmy guides Avery toward what to add next — no manual math.</p>
     </div>
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
@@ -8464,7 +8596,7 @@ Eligibility Caseworker"></textarea>
             <p style="font-size: 16px; color: #565c65; margin-bottom: 32px;">Your state will use the activities in your report to decide if you're eligible.</p>
 
             <div class="hub-progress-card">
-                <h3>0/1 months completed</h3>
+                <h3>0/1 month completed</h3>
                 <div class="hub-progress-month">
                     <div class="hub-progress-bar-track">
                         <div class="hub-progress-bar-value" data-target-width="60" style="width: 0%;"></div>
@@ -8515,7 +8647,7 @@ Eligibility Caseworker"></textarea>
             <section class="activity-hub-section">
                 <div class="activity-hub-section-header">
                     <h2>Employment</h2>
-                    <button class="activity-hub-add-btn" onclick="goTo('avery-emmy-employment')"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Add</button>
+                    <button class="activity-hub-add-btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Add</button>
                 </div>
                 <div class="activity-hub-empty-state"><p>No employment added</p></div>
             </section>
@@ -8552,7 +8684,6 @@ Eligibility Caseworker"></textarea>
     <div class="demo-annotation" data-anchor="h1">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
         <h4>Verified payroll data via Argyle</h4>
-        <p>Emmy surfaces structured, verified income and hours directly from Uber — no pay stubs, no manual entry.</p>
     </div>
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
@@ -8654,7 +8785,7 @@ Eligibility Caseworker"></textarea>
             <span class="usa-hint">Is there anything else your state agency should know about your Uber Driver income?</span>
             <textarea class="usa-textarea" id="pd-additional-info" name="pd-additional-info" style="min-height: 120px;"></textarea>
         </div>
-        <button class="usa-button" onclick="goTo('avery-emmy-hub-with-employment')">
+        <button class="usa-button" onclick="goTo('avery-emmy-hub-complete')">
             Continue to activity hub &rarr;
         </button>
 
@@ -8669,8 +8800,7 @@ Eligibility Caseworker"></textarea>
 <div class="screen" id="avery-emmy-hub-with-employment">
     <div class="demo-annotation" data-anchor="h1">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
-        <h4>Employment added via Emmy</h4>
-        <p>Uber Driver hours and income are now in the report — pulled automatically. Avery just needs to add community service to hit 80 hours.</p>
+        <h4>Community service added via Emmy</h4>
     </div>
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
@@ -8682,14 +8812,14 @@ Eligibility Caseworker"></textarea>
             <p style="font-size: 16px; color: #565c65; margin-bottom: 32px;">Your state will use the activities in your report to decide if you're eligible.</p>
 
             <div class="hub-progress-card">
-                <h3>0/1 months completed</h3>
+                <h3>0/1 month completed</h3>
                 <div class="hub-progress-month">
                     <div class="hub-progress-bar-track">
-                        <div class="hub-progress-bar-value" data-target-width="85" style="width: 0%;"></div>
+                        <div class="hub-progress-bar-value" data-target-width="79" style="width: 0%;"></div>
                     </div>
                     <div class="hub-progress-label-row">
-                        <span class="month-name">April</span>
-                        <span class="month-hours"><span class="current">68</span> / <strong>80 hours</strong></span>
+                        <span class="month-name">March</span>
+                        <span class="month-hours"><span class="current">63</span> / <strong>80 hours</strong></span>
                     </div>
                 </div>
             </div>
@@ -8729,38 +8859,37 @@ Eligibility Caseworker"></textarea>
                 </div>
             </section>
 
-            <!-- Employment (filled — Uber) -->
+            <!-- Employment (empty) -->
             <section class="activity-hub-section">
                 <div class="activity-hub-section-header">
                     <h2>Employment</h2>
+                    <button class="activity-hub-add-btn" onclick="goTo('avery-emmy-employment')"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Add</button>
+                </div>
+                <div class="activity-hub-empty-state"><p>No employment added</p></div>
+            </section>
+
+            <!-- Community service (filled — Westbrook) -->
+            <section class="activity-hub-section">
+                <div class="activity-hub-section-header">
+                    <h2>Community service</h2>
                     <button class="activity-hub-add-btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Add</button>
                 </div>
                 <div class="usa-card activity-hub-card">
                     <div class="usa-card__container">
                         <div class="usa-card__header">
-                            <h3 class="usa-card__heading">Uber Driver</h3>
+                            <h3 class="usa-card__heading">Westbrook community garden</h3>
                             <a class="usa-link">Edit</a>
                         </div>
                         <div class="usa-card__body">
                             <div class="activity-month-details">
                                 <div class="activity-month-details__month">March</div>
                                 <div class="activity-month-details__data">
-                                    <p>Hours worked: 20 hrs</p>
-                                    <p>Gross income: $170.00</p>
+                                    <p>Community engagement hours: 15</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <!-- Community service (empty) -->
-            <section class="activity-hub-section">
-                <div class="activity-hub-section-header">
-                    <h2>Community service</h2>
-                    <button class="activity-hub-add-btn" onclick="goTo('avery-cs-org')"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Add</button>
-                </div>
-                <div class="activity-hub-empty-state"><p>No community service added</p></div>
             </section>
 
             <!-- Work programs (empty) -->
@@ -8786,7 +8915,6 @@ Eligibility Caseworker"></textarea>
     <div class="demo-annotation" data-anchor="h1">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
         <h4>Payroll connection via Emmy</h4>
-        <p>Emmy connects to payroll providers and gig apps to pull verified income and hours automatically — no pay stubs to hunt down.</p>
     </div>
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
@@ -9020,7 +9148,6 @@ function averyEmpTab(tab) {
     <div class="demo-annotation" data-anchor="h1">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
         <h4>Real-time payroll sync</h4>
-        <p>Argyle (via Emmy) fetches verified income, employment, paystubs, and identity data directly from Uber — no manual uploads needed.</p>
     </div>
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
@@ -9112,11 +9239,6 @@ function averyEmpTab(tab) {
      ============================================ -->
 <!-- SCREEN: avery-cs-org -->
 <div class="screen" id="avery-cs-org">
-    <div class="demo-annotation" data-anchor="h1">
-        <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
-        <h4>Multi-activity support</h4>
-        <p>Avery layers community service on top of education — Emmy handles both CE paths in one submission.</p>
-    </div>
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
     <div class="emmy-page-content">
@@ -9190,11 +9312,6 @@ function averyEmpTab(tab) {
      ============================================ -->
 <!-- SCREEN: avery-cs-july -->
 <div class="screen fillable-screen" id="avery-cs-july">
-    <div class="demo-annotation" data-anchor="h1">
-        <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
-        <h4>Monthly hour tracking</h4>
-        <p>Emmy captures hours by reporting month, matching the state's monthly 80-hour CE threshold.</p>
-    </div>
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
     <div class="emmy-page-content">
@@ -9225,7 +9342,6 @@ function averyEmpTab(tab) {
     <div class="demo-annotation" data-anchor="h1">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
         <h4>Confirm before continuing</h4>
-        <p>Each activity is reviewed separately before returning to the hub — one source of truth per activity.</p>
     </div>
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
@@ -9274,7 +9390,7 @@ function averyEmpTab(tab) {
             <textarea class="usa-textarea" id="cs-review-comments" name="cs-review-comments" style="min-height: 120px;"></textarea>
         </div>
 
-        <button class="usa-button" onclick="goTo('avery-emmy-hub-complete')">Save and continue</button>
+        <button class="usa-button" onclick="goTo('avery-emmy-hub-with-employment')">Save and continue</button>
     </div>
     <div class="site-footer"><div class="site-footer-inner"><div class="site-footer-title">Emmy</div><div class="site-footer-subtitle">Eligibility Made Easy</div></div></div>
 </div>
@@ -9287,7 +9403,6 @@ function averyEmpTab(tab) {
     <div class="demo-annotation" data-anchor="h1">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
         <h4>Requirement met — 83 of 80 hrs</h4>
-        <p>Progress bar turns green and Emmy confirms the threshold is crossed before Avery submits.</p>
     </div>
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
@@ -9299,7 +9414,7 @@ function averyEmpTab(tab) {
             <p style="font-size: 16px; color: #565c65; margin-bottom: 32px;">Your state will use the activities in your report to decide if you're eligible.</p>
 
             <div class="hub-progress-card">
-                <h3>1/1 months completed</h3>
+                <h3>1/1 month completed</h3>
                 <div class="hub-progress-month">
                     <div class="hub-progress-bar-track complete">
                         <div class="hub-progress-bar-value complete" data-target-width="100" style="width: 0%;"></div>
@@ -9417,7 +9532,6 @@ function averyEmpTab(tab) {
     <div class="demo-annotation" data-anchor="h1">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
         <h4>Unified submission</h4>
-        <p>Education + employment + community service combined into one complete CE report — one submission to the state.</p>
     </div>
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
@@ -9427,13 +9541,13 @@ function averyEmpTab(tab) {
 
         <div class="progress-complete-banner">
             <svg class="usa-icon--md" viewBox="0 0 24 24" fill="#00a91c" style="vertical-align: -4px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-            <span>1/1 months completed</span>
+            <span>1/1 month completed</span>
         </div>
 
         <!-- Activity 1: Education -->
         <h2>Activity 1: Education</h2>
 
-        <h3 style="margin-bottom: 16px;">Enrollment details</h3>
+        <h3 style="margin-bottom: 16px;">Enrollment details for State University</h3>
         <table class="emmy-review-table">
             <thead>
                 <tr>
@@ -9479,33 +9593,8 @@ function averyEmpTab(tab) {
 
         <hr style="border: none; border-top: 1px solid #dfe1e2; margin: 0 0 32px;">
 
-        <!-- Activity 2: Employment -->
-        <h2>Activity 2: Employment</h2>
-
-        <h3 style="margin-bottom: 16px;">Monthly details</h3>
-        <table class="emmy-review-table">
-            <thead>
-                <tr>
-                    <th>Month</th>
-                    <th>Hours worked</th>
-                    <th>Gross income</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="cell-bold">March</td>
-                    <td>20</td>
-                    <td>$170.00</td>
-                    <td><button class="edit-link">Edit</button></td>
-                </tr>
-            </tbody>
-        </table>
-
-        <hr style="border: none; border-top: 1px solid #dfe1e2; margin: 0 0 32px;">
-
-        <!-- Activity 3: Community service -->
-        <h2>Activity 3: Community service</h2>
+        <!-- Activity 2: Community service -->
+        <h2>Activity 2: Community service</h2>
 
         <h3 style="margin-bottom: 16px;">Community service information</h3>
         <table class="emmy-review-table">
@@ -9547,6 +9636,34 @@ function averyEmpTab(tab) {
 
         <hr style="border: none; border-top: 1px solid #dfe1e2; margin: 0 0 32px;">
 
+        <!-- Activity 3: Employment -->
+        <h2>Activity 3: Employment</h2>
+
+        <h3 style="margin-bottom: 16px;">Monthly details for Uber</h3>
+        <table class="emmy-review-table">
+            <thead>
+                <tr>
+                    <th>Month</th>
+                    <th>Hours worked</th>
+                    <th>Gross income</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="cell-bold">March</td>
+                    <td>20</td>
+                    <td>$170.00</td>
+                    <td><button class="edit-link">Edit</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 style="margin-bottom: 8px;">Additional comments</h3>
+        <p style="color: #71767a; font-style: italic; margin-bottom: 32px;">No additional comments added.</p>
+
+        <hr style="border: none; border-top: 1px solid #dfe1e2; margin: 0 0 32px;">
+
         <!-- Legal agreement -->
         <h2>Legal agreement</h2>
 
@@ -9576,7 +9693,6 @@ function averyEmpTab(tab) {
     <div class="demo-annotation" data-anchor="h1">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
         <h4>Structured report delivered</h4>
-        <p>Emmy sends the caseworker a clean, review-ready package — hours, documents, and calculated CE totals.</p>
     </div>
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
@@ -9642,7 +9758,6 @@ function averyEmpTab(tab) {
     <div class="demo-annotation" data-anchor=".cw-body h2">
         <div class="demo-annotation-badge badge-output"><div class="demo-annotation-icon">📋</div><span>Emmy Output</span></div>
         <h4>Emmy report in the portal</h4>
-        <p>Structured data from Emmy gives the caseworker hours, documents, and CE totals — all in one place.</p>
     </div>
     <div class="wireframe-alert">&#9888; Example caseworker eligibility portal</div>
     <div class="cw-screen">
@@ -9651,23 +9766,31 @@ function averyEmpTab(tab) {
             <span class="cw-header-user">Caseworker: Cara Martinez</span>
         </div>
         <div class="cw-body">
-            <h2 style="font-size: 17px; font-weight: 700; margin-bottom: 16px;">Review submitted information</h2>
-
-            <!-- Header cards -->
-            <div style="display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap;">
-                <div style="background: white; border: 1px solid #dfe1e2; border-radius: 4px; padding: 10px 16px; flex: 1; min-width: 140px;">
-                    <div style="font-size: 11px; text-transform: uppercase; color: #71767a; letter-spacing: 0.3px;">Applicant</div>
-                    <div style="font-size: 14px; font-weight: 700;">Avery Johnson</div>
-                </div>
-                <div style="background: white; border: 1px solid #dfe1e2; border-radius: 4px; padding: 10px 16px; flex: 1; min-width: 140px;">
-                    <div style="font-size: 11px; text-transform: uppercase; color: #71767a; letter-spacing: 0.3px;">Application ID</div>
-                    <div style="font-size: 14px; font-weight: 700;">MC-2026-4872</div>
-                </div>
-                <div style="background: white; border: 1px solid #dfe1e2; border-radius: 4px; padding: 10px 16px; flex: 1; min-width: 140px;">
-                    <div style="font-size: 11px; text-transform: uppercase; color: #71767a; letter-spacing: 0.3px;">Submitted</div>
-                    <div style="font-size: 14px; font-weight: 700;">April 1, 2026</div>
-                </div>
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+                <h2 style="font-size: 17px; font-weight: 700; margin: 0;">APPLICATION #MC-2026-4872</h2>
+                <span class="cw-badge cw-badge-blue" style="font-size: 13px; padding: 5px 12px;">Ready for decision</span>
             </div>
+            <p style="font-size: 14px; color: #3d4551; margin-bottom: 20px;">Avery Johnson &middot; Submitted Apr 1, 2026</p>
+
+            <h3 style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; color: #3d4551; margin-bottom: 8px;">Case details</h3>
+            <table class="cw-table">
+                <tr>
+                    <td style="font-weight: 700; width: 180px;">Your information</td>
+                    <td>Avery Johnson, DOB 03/14/2004, (217) 555-0134</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: 700;">Income</td>
+                    <td>Gig work &mdash; Uber, 20 hrs, $170 in March</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: 700;">Education</td>
+                    <td>Student &mdash; enrolled less than half-time per NSC</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: 700;">Community engagement</td>
+                    <td>Community service &mdash; Westbrook community garden, 15 hrs in March</td>
+                </tr>
+            </table>
 
             <!-- Education -->
             <div class="cw-section-title">Education</div>
@@ -9688,7 +9811,7 @@ function averyEmpTab(tab) {
                 </div>
                 <div class="cw-data-row">
                     <span class="cw-data-label">CE hours (proposed)</span>
-                    <span class="cw-data-value">48 (4 credits &times; 12 hrs/credit per CMCS guidance)</span>
+                    <span class="cw-data-value">48 (12 hrs/credit per CMCS guidance)</span>
                     <span class="cw-source-badge">via Emmy</span>
                 </div>
                 <div class="cw-card-docs">
@@ -9710,10 +9833,6 @@ function averyEmpTab(tab) {
                         <a href="#" onclick="return false;">tuition-letter.pdf</a>
                         <span class="cw-source-badge">via Emmy</span>
                         <button class="cw-doc-download" onclick="return false;"><svg viewBox="0 0 24 24" fill="white" style="width: 13px; height: 13px;"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> Download</button>
-                    </div>
-                    <div class="cw-emmy-verified">
-                        <svg viewBox="0 0 24 24" fill="#2e6e2e" style="width: 15px; height: 15px; flex-shrink: 0;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
-                        Information verified via Emmy API intelligent document processing
                     </div>
                 </div>
             </div>
@@ -9780,8 +9899,8 @@ function averyEmpTab(tab) {
                 </div>
             </div>
 
-            <!-- Community engagement summary -->
-            <div class="cw-section-title">Community engagement summary</div>
+            <!-- Emmy App summary -->
+            <div class="cw-section-title">Emmy App summary</div>
             <div style="background: white; border: 2px solid #2e6e2e; border-radius: 4px; padding: 16px 20px; margin-bottom: 20px;">
                 <table class="cw-table" style="margin-bottom: 8px;">
                     <tr><td style="font-weight: 700; width: 160px;">Education</td><td>48 hrs (March)</td></tr>
@@ -9795,9 +9914,182 @@ function averyEmpTab(tab) {
             </div>
 
             <div style="display: flex; gap: 12px;">
-                <button class="cw-btn cw-btn-primary" onclick="goTo('avery-determination')">Approve &amp; enroll in Medicaid</button>
+                <button class="cw-btn cw-btn-primary" onclick="goTo('avery-cw-approved')">Approve &amp; enroll in Medicaid</button>
                 <button class="cw-btn cw-btn-outline">Request additional information</button>
                 <button class="cw-btn cw-btn-outline" style="border-color: #d83933; color: #d83933;">Deny</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================
+     SCREEN: APPROVED (caseworker confirmation after approval)
+     ============================================ -->
+<!-- SCREEN: avery-cw-approved -->
+<div class="screen" id="avery-cw-approved">
+    <div class="wireframe-alert">&#9888; Example caseworker eligibility portal</div>
+    <div class="cw-screen">
+        <div class="cw-header">
+            <span class="cw-header-title">Medicaid eligibility portal</span>
+            <span class="cw-header-user">Caseworker: Cara Martinez</span>
+        </div>
+        <div class="cw-body">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+                <h2 style="font-size: 17px; font-weight: 700; margin: 0;">APPLICATION #MC-2026-4872</h2>
+                <span class="cw-badge cw-badge-green" style="font-size: 13px; padding: 5px 12px;">Completed</span>
+            </div>
+            <p style="font-size: 14px; color: #3d4551; margin-bottom: 20px;">Avery Johnson &middot; Submitted Apr 1, 2026</p>
+
+            <div style="background: #ecf3ec; border-left: 4px solid #2e6e2e; border-radius: 4px; padding: 16px 20px; display: flex; gap: 12px; align-items: center; margin-bottom: 24px;">
+                <svg viewBox="0 0 24 24" fill="#2e6e2e" style="width: 28px; height: 28px; flex-shrink: 0;" aria-hidden="true">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+                <div style="font-size: 15px; font-weight: 700; color: #2e6e2e;">Case closed. Eligibility decision notice sent to the applicant.</div>
+            </div>
+
+            <h3 style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; color: #3d4551; margin-bottom: 8px;">Case details</h3>
+            <table class="cw-table">
+                <tr>
+                    <td style="font-weight: 700; width: 180px;">Your information</td>
+                    <td>Avery Johnson, DOB 03/14/2004, (217) 555-0134</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: 700;">Income</td>
+                    <td>Gig work &mdash; Uber, 20 hrs, $170 in March</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: 700;">Education</td>
+                    <td>Student &mdash; enrolled less than half-time per NSC</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: 700;">Community engagement</td>
+                    <td>Community service &mdash; Westbrook community garden, 15 hrs in March</td>
+                </tr>
+            </table>
+
+            <!-- Education -->
+            <div class="cw-section-title">Education</div>
+            <div class="cw-card">
+                <div class="cw-activity-title">State University</div>
+                <div class="cw-data-row">
+                    <span class="cw-data-label">Enrollment status</span>
+                    <span class="cw-data-value">Less than half-time</span>
+                </div>
+                <div class="cw-data-row">
+                    <span class="cw-data-label">Term</span>
+                    <span class="cw-data-value">Spring 2026</span>
+                </div>
+                <div class="cw-data-row">
+                    <span class="cw-data-label">Credit hours</span>
+                    <span class="cw-data-value">4</span>
+                    <span class="cw-source-badge">via Emmy</span>
+                </div>
+                <div class="cw-data-row">
+                    <span class="cw-data-label">CE hours (proposed)</span>
+                    <span class="cw-data-value">48 (12 hrs/credit per CMCS guidance)</span>
+                    <span class="cw-source-badge">via Emmy</span>
+                </div>
+                <div class="cw-card-docs">
+                    <div class="cw-card-docs-label">Documents</div>
+                    <div class="cw-doc-row">
+                        <svg viewBox="0 0 24 24" fill="#005ea2" style="width: 18px; height: 18px; flex-shrink: 0;"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM6 20V4h5v7h7v9H6z"/></svg>
+                        <a href="#" onclick="return false;">transcript.pdf</a>
+                        <span class="cw-source-badge">via Emmy</span>
+                        <button class="cw-doc-download" onclick="return false;"><svg viewBox="0 0 24 24" fill="white" style="width: 13px; height: 13px;"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> Download</button>
+                    </div>
+                    <div class="cw-doc-row">
+                        <svg viewBox="0 0 24 24" fill="#005ea2" style="width: 18px; height: 18px; flex-shrink: 0;"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM6 20V4h5v7h7v9H6z"/></svg>
+                        <a href="#" onclick="return false;">enrollment-verification.pdf</a>
+                        <span class="cw-source-badge">via Emmy</span>
+                        <button class="cw-doc-download" onclick="return false;"><svg viewBox="0 0 24 24" fill="white" style="width: 13px; height: 13px;"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> Download</button>
+                    </div>
+                    <div class="cw-doc-row">
+                        <svg viewBox="0 0 24 24" fill="#005ea2" style="width: 18px; height: 18px; flex-shrink: 0;"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM6 20V4h5v7h7v9H6z"/></svg>
+                        <a href="#" onclick="return false;">tuition-letter.pdf</a>
+                        <span class="cw-source-badge">via Emmy</span>
+                        <button class="cw-doc-download" onclick="return false;"><svg viewBox="0 0 24 24" fill="white" style="width: 13px; height: 13px;"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> Download</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Employment -->
+            <div class="cw-section-title">Employment</div>
+            <div class="cw-card">
+                <div class="cw-activity-title">Uber Driver</div>
+                <div class="cw-data-row">
+                    <span class="cw-data-label">Self-employed</span>
+                    <span class="cw-data-value">No</span>
+                    <span class="cw-source-badge">via Emmy</span>
+                </div>
+                <div class="cw-data-row">
+                    <span class="cw-data-label">Reporting month</span>
+                    <span class="cw-data-value">March 2026</span>
+                    <span class="cw-source-badge">via Emmy</span>
+                </div>
+                <div class="cw-data-row">
+                    <span class="cw-data-label">Hours worked</span>
+                    <span class="cw-data-value">20 hrs</span>
+                    <span class="cw-source-badge">via Emmy</span>
+                </div>
+                <div class="cw-data-row">
+                    <span class="cw-data-label">Gross income</span>
+                    <span class="cw-data-value">$170.00</span>
+                    <span class="cw-source-badge">via Emmy</span>
+                </div>
+                <div class="cw-data-row">
+                    <span class="cw-data-label">CE hours</span>
+                    <span class="cw-data-value">20</span>
+                    <span class="cw-source-badge">via Emmy</span>
+                </div>
+            </div>
+
+            <!-- Community service -->
+            <div class="cw-section-title">Community service</div>
+            <div class="cw-card">
+                <div class="cw-activity-title">Westbrook Community Garden</div>
+                <div class="cw-data-row">
+                    <span class="cw-data-label">Supervisor</span>
+                    <span class="cw-data-value">Aaron Keyes</span>
+                    <span class="cw-source-badge">via Emmy</span>
+                </div>
+                <div class="cw-data-row">
+                    <span class="cw-data-label">Contact</span>
+                    <span class="cw-data-value">aaron.keyes@westbrookgardens.org &nbsp;|&nbsp; (415) 344-8009</span>
+                    <span class="cw-source-badge">via Emmy</span>
+                </div>
+                <div class="cw-data-row">
+                    <span class="cw-data-label">Reporting month</span>
+                    <span class="cw-data-value">March 2026</span>
+                    <span class="cw-source-badge">via Emmy</span>
+                </div>
+                <div class="cw-data-row">
+                    <span class="cw-data-label">Hours</span>
+                    <span class="cw-data-value">15 hrs</span>
+                    <span class="cw-source-badge">via Emmy</span>
+                </div>
+                <div class="cw-data-row">
+                    <span class="cw-data-label">CE hours</span>
+                    <span class="cw-data-value">15</span>
+                    <span class="cw-source-badge">via Emmy</span>
+                </div>
+            </div>
+
+            <!-- Emmy App summary -->
+            <div class="cw-section-title">Emmy App summary</div>
+            <div style="background: white; border: 2px solid #2e6e2e; border-radius: 4px; padding: 16px 20px; margin-bottom: 20px;">
+                <table class="cw-table" style="margin-bottom: 8px;">
+                    <tr><td style="font-weight: 700; width: 160px;">Education</td><td>48 hrs (March)</td></tr>
+                    <tr><td style="font-weight: 700;">Employment (Uber)</td><td>20 hrs (March)</td></tr>
+                    <tr><td style="font-weight: 700;">Community service</td><td>15 hrs (March)</td></tr>
+                    <tr><td style="font-weight: 700;">Total</td><td>83 hrs (March)</td></tr>
+                </table>
+                <div style="background: #ecf3ec; padding: 8px 12px; border-radius: 4px; font-size: 14px; color: #2e6e2e; font-weight: 700;">
+                    Exceeds 80-hour requirement &#10003;
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 12px;">
+                <button class="cw-btn cw-btn-primary" onclick="goTo('avery-determination')">Continue &rarr;</button>
             </div>
         </div>
     </div>
@@ -9810,78 +10102,56 @@ function averyEmpTab(tab) {
 <div class="screen" id="avery-determination">
     <div class="wireframe-alert">&#9888; Example determination notice</div>
 
-    <div class="determination-split">
-        <!-- Cara: message 1 — quote -->
-        <div class="determination-panel">
-            <div class="det-character-panel">
-                <div class="det-avatar-wrap">
-                    <img class="det-avatar-img det-cara-img" src="" alt="Cara Martinez">
-                    <div class="det-avatar-name">Cara Martinez</div>
-                    <div class="det-avatar-role">Caseworker</div>
+    <div class="det-phone-frame">
+        <div class="det-phone-device">
+            <div class="det-phone-statusbar">
+                <span>9:41</span>
+                <div class="det-phone-statusbar-icons">
+                    <svg width="17" height="11" viewBox="0 0 17 11" fill="#1b1b1b" aria-hidden="true">
+                        <rect x="0" y="8" width="3" height="3" rx="0.5"/>
+                        <rect x="4.5" y="5.5" width="3" height="5.5" rx="0.5"/>
+                        <rect x="9" y="3" width="3" height="8" rx="0.5"/>
+                        <rect x="13.5" y="0" width="3" height="11" rx="0.5"/>
+                    </svg>
+                    <svg width="15" height="11" viewBox="0 0 15 11" fill="none" stroke="#1b1b1b" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+                        <path d="M1.5 4 Q7.5 -1 13.5 4"/>
+                        <path d="M3.5 6 Q7.5 2.5 11.5 6"/>
+                        <path d="M5.5 8 Q7.5 6 9.5 8"/>
+                        <circle cx="7.5" cy="9.5" r="0.9" fill="#1b1b1b" stroke="none"/>
+                    </svg>
+                    <svg width="25" height="11" viewBox="0 0 25 11" aria-hidden="true">
+                        <rect x="0.5" y="0.5" width="21" height="10" rx="2" fill="none" stroke="#1b1b1b" stroke-width="1"/>
+                        <rect x="22.5" y="3.5" width="2" height="4" rx="0.5" fill="#1b1b1b"/>
+                        <rect x="2" y="2" width="18" height="7" rx="1" fill="#1b1b1b"/>
+                    </svg>
                 </div>
-                <div class="det-bubble det-bubble--left">
-                    <p class="det-quote" style="margin-bottom: 0;">"I've reviewed Avery's education enrollment, Uber Driver income, and community service hours through Emmy — all CE requirements are met. Approving Medicaid coverage."</p>
+            </div>
+            <div class="det-phone-screen">
+                <div class="det-phone-success-card">
+                    <div class="det-phone-success-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                        </svg>
+                    </div>
+                    <h3 class="det-phone-success-title">Eligible</h3>
+                    <p class="det-phone-success-msg">You are enrolled in Medicaid</p>
                 </div>
             </div>
         </div>
 
-        <!-- Cara: message 2 — determination details -->
-        <div class="determination-panel det-panel--continuation">
-            <div class="det-character-panel">
-                <div class="det-avatar-spacer"></div>
-                <div class="det-bubble det-bubble--left det-bubble--continuation">
-                    <div class="det-approved-pill">
-                        <svg viewBox="0 0 24 24" fill="#2e6e2e" style="width:13px;height:13px;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
-                        Approved
-                    </div>
-                    <div>
-                        <div class="det-check-row">
-                            <svg viewBox="0 0 24 24" fill="#2e6e2e" width="14" height="14"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
-                            <span><strong>Income eligibility</strong> &mdash; Confirmed</span>
-                        </div>
-                        <div class="det-check-row">
-                            <svg viewBox="0 0 24 24" fill="#2e6e2e" width="14" height="14"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
-                            <span><strong>CE requirement</strong> &mdash; 83 hrs via education, employment &amp; community service</span>
-                        </div>
-                        <div class="det-check-row">
-                            <svg viewBox="0 0 24 24" fill="#2e6e2e" width="14" height="14"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
-                            <span><strong>Documentation</strong> &mdash; Reviewed via Emmy</span>
-                        </div>
-                    </div>
-                </div>
+        <div class="det-applicant-panel">
+            <div class="det-bubble det-bubble--right">
+                <p class="det-quote" style="margin-bottom: 0;">"Yes! Between school, Uber, and volunteering I wasn't sure if I'd have enough &mdash; Emmy made it so easy to pull it all together."</p>
             </div>
-        </div>
-
-        <!-- Avery: message 1 — eligibility confirmation -->
-        <div class="determination-panel">
-            <div class="det-character-panel det-character-panel--right">
-                <div class="det-bubble det-bubble--right">
-                    <div class="det-success-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00a91c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    </div>
-                    <h3 class="det-enrolled-title">Eligible</h3>
-                    <p class="det-enrolled-status" style="margin-bottom: 0;">You are enrolled in Medicaid</p>
-                </div>
-                <div class="det-avatar-wrap">
-                    <img class="det-avatar-img det-avery-img" src="" alt="Avery Johnson">
-                    <div class="det-avatar-name">Avery Johnson</div>
-                    <div class="det-avatar-role">Applicant</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Avery: message 2 — quote -->
-        <div class="determination-panel det-panel--continuation">
-            <div class="det-character-panel det-character-panel--right">
-                <div class="det-bubble det-bubble--right det-bubble--continuation">
-                    <p class="det-quote" style="margin-bottom: 0;">"Yes! Between school, Uber, and volunteering I wasn't sure if I'd have enough — Emmy made it so easy to pull it all together."</p>
-                </div>
-                <div class="det-avatar-spacer"></div>
+            <div class="det-avatar-wrap">
+                <img class="det-avatar-img det-avery-img" src="" alt="Avery Johnson">
+                <div class="det-avatar-name">Avery Johnson</div>
+                <div class="det-avatar-role">Applicant</div>
             </div>
         </div>
     </div>
 
-    <!-- Callout box below both -->
+    <!-- Callout box below phone -->
     <div class="callout-box">
         <div class="callout-heading">Emmy's value</div>
         <p>Emmy gave Avery a structured way to provide proof of education, employment, and community service that the state's automated systems couldn't fully validate. Without Emmy, Avery would need to figure out what documents to gather and how to submit them &mdash; a process that often leads to delays and coverage gaps.</p>
@@ -10068,6 +10338,7 @@ function averyEmpTab(tab) {
         'alex-emmy-success',
         'alex-phase-determination',
         'alex-cw-emmy-review',
+        'alex-cw-approved',
         'alex-determination'
     ];
 
@@ -10092,18 +10363,19 @@ function averyEmpTab(tab) {
         'avery-edu-upload',
         'avery-edu-review',
         'avery-emmy-hub-partial',
-        'avery-emmy-employment',
-        'avery-payroll-sync',
-        'avery-payment-details',
-        'avery-emmy-hub-with-employment',
         'avery-cs-org',
         'avery-cs-july',
         'avery-cs-review',
+        'avery-emmy-hub-with-employment',
+        'avery-emmy-employment',
+        'avery-payroll-sync',
+        'avery-payment-details',
         'avery-emmy-hub-complete',
         'avery-emmy-submit',
         'avery-emmy-success',
         'phase-final-review',
         'avery-cw-emmy-review',
+        'avery-cw-approved',
         'avery-determination'
     ];
 
@@ -10167,6 +10439,7 @@ function averyEmpTab(tab) {
             steps: [
                 { id: 'alex-phase-determination', label: 'Phase intro' },
                 { id: 'alex-cw-emmy-review', label: 'Caseworker review' },
+                { id: 'alex-cw-approved', label: 'Approval confirmed' },
                 { id: 'alex-determination', label: 'Eligibility decision' },
             ]
         }
@@ -10220,13 +10493,13 @@ function averyEmpTab(tab) {
                 { id: 'avery-edu-upload', label: 'Education: upload' },
                 { id: 'avery-edu-review', label: 'Education: review' },
                 { id: 'avery-emmy-hub-partial', label: 'Activity hub (48/80)' },
-                { id: 'avery-emmy-employment', label: 'Employment: search' },
-                { id: 'avery-payroll-sync', label: 'Employment: sync' },
-                { id: 'avery-payment-details', label: 'Employment: details' },
-                { id: 'avery-emmy-hub-with-employment', label: 'Activity hub (68/80)' },
                 { id: 'avery-cs-org', label: 'Community svc: org' },
                 { id: 'avery-cs-july', label: 'Community svc: March' },
                 { id: 'avery-cs-review', label: 'Community svc: review' },
+                { id: 'avery-emmy-hub-with-employment', label: 'Activity hub (63/80)' },
+                { id: 'avery-emmy-employment', label: 'Employment: search' },
+                { id: 'avery-payroll-sync', label: 'Employment: sync' },
+                { id: 'avery-payment-details', label: 'Employment: details' },
                 { id: 'avery-emmy-hub-complete', label: 'Activity hub (met)' },
                 { id: 'avery-emmy-submit', label: 'Review & submit' },
                 { id: 'avery-emmy-success', label: 'Submission confirmed' },
@@ -10238,6 +10511,7 @@ function averyEmpTab(tab) {
             steps: [
                 { id: 'phase-final-review', label: 'Phase intro' },
                 { id: 'avery-cw-emmy-review', label: 'Caseworker review' },
+                { id: 'avery-cw-approved', label: 'Approval confirmed' },
                 { id: 'avery-determination', label: 'Eligibility decision' },
             ]
         }
@@ -10260,6 +10534,9 @@ function averyEmpTab(tab) {
         const current = document.getElementById(currentScreen);
         const target = document.getElementById(screenId);
         if (!target) return;
+
+        // Remove focus from the button that triggered navigation
+        if (document.activeElement) document.activeElement.blur();
 
         if (current) current.classList.remove('active');
         target.classList.add('active');
@@ -10348,27 +10625,28 @@ function averyEmpTab(tab) {
             }
         }
 
-        let annotationDelay = 400; // default: shortly after screen fade-in
-
         // Data checks staggered reveal
         if (screenId === 'avery-data-checks') {
             revealDataChecks();
-            annotationDelay = 4700; // alert at ~4350ms + buffer
         } else if (screenId === 'alex-data-checks') {
             revealAlexDataChecks();
-            annotationDelay = 4800; // alert at ~4450ms + buffer
         // Progress bar animations
         } else if (screenId === 'avery-emmy-hub-partial' || screenId === 'avery-emmy-hub-complete' || screenId === 'avery-emmy-hub-with-employment') {
             animateProgressBars(screenId);
-            annotationDelay = 900; // bar starts at 300ms + ~400ms transition + buffer
         // Payroll sync animation
         } else if (screenId === 'avery-payroll-sync') {
             runSyncAnimation();
-            annotationDelay = 4300; // sync completes at 3800ms + buffer
         }
 
-        if (annotation) {
-            setTimeout(() => annotation.classList.add('annotation-visible'), annotationDelay);
+        // All annotations shown on click, not automatically.
+        // Exception: screens with a typed textarea defer to fillScreen to arm the click handler
+        // after typing completes, so we don't attach one here for those screens.
+        if (annotation && !screen.querySelector('textarea[data-fill-typed]')) {
+            const showOnClick = () => {
+                annotation.classList.add('annotation-visible');
+                screen.removeEventListener('click', showOnClick);
+            };
+            screen.addEventListener('click', showOnClick);
         }
     }
 
@@ -10631,7 +10909,15 @@ function averyEmpTab(tab) {
             const annotation = screen.querySelector('.demo-annotation');
             if (annotation) {
                 annotation.classList.remove('annotation-visible');
-                setTimeout(() => annotation.classList.add('annotation-visible'), typingDuration + 400);
+                // After typing finishes, arm a click handler so the annotation
+                // appears on the next separate click (not automatically).
+                setTimeout(() => {
+                    const showOnClick = () => {
+                        annotation.classList.add('annotation-visible');
+                        screen.removeEventListener('click', showOnClick);
+                    };
+                    screen.addEventListener('click', showOnClick);
+                }, typingDuration + 400);
             }
         }
     }
@@ -10651,7 +10937,8 @@ function averyEmpTab(tab) {
         for (let i = 0; i < text.length; i++) {
             const id = setTimeout(() => {
                 ta.value = text.substring(0, i + 1);
-                ta.scrollTop = ta.scrollHeight;
+                ta.style.height = 'auto';
+                ta.style.height = ta.scrollHeight + 'px';
             }, t);
             timers.push(id);
             // Slight pause on line breaks to feel natural
@@ -10715,6 +11002,21 @@ function averyEmpTab(tab) {
                 // Don't trigger on nav buttons, links, or individually-interactive attest checkboxes
                 if (e.target.closest('.bottom-bar') || e.target.closest('button[onclick]') || e.target.closest('a')) return;
                 if (e.target.closest('.attest-card')) return;
+
+                // If this screen has a scenario-correct response (data-fill-check),
+                // only fill when the click lands on that response — either the
+                // input itself, or a <label for> pointing to it.
+                if (screen.querySelector('[data-fill-check]')) {
+                    const directHit = e.target.closest('[data-fill-check]');
+                    let labelHit = null;
+                    const labelEl = e.target.closest('label[for]');
+                    if (labelEl) {
+                        const forEl = document.getElementById(labelEl.getAttribute('for'));
+                        if (forEl && forEl.hasAttribute('data-fill-check')) labelHit = forEl;
+                    }
+                    if (!directHit && !labelHit) return;
+                }
+
                 fillScreen(screen.id);
             });
         });
@@ -10834,7 +11136,9 @@ function averyEmpTab(tab) {
             toggleLabel.textContent = 'Emmy Demo';
             toggleCount.textContent = '';
             btnBack.classList.add('disabled');
-            btnNext.classList.add('disabled');
+            btnNext.innerHTML = 'Next &rarr;';
+            btnNext.classList.remove('disabled');
+            btnNext.onclick = () => switchScenario('scenario1');
             return;
         }
 
