@@ -2136,6 +2136,21 @@
             margin-top: auto;
             padding-top: 24px;
         }
+        .argyle-otp-box {
+            width: 48px;
+            height: 56px;
+            background: #e8eaf0;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: #111827;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            transition: background 0.15s;
+        }
+        .argyle-otp-box.filled { background: #dde0ea; }
         .argyle-method-pill {
             display: inline-flex;
             align-items: center;
@@ -6287,10 +6302,6 @@
      ============================================ -->
 <!-- SCREEN: alex-data-checks -->
 <div class="screen" id="alex-data-checks">
-    <div class="demo-annotation" data-anchor="#alex-anchor-income">
-        <div class="demo-annotation-badge"><div class="demo-annotation-icon">🔗</div><span>Emmy API</span></div>
-        <h4>Emmy API augments state data</h4>
-    </div>
     <div class="wireframe-alert">&#9888; Simulated state backend eligibility checks</div>
     <div class="cw-screen">
         <div class="cw-header" style="display: flex; justify-content: space-between; align-items: center;">
@@ -6483,7 +6494,7 @@
 <div class="screen fillable-screen" id="alex-cw-case">
     <div class="demo-annotation" data-anchor=".cw-section-title">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Integration</span></div>
-        <h4>First Emmy touchpoint</h4>
+        <h4>Emmy integrates into state system to generate tokenized links</h4>
     </div>
     <div class="wireframe-alert">&#9888; Example caseworker eligibility portal</div>
     <div class="cw-screen">
@@ -6750,13 +6761,13 @@ Please use the secure link below to provide documents that show your self-employ
 <div class="screen" id="alex-emmy-welcome">
     <div class="demo-annotation" data-anchor="h1">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
-        <h4>Application data pre-loaded</h4>
+        <h4>The Emmy experience is unique to each applicant, based on state configuration</h4>
     </div>
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header">
         <div class="emmy-header-inner">
             <div class="emmy-header-brand">
-                
+
                 <div class="emmy-header-title-group">
                     <span class="emmy-header-title">Emmy | Eligibility Made Easy</span>
                     <span class="emmy-header-subtitle">State Medicaid Agency</span>
@@ -6831,7 +6842,7 @@ Please use the secure link below to provide documents that show your self-employ
 <div class="screen" id="alex-emmy-hub">
     <div class="demo-annotation" data-anchor="h1">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
-        <h4>Pre-populated from state application</h4>
+        <h4>Relevant activities from application listed here along with action required</h4>
     </div>
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
@@ -6889,10 +6900,6 @@ Please use the secure link below to provide documents that show your self-employ
      ============================================ -->
 <!-- SCREEN: alex-emmy-upload -->
 <div class="screen" id="alex-emmy-upload">
-    <div class="demo-annotation" data-anchor="h1">
-        <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
-        <h4>Guided document upload</h4>
-    </div>
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
     <div class="emmy-page-content">
@@ -6957,10 +6964,6 @@ Please use the secure link below to provide documents that show your self-employ
      ============================================ -->
 <!-- SCREEN: alex-emmy-submit -->
 <div class="screen fillable-screen" id="alex-emmy-submit">
-    <div class="demo-annotation" data-anchor="h1">
-        <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
-        <h4>Structured review before submission</h4>
-    </div>
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
     <div class="emmy-page-content">
@@ -7017,10 +7020,6 @@ Please use the secure link below to provide documents that show your self-employ
      ============================================ -->
 <!-- SCREEN: alex-emmy-success -->
 <div class="screen" id="alex-emmy-success">
-    <div class="demo-annotation" data-anchor="h1">
-        <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
-        <h4>Caseworker-ready report delivered</h4>
-    </div>
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
     <div class="emmy-page-content">
@@ -7082,7 +7081,7 @@ Please use the secure link below to provide documents that show your self-employ
 <div class="screen" id="alex-cw-emmy-review">
     <div class="demo-annotation" data-anchor=".cw-body h2">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">📋</div><span>Emmy Output</span></div>
-        <h4>Emmy report in the portal</h4>
+        <h4>Information from Emmy embedded into existing case</h4>
     </div>
     <div class="wireframe-alert">&#9888; Example caseworker eligibility portal</div>
     <div class="cw-screen">
@@ -7782,7 +7781,7 @@ Please use the secure link below to provide documents that show your self-employ
 <div class="screen" id="avery-data-checks">
     <div class="demo-annotation" data-anchor="#avery-anchor-education">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">🔗</div><span>Emmy API</span></div>
-        <h4>NSC call via Emmy API</h4>
+        <h4>Emmy API augments state capabilities</h4>
     </div>
     <div class="wireframe-alert">&#9888; Simulated state backend eligibility checks</div>
     <div class="cw-screen">
@@ -7983,7 +7982,7 @@ Please use the secure link below to provide documents that show your self-employ
 <div class="screen fillable-screen" id="avery-cw-case">
     <div class="demo-annotation" data-anchor=".cw-section-title">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Integration</span></div>
-        <h4>First Emmy touchpoint</h4>
+        <h4>Emmy integrates into state system to generate tokenized links</h4>
     </div>
     <div class="wireframe-alert">&#9888; Example caseworker eligibility portal</div>
     <div class="cw-screen">
@@ -8250,7 +8249,7 @@ Please use the secure link below to submit your information."></textarea>
 <div class="screen" id="avery-emmy-welcome">
     <div class="demo-annotation" data-anchor="h1">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
-        <h4>State data pre-loaded</h4>
+        <h4>Landing page configured by state when tokenized link generated</h4>
     </div>
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header">
@@ -8337,10 +8336,7 @@ Please use the secure link below to submit your information."></textarea>
      ============================================ -->
 <!-- SCREEN: avery-emmy-hub-prepop -->
 <div class="screen" id="avery-emmy-hub-prepop">
-    <div class="demo-annotation" data-anchor="h1">
-        <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
-        <h4>Activity hub overview</h4>
-    </div>
+
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
 
@@ -8453,10 +8449,7 @@ Please use the secure link below to submit your information."></textarea>
      ============================================ -->
 <!-- SCREEN: avery-edu-upload -->
 <div class="screen" id="avery-edu-upload">
-    <div class="demo-annotation" data-anchor="h1">
-        <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
-        <h4>Per-activity document collection</h4>
-    </div>
+
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
     <div class="emmy-page-content">
@@ -8517,7 +8510,7 @@ Please use the secure link below to submit your information."></textarea>
 <div class="screen" id="avery-edu-review">
     <div class="demo-annotation" data-anchor="h1">
         <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
-        <h4>Activity-level review</h4>
+        <h4>Emmy logic based on CMCS guidance</h4>
     </div>
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
@@ -8582,10 +8575,7 @@ Please use the secure link below to submit your information."></textarea>
      ============================================ -->
 <!-- SCREEN: avery-emmy-hub-partial -->
 <div class="screen" id="avery-emmy-hub-partial">
-    <div class="demo-annotation" data-anchor="h1">
-        <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
-        <h4>Real-time progress tracking</h4>
-    </div>
+
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
 
@@ -8681,10 +8671,7 @@ Please use the secure link below to submit your information."></textarea>
      ============================================ -->
 <!-- SCREEN: avery-payment-details -->
 <div class="screen" id="avery-payment-details">
-    <div class="demo-annotation" data-anchor="h1">
-        <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
-        <h4>Verified payroll data via Argyle</h4>
-    </div>
+
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
 
@@ -8797,10 +8784,7 @@ Please use the secure link below to submit your information."></textarea>
      ============================================ -->
 <!-- SCREEN: avery-emmy-hub-with-employment -->
 <div class="screen" id="avery-emmy-hub-with-employment">
-    <div class="demo-annotation" data-anchor="h1">
-        <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
-        <h4>Community service added via Emmy</h4>
-    </div>
+
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
 
@@ -8911,10 +8895,7 @@ Please use the secure link below to submit your information."></textarea>
      ============================================ -->
 <!-- SCREEN: avery-emmy-employment -->
 <div class="screen" id="avery-emmy-employment">
-    <div class="demo-annotation" data-anchor="h1">
-        <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
-        <h4>Payroll connection via Emmy</h4>
-    </div>
+
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
 
@@ -9144,10 +9125,7 @@ function averyEmpTab(tab) {
      ============================================ -->
 <!-- SCREEN: avery-payroll-sync -->
 <div class="screen" id="avery-payroll-sync">
-    <div class="demo-annotation" data-anchor="h1">
-        <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
-        <h4>Real-time payroll sync</h4>
-    </div>
+
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
 
@@ -9331,10 +9309,7 @@ function averyEmpTab(tab) {
      ============================================ -->
 <!-- SCREEN: avery-cs-review -->
 <div class="screen" id="avery-cs-review">
-    <div class="demo-annotation" data-anchor="h1">
-        <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
-        <h4>Confirm before continuing</h4>
-    </div>
+
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
     <div class="emmy-page-content">
@@ -9392,10 +9367,7 @@ function averyEmpTab(tab) {
      ============================================ -->
 <!-- SCREEN: avery-emmy-hub-complete -->
 <div class="screen" id="avery-emmy-hub-complete">
-    <div class="demo-annotation" data-anchor="h1">
-        <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
-        <h4>Requirement met — 83 of 80 hrs</h4>
-    </div>
+
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
 
@@ -9521,10 +9493,7 @@ function averyEmpTab(tab) {
      ============================================ -->
 <!-- SCREEN: avery-emmy-submit -->
 <div class="screen fillable-screen" id="avery-emmy-submit">
-    <div class="demo-annotation" data-anchor="h1">
-        <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
-        <h4>Unified submission</h4>
-    </div>
+
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
     <div class="emmy-page-content">
@@ -9682,10 +9651,7 @@ function averyEmpTab(tab) {
      ============================================ -->
 <!-- SCREEN: avery-emmy-success -->
 <div class="screen" id="avery-emmy-success">
-    <div class="demo-annotation" data-anchor="h1">
-        <div class="demo-annotation-badge"><div class="demo-annotation-icon">⚡</div><span>Emmy Value</span></div>
-        <h4>Structured report delivered</h4>
-    </div>
+
     <div class="gov-banner"><div class="gov-banner-inner"><span class="gov-banner-flag">&#127482;&#127480;</span><span class="gov-banner-text">An official website of the United States government</span><button class="gov-banner-link">Here's how you know &#9662;</button></div></div>
     <div class="emmy-header"><div class="emmy-header-inner"><div class="emmy-header-brand"><div class="emmy-header-title-group"><span class="emmy-header-title">Emmy | Eligibility Made Easy</span><span class="emmy-header-subtitle">State Medicaid Agency</span></div></div><div class="emmy-header-links"><button class="emmy-header-link">Help</button><button class="emmy-header-link">Espa&ntilde;ol</button></div></div></div>
     <div class="emmy-page-content">
@@ -9748,8 +9714,8 @@ function averyEmpTab(tab) {
 <!-- SCREEN: avery-cw-emmy-review -->
 <div class="screen" id="avery-cw-emmy-review">
     <div class="demo-annotation" data-anchor=".cw-body h2">
-        <div class="demo-annotation-badge badge-output"><div class="demo-annotation-icon">📋</div><span>Emmy Output</span></div>
-        <h4>Emmy report in the portal</h4>
+        <div class="demo-annotation-badge"><div class="demo-annotation-icon">📋</div><span>Emmy Output</span></div>
+        <h4>Information from Emmy embedded into existing case</h4>
     </div>
     <div class="wireframe-alert">&#9888; Example caseworker eligibility portal</div>
     <div class="cw-screen">
@@ -10288,7 +10254,7 @@ function averyEmpTab(tab) {
                autocomplete="email">
 
         <!-- Connect button — active because field is pre-filled -->
-        <button class="argyle-connect-btn active" onclick="closeArgyleLoginModal(); goTo('avery-payroll-sync');">Connect</button>
+        <button class="argyle-connect-btn active" onclick="closeArgyleLoginModal(); openArgyleOtpModal();">Connect</button>
 
         <!-- Legal -->
         <p class="argyle-legal">By selecting &ldquo;Connect&rdquo; you agree to Argyle&rsquo;s<br>
@@ -10297,6 +10263,46 @@ function averyEmpTab(tab) {
 
         <!-- Help -->
         <button class="argyle-help-btn">Need help logging in?</button>
+
+        <!-- Powered by Argyle -->
+        <div class="argyle-powered">Powered by Argyle</div>
+
+    </div>
+</div>
+
+<!-- Modal: Argyle OTP / one-time passcode (Scenario 2 only) -->
+<div class="modal-overlay" id="argyle-otp-modal" onclick="closeArgyleOtpModal(event)">
+    <div class="argyle-login-panel" onclick="event.stopPropagation()">
+
+        <!-- Close -->
+        <button class="argyle-modal-close" onclick="closeArgyleOtpModal()" aria-label="Close">&#x2715;</button>
+
+        <!-- Uber logo -->
+        <div style="display:flex;flex-direction:column;align-items:center;margin-top:28px;margin-bottom:16px;">
+            <div style="width:72px;height:72px;border-radius:50%;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;flex-shrink:0;margin-bottom:16px;">
+                <span style="color:white;font-size:13px;font-weight:800;font-family:Arial,sans-serif;letter-spacing:-0.3px;line-height:1;">Uber</span>
+                <svg viewBox="0 0 20 12" style="width:20px;height:12px;" aria-hidden="true"><path d="M0 6 H14 M10 2 L14 6 L10 10" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h2 style="margin:0 0 8px;font-size:24px;font-weight:700;color:#111827;text-align:center;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.25;">Check your email</h2>
+            <p style="margin:0 0 20px;font-size:14px;color:#6b7280;text-align:center;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">We sent a 6-digit code to<br><strong style="color:#111827;">a****n@gmail.com</strong></p>
+        </div>
+
+        <!-- OTP input — click anywhere on it to fill -->
+        <div id="argyle-otp-field"
+             onclick="fillArgyleOtp()"
+             style="display:flex;gap:10px;justify-content:center;margin-bottom:12px;cursor:text;">
+            <div class="argyle-otp-box" id="otp-0"></div>
+            <div class="argyle-otp-box" id="otp-1"></div>
+            <div class="argyle-otp-box" id="otp-2"></div>
+            <div class="argyle-otp-box" id="otp-3"></div>
+            <div class="argyle-otp-box" id="otp-4"></div>
+            <div class="argyle-otp-box" id="otp-5"></div>
+        </div>
+
+        <p style="font-size:12px;color:#6b7280;text-align:center;margin-bottom:16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">Didn't get it? <a href="#" onclick="return false;" style="color:#3b5ba5;">Resend code</a></p>
+
+        <!-- Verify button — becomes active after OTP filled -->
+        <button class="argyle-connect-btn" id="argyle-otp-btn" onclick="closeArgyleOtpModal(); goTo('avery-payroll-sync');">Verify</button>
 
         <!-- Powered by Argyle -->
         <div class="argyle-powered">Powered by Argyle</div>
@@ -10843,6 +10849,33 @@ function averyEmpTab(tab) {
     function closeArgyleLoginModal(e) {
         if (e && e.target !== e.currentTarget) return;
         document.getElementById('argyle-login-modal').classList.remove('open');
+    }
+
+    function openArgyleOtpModal() {
+        // Reset OTP state each time modal opens
+        ['0','1','2','3','4','5'].forEach(function(i) {
+            var box = document.getElementById('otp-' + i);
+            box.textContent = '';
+            box.classList.remove('filled');
+        });
+        document.getElementById('argyle-otp-btn').classList.remove('active');
+        document.getElementById('argyle-otp-modal').classList.add('open');
+    }
+
+    function closeArgyleOtpModal(e) {
+        if (e && e.target !== e.currentTarget) return;
+        document.getElementById('argyle-otp-modal').classList.remove('open');
+    }
+
+    var otpCode = '483921';
+    function fillArgyleOtp() {
+        var digits = otpCode.split('');
+        digits.forEach(function(d, i) {
+            var box = document.getElementById('otp-' + i);
+            box.textContent = d;
+            box.classList.add('filled');
+        });
+        document.getElementById('argyle-otp-btn').classList.add('active');
     }
 
     /* Synchronization animation — mirrors CBV polling/indicator pattern */
